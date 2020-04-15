@@ -1,0 +1,6 @@
+framework module LXPhotosManager {
+  umbrella header "LXPhotosManager-umbrella.h"
+
+  export *
+  module * { export * }
+}
