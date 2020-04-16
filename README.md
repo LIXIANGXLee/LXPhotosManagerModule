@@ -26,8 +26,19 @@ class FileModel: FileInfoProtocol {
     var imgUrl: String = ""
  }
 ```
+####九宫格展示（微信朋友圈图片方式）
 
-####九宫格  调用 (图片浏览)
+```
+  let photoVeiw = NineGridPhotosView(frame: CGRect(x: 0, y: 100, width: UIScreen.main.bounds.width, height: 600))
+  photoVeiw.delegate = self
+  photoVeiw.loadBlock = { model, imgView in
+     imgView.kf.setImage(with: URL(string: model.imgUrl)!)
+  }
+  photoVeiw.datasource = [model,model1,model2,model3,model4]
+  view.addSubview(photoVeiw)
+
+```
+####九宫格展示 点击调用图片浏览器 (图片浏览)
 
 ```
   let pView = PhotosBrowserView()
