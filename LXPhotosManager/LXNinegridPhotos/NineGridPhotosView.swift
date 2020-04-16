@@ -28,6 +28,9 @@ public class NineGridPhotosView: UIView {
     //加载图片方式
     public var loadBlock: ((FileInfoProtocol,UIImageView) -> ())?
     
+    // 加载最大高度回调
+    public var loadCurrentViewMaxY: ((CGFloat) -> ())?
+
     //代理协议
     public weak var delegate: NineGridPhotosViewDelegate?
     
@@ -116,6 +119,9 @@ extension NineGridPhotosView {
         }else {
             self.frame.size.height = 0
         }
+        
+        // 最大高度回调
+        loadCurrentViewMaxY?(self.frame.maxY)
     }
 }
 
