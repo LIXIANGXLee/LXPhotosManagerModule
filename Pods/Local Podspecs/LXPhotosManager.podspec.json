@@ -8,15 +8,35 @@
   "authors": {
     "lixiang": "lixiang@gokuaidian.com"
   },
+  "platforms": {
+    "ios": "9.2"
+  },
   "source": {
     "git": "https://github.com/LIXIANGXLee/LXPhotosManagerModule.git",
     "tag": "0.1.0"
   },
-  "source_files": "LXPhotosManager/*.{swift}",
-  "platforms": {
-    "osx": null,
-    "ios": null,
-    "tvos": null,
-    "watchos": null
-  }
+  "subspecs": [
+    {
+      "name": "LXFileInfoProtocol",
+      "source_files": "LXPhotosManager/LXFileInfoProtocol/*.{swift}"
+    },
+    {
+      "name": "LXPhotosBrowser",
+      "source_files": "LXPhotosManager/LXPhotosBrowser/*.{swift}",
+      "dependencies": {
+        "LXPhotosManager/LXFileInfoProtocol": [
+
+        ]
+      }
+    },
+    {
+      "name": "LXNinegridPhotos",
+      "source_files": "LXPhotosManager/LXNinegridPhotos/*.{swift}",
+      "dependencies": {
+        "LXPhotosManager/LXFileInfoProtocol": [
+
+        ]
+      }
+    }
+  ]
 }

@@ -30,54 +30,50 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         setUI()
-
-        
     }
 
     private func setUI() {
         
-        for i in 0..<datas.count {
-           
-           let imgView = UIImageView(frame: CGRect(x: 10 + 100 * i, y: 100, width: 100, height: 100))
-           imgView.contentMode = .scaleAspectFill
-           imgView.clipsToBounds = true
-           view.addSubview(imgView)
-           imgView.isUserInteractionEnabled = true
-           imgView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imgViewClick)))
-           imgView.kf.setImage(with: URL(string: datas[i])!)
-            
-           imgViews.append(imgView)
-            
-        }
-        
-    }
-    
-    @objc func imgViewClick(gesture: UITapGestureRecognizer) {
-            let model = FileModel()
-            model.width = 250
-            model.height = 250
-            model.imgUrl = datas[0]
+        let model = FileModel()
+        model.width = 250
+        model.height = 250
+        model.imgUrl = datas[0]
 
-            let model1 = FileModel()
-            model1.width = 500
-            model1.height = 375
-            model1.imgUrl = datas[1]
+        let model1 = FileModel()
+        model1.width = 500
+        model1.height = 375
+        model1.imgUrl = datas[1]
 
-            let model2 = FileModel()
-            model2.width = 500
-            model2.height = 313
-            model2.imgUrl = datas[2]
-        
-           let pView = PhotosBrowserView()
-           pView.imgViews = imgViews
-           pView.loadBlock = { model, imgView in
+        let model2 = FileModel()
+        model2.width = 500
+        model2.height = 313
+        model2.imgUrl = datas[2]
+            
+        // 九宫格
+        let photoVeiw = NineGridPhotosView(frame: CGRect(x: 0, y: 100, width: UIScreen.main.bounds.width, height: 600))
+        photoVeiw.delegate = self
+        photoVeiw.loadBlock = { model, imgView in
             imgView.kf.setImage(with: URL(string: model.imgUrl)!)
-            
-           }
-           pView.photos = [model,model1,model2]
-           pView.startAnimation(with: imgViews.firstIndex(of: gesture.view as! UIImageView) ?? 0, cellType: false)
-
+        }
+        photoVeiw.datasource = [model,model1,model2,model2,model1]
+        view.addSubview(photoVeiw)
+ 
     }
 }
 
+extension ViewController: NineGridPhotosViewDelegate {
+    func nineGridPhotosView(with index: Int, photoViews: [SinglePhotoView], datasource: [FileInfoProtocol]) {
+        
+        //图片浏览器
+        let pView = PhotosBrowserView()
+        pView.imgViews = photoViews.map({ (singlePhotoView) -> UIImageView in
+            return singlePhotoView.imgView
+        })
+        pView.loadBlock = { model, imgView in
+          imgView.kf.setImage(with: URL(string: model.imgUrl)!)
+        }
+        pView.photos = datasource
+        pView.startAnimation(with: index, cellType: false)
 
+    }
+}

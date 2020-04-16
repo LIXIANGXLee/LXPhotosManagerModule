@@ -38,6 +38,12 @@
 		040CFC8724475AB200CAFF40 /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040CFC6E24475AB200CAFF40 /* Placeholder.swift */; };
 		040CFC8824475AB200CAFF40 /* KingfisherOptionsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040CFC6F24475AB200CAFF40 /* KingfisherOptionsInfo.swift */; };
 		040CFC8924475AB200CAFF40 /* ImagePrefetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040CFC7024475AB200CAFF40 /* ImagePrefetcher.swift */; };
+		0465403E244807D300740B0B /* SinglePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04654036244807D300740B0B /* SinglePhotoView.swift */; };
+		0465403F244807D300740B0B /* NineGridPhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04654037244807D300740B0B /* NineGridPhotosView.swift */; };
+		04654040244807D300740B0B /* PhotosScrollViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04654039244807D300740B0B /* PhotosScrollViewCell.swift */; };
+		04654041244807D300740B0B /* PhotosScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465403A244807D300740B0B /* PhotosScrollView.swift */; };
+		04654042244807D300740B0B /* PhotosBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465403B244807D300740B0B /* PhotosBrowserView.swift */; };
+		04654043244807D300740B0B /* FileInfoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465403D244807D300740B0B /* FileInfoProtocol.swift */; };
 		462FF14A88732753896D8A2A /* Pods_LXPhotosManagerModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8B4CCE567E964DE29D0157C /* Pods_LXPhotosManagerModule.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,10 +57,6 @@
 		040CFC442447581100CAFF40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		040CFC472447581100CAFF40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		040CFC492447581100CAFF40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		040CFC502447593C00CAFF40 /* PhotosScrollViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosScrollViewCell.swift; sourceTree = "<group>"; };
-		040CFC512447593C00CAFF40 /* FileInfoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileInfoProtocol.swift; sourceTree = "<group>"; };
-		040CFC522447593C00CAFF40 /* PhotosScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosScrollView.swift; sourceTree = "<group>"; };
-		040CFC532447593C00CAFF40 /* PhotosBrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosBrowserView.swift; sourceTree = "<group>"; };
 		040CFC542447594600CAFF40 /* LXPhotosManager.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = LXPhotosManager.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		040CFC5624475AB200CAFF40 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		040CFC5724475AB200CAFF40 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -82,6 +84,12 @@
 		040CFC6E24475AB200CAFF40 /* Placeholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
 		040CFC6F24475AB200CAFF40 /* KingfisherOptionsInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KingfisherOptionsInfo.swift; sourceTree = "<group>"; };
 		040CFC7024475AB200CAFF40 /* ImagePrefetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePrefetcher.swift; sourceTree = "<group>"; };
+		04654036244807D300740B0B /* SinglePhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglePhotoView.swift; sourceTree = "<group>"; };
+		04654037244807D300740B0B /* NineGridPhotosView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NineGridPhotosView.swift; sourceTree = "<group>"; };
+		04654039244807D300740B0B /* PhotosScrollViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosScrollViewCell.swift; sourceTree = "<group>"; };
+		0465403A244807D300740B0B /* PhotosScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosScrollView.swift; sourceTree = "<group>"; };
+		0465403B244807D300740B0B /* PhotosBrowserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosBrowserView.swift; sourceTree = "<group>"; };
+		0465403D244807D300740B0B /* FileInfoProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileInfoProtocol.swift; sourceTree = "<group>"; };
 		4D9B5374C189866F4307AE11 /* Pods-LXPhotosManagerModule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LXPhotosManagerModule.release.xcconfig"; path = "Target Support Files/Pods-LXPhotosManagerModule/Pods-LXPhotosManagerModule.release.xcconfig"; sourceTree = "<group>"; };
 		B8B4CCE567E964DE29D0157C /* Pods_LXPhotosManagerModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LXPhotosManagerModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -109,8 +117,8 @@
 		040CFC2F2447581000CAFF40 = {
 			isa = PBXGroup;
 			children = (
+				04654034244807D300740B0B /* LXPhotosManager */,
 				040CFC542447594600CAFF40 /* LXPhotosManager.podspec */,
-				040CFC4F2447593C00CAFF40 /* LXPhotosManager */,
 				040CFC3A2447581000CAFF40 /* LXPhotosManagerModule */,
 				040CFC392447581000CAFF40 /* Products */,
 				A8C5D842BC7D8392ED6FD394 /* Pods */,
@@ -139,17 +147,6 @@
 				040CFC492447581100CAFF40 /* Info.plist */,
 			);
 			path = LXPhotosManagerModule;
-			sourceTree = "<group>";
-		};
-		040CFC4F2447593C00CAFF40 /* LXPhotosManager */ = {
-			isa = PBXGroup;
-			children = (
-				040CFC502447593C00CAFF40 /* PhotosScrollViewCell.swift */,
-				040CFC512447593C00CAFF40 /* FileInfoProtocol.swift */,
-				040CFC522447593C00CAFF40 /* PhotosScrollView.swift */,
-				040CFC532447593C00CAFF40 /* PhotosBrowserView.swift */,
-			);
-			path = LXPhotosManager;
 			sourceTree = "<group>";
 		};
 		040CFC5524475AB200CAFF40 /* Kingfisher */ = {
@@ -191,6 +188,43 @@
 				040CFC7024475AB200CAFF40 /* ImagePrefetcher.swift */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		04654034244807D300740B0B /* LXPhotosManager */ = {
+			isa = PBXGroup;
+			children = (
+				04654035244807D300740B0B /* LXNinegridPhotos */,
+				04654038244807D300740B0B /* LXPhotosBrowser */,
+				0465403C244807D300740B0B /* LXFileInfoProtocol */,
+			);
+			path = LXPhotosManager;
+			sourceTree = "<group>";
+		};
+		04654035244807D300740B0B /* LXNinegridPhotos */ = {
+			isa = PBXGroup;
+			children = (
+				04654036244807D300740B0B /* SinglePhotoView.swift */,
+				04654037244807D300740B0B /* NineGridPhotosView.swift */,
+			);
+			path = LXNinegridPhotos;
+			sourceTree = "<group>";
+		};
+		04654038244807D300740B0B /* LXPhotosBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				04654039244807D300740B0B /* PhotosScrollViewCell.swift */,
+				0465403A244807D300740B0B /* PhotosScrollView.swift */,
+				0465403B244807D300740B0B /* PhotosBrowserView.swift */,
+			);
+			path = LXPhotosBrowser;
+			sourceTree = "<group>";
+		};
+		0465403C244807D300740B0B /* LXFileInfoProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				0465403D244807D300740B0B /* FileInfoProtocol.swift */,
+			);
+			path = LXFileInfoProtocol;
 			sourceTree = "<group>";
 		};
 		A8C5D842BC7D8392ED6FD394 /* Pods */ = {
@@ -322,7 +356,9 @@
 				040CFC7F24475AB200CAFF40 /* ImageModifier.swift in Sources */,
 				040CFC7C24475AB200CAFF40 /* Resource.swift in Sources */,
 				040CFC8624475AB200CAFF40 /* Filter.swift in Sources */,
+				0465403F244807D300740B0B /* NineGridPhotosView.swift in Sources */,
 				040CFC7724475AB200CAFF40 /* ImageView+Kingfisher.swift in Sources */,
+				0465403E244807D300740B0B /* SinglePhotoView.swift in Sources */,
 				040CFC8224475AB200CAFF40 /* ImageTransition.swift in Sources */,
 				040CFC7D24475AB200CAFF40 /* ImageDownloader.swift in Sources */,
 				040CFC7824475AB200CAFF40 /* Image.swift in Sources */,
@@ -332,8 +368,11 @@
 				040CFC8424475AB200CAFF40 /* String+MD5.swift in Sources */,
 				040CFC402447581000CAFF40 /* ViewController.swift in Sources */,
 				040CFC8824475AB200CAFF40 /* KingfisherOptionsInfo.swift in Sources */,
+				04654043244807D300740B0B /* FileInfoProtocol.swift in Sources */,
+				04654042244807D300740B0B /* PhotosBrowserView.swift in Sources */,
 				040CFC7624475AB200CAFF40 /* RequestModifier.swift in Sources */,
 				040CFC8524475AB200CAFF40 /* ImageProcessor.swift in Sources */,
+				04654040244807D300740B0B /* PhotosScrollViewCell.swift in Sources */,
 				040CFC3C2447581000CAFF40 /* AppDelegate.swift in Sources */,
 				040CFC7E24475AB200CAFF40 /* Box.swift in Sources */,
 				040CFC7B24475AB200CAFF40 /* UIButton+Kingfisher.swift in Sources */,
@@ -342,6 +381,7 @@
 				040CFC8024475AB200CAFF40 /* KingfisherManager.swift in Sources */,
 				040CFC8924475AB200CAFF40 /* ImagePrefetcher.swift in Sources */,
 				040CFC7A24475AB200CAFF40 /* CacheSerializer.swift in Sources */,
+				04654041244807D300740B0B /* PhotosScrollView.swift in Sources */,
 				040CFC7324475AB200CAFF40 /* ImageCache.swift in Sources */,
 				040CFC3E2447581000CAFF40 /* SceneDelegate.swift in Sources */,
 				040CFC8724475AB200CAFF40 /* Placeholder.swift in Sources */,

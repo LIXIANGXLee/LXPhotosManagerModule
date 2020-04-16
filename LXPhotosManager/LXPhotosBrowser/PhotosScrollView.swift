@@ -1,9 +1,9 @@
 //
-//  PhotosBrowserView.swift
-//  LXLiveSwift
+//  PhotosScrollView.swift
+//  LXPhotosManagerModule
 //
-//  Created by LIXIANG on 2019/9/28.
-//  Copyright © 2019 李响. All rights reserved.
+//  Created by Mac on 2020/4/15.
+//  Copyright © 2020 李响. All rights reserved.
 //
 
 import UIKit

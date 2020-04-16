@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "LXPhotosManager"
-  spec.version      = "0.1.0"
+  spec.version      = "0.1.1"
   spec.summary      = "LXPhotosManager is manager"
 
   # This description is used to generate tags and improve search results.
@@ -92,12 +92,26 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-    spec.source_files  = "LXPhotosManager/*.{swift}"
+#    spec.source_files  = "LXPhotosManager/*.{swift}"
 
 
-  # spec.public_header_files = "Classes/**/*.h"
+    # 图片文件协议
+    spec.subspec 'LXFileInfoProtocol' do |fileprotocol|
+      fileprotocol.source_files      = 'LXPhotosManager/LXFileInfoProtocol/*.{swift}'
+    end
 
-
+    # 图片浏览器
+    spec.subspec 'LXPhotosBrowser' do |phbrowser|
+      phbrowser.source_files      = 'LXPhotosManager/LXPhotosBrowser/*.{swift}'
+      phbrowser.dependency 'LXPhotosManager/LXFileInfoProtocol'
+    end
+    
+    # 九宫格方式显示图片
+    spec.subspec 'LXNinegridPhotos' do |ninegrid|
+      ninegrid.source_files      = 'LXPhotosManager/LXNinegridPhotos/*.{swift}'
+      ninegrid.dependency 'LXPhotosManager/LXFileInfoProtocol'
+    end
+    
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
   #  A list of resources included with the Pod. These are copied into the
