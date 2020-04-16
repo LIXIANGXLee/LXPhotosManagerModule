@@ -22,7 +22,22 @@ public class NineGridPhotosView: UIView {
      //MARK: - 公共属性
     //图片文件数据源
     public var datasource =  [FileInfoProtocol](){
-        didSet { setUI() }
+        didSet {
+            if  datasource.count >= photoMaxCount{
+                var datas = [FileInfoProtocol]()
+                for (index,photo) in datasource.enumerated() {
+                    if index >= photoMaxCount {
+                        break
+                    }else{
+                        datas.append(photo)
+                    }
+                }
+               datasource = datas
+            }
+            
+            //初始化UI界面
+            setUI()
+        }
     }
     
     //加载图片方式
@@ -31,6 +46,9 @@ public class NineGridPhotosView: UIView {
     // 加载最大高度回调
     public var loadCurrentViewMaxY: ((CGFloat) -> ())?
 
+    //图片最大个数（默认最大个数是9个）
+    public var photoMaxCount: Int = 9
+    
     //代理协议
     public weak var delegate: NineGridPhotosViewDelegate?
     

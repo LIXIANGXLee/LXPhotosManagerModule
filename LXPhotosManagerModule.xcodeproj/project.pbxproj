@@ -44,6 +44,8 @@
 		04654041244807D300740B0B /* PhotosScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465403A244807D300740B0B /* PhotosScrollView.swift */; };
 		04654042244807D300740B0B /* PhotosBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465403B244807D300740B0B /* PhotosBrowserView.swift */; };
 		04654043244807D300740B0B /* FileInfoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465403D244807D300740B0B /* FileInfoProtocol.swift */; };
+		0465409D24488EA200740B0B /* PictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465409B24488EA100740B0B /* PictureCell.swift */; };
+		0465409E24488EA200740B0B /* PictureCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0465409C24488EA100740B0B /* PictureCell.xib */; };
 		462FF14A88732753896D8A2A /* Pods_LXPhotosManagerModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8B4CCE567E964DE29D0157C /* Pods_LXPhotosManagerModule.framework */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +92,8 @@
 		0465403A244807D300740B0B /* PhotosScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosScrollView.swift; sourceTree = "<group>"; };
 		0465403B244807D300740B0B /* PhotosBrowserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosBrowserView.swift; sourceTree = "<group>"; };
 		0465403D244807D300740B0B /* FileInfoProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileInfoProtocol.swift; sourceTree = "<group>"; };
+		0465409B24488EA100740B0B /* PictureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureCell.swift; sourceTree = "<group>"; };
+		0465409C24488EA100740B0B /* PictureCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PictureCell.xib; sourceTree = "<group>"; };
 		4D9B5374C189866F4307AE11 /* Pods-LXPhotosManagerModule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LXPhotosManagerModule.release.xcconfig"; path = "Target Support Files/Pods-LXPhotosManagerModule/Pods-LXPhotosManagerModule.release.xcconfig"; sourceTree = "<group>"; };
 		B8B4CCE567E964DE29D0157C /* Pods_LXPhotosManagerModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LXPhotosManagerModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -145,6 +149,8 @@
 				040CFC442447581100CAFF40 /* Assets.xcassets */,
 				040CFC462447581100CAFF40 /* LaunchScreen.storyboard */,
 				040CFC492447581100CAFF40 /* Info.plist */,
+				0465409B24488EA100740B0B /* PictureCell.swift */,
+				0465409C24488EA100740B0B /* PictureCell.xib */,
 			);
 			path = LXPhotosManagerModule;
 			sourceTree = "<group>";
@@ -298,6 +304,7 @@
 			files = (
 				040CFC482447581100CAFF40 /* LaunchScreen.storyboard in Resources */,
 				040CFC452447581100CAFF40 /* Assets.xcassets in Resources */,
+				0465409E24488EA200740B0B /* PictureCell.xib in Resources */,
 				040CFC7224475AB200CAFF40 /* README.md in Resources */,
 				040CFC7124475AB200CAFF40 /* LICENSE in Resources */,
 				040CFC432447581000CAFF40 /* Main.storyboard in Resources */,
@@ -385,6 +392,7 @@
 				040CFC7324475AB200CAFF40 /* ImageCache.swift in Sources */,
 				040CFC3E2447581000CAFF40 /* SceneDelegate.swift in Sources */,
 				040CFC8724475AB200CAFF40 /* Placeholder.swift in Sources */,
+				0465409D24488EA200740B0B /* PictureCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -51,6 +51,26 @@ class FileModel: FileInfoProtocol {
   pView.startAnimation(with: index, cellType: false)
 
 ```
+####UICollectionView 点击调用图片浏览器 (图片浏览)
+
+```
+  //图片浏览器
+  let pView = PhotosBrowserView()
+  pView.delegate = self
+  pView.loadBlock = { model, imgView in
+    imgView.kf.setImage(with: URL(string: model.imgUrl)!)
+  }
+  pView.photos = models
+  pView.startAnimation(with: indexPath.item, cellType: true)
+  
+  //必须实现代理方法
+  extension ViewController: PhotosBrowserViewDelagete {
+      func photosBrowserView(cellIndex: Int, photos: [FileInfoProtocol]) -> UIView {
+          return collectionView.cellForItem(at: IndexPath(item: cellIndex, section: 0)) ?? UIView()
+      }
+  }
+  
+```
 
  **效果图展示和手势拖动时的效果** 
 

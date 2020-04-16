@@ -79,7 +79,7 @@ class PhotosScrollView: UIView {
             //异常处理
             if index >=  photos.count {return}
             //设置显示器的总个数
-            pageControl.numberOfPages = photos.count
+            pageControl.numberOfPages = photos.count > 9 ? 0 : photos.count
             //滚动到当前索引位置
             collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: UICollectionView.ScrollPosition.left, animated: false)
             //刷新表格
@@ -96,8 +96,8 @@ class PhotosScrollView: UIView {
         // 添加滚动view
         addSubview(collectionView)
         
-        //隐藏 pageControll
-        addSubview(pageControl)
+        // pageControll
+         addSubview(pageControl)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -109,7 +109,9 @@ class PhotosScrollView: UIView {
 extension PhotosScrollView: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let page = scrollView.contentOffset.x / scrollView.bounds.width + 0.5
-        pageControl.currentPage = Int(page) % pageControl.numberOfPages
+        if pageControl.numberOfPages != 0 {
+            pageControl.currentPage = Int(page) % pageControl.numberOfPages
+        }
         
         //传递索引
         delegate?.photosScrollView(self, contentOffSetAt: Int(page))
