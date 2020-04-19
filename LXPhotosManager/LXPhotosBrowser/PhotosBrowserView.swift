@@ -84,7 +84,7 @@ public class PhotosBrowserView: UIView {
         self.backgroundColor = UIColor.black
         self.alpha = 0.0
         self.frame = CGRect(x: 0, y: 0, width: Const.ScreenW, height: Const.ScreenH)
-        UIApplication.shared.windows.last?.addSubview(self)
+        aboveViewController()?.view?.addSubview(self)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -126,7 +126,7 @@ extension PhotosBrowserView {
 extension PhotosBrowserView {
      //MARK: - 添加覆盖层
     fileprivate func addCoverImgView() {
-        UIApplication.shared.windows.last?.addSubview(imgView)
+        aboveViewController()?.view?.addSubview(imgView)
         imgView.frame = imgOriginRect
         loadBlock?(fileModel,imgView)
     }
@@ -160,13 +160,13 @@ extension PhotosBrowserView {
         scrollView.finishAnimation = finishAnimation
         scrollView.photos = photos
         scrollView.delegate = self
-        UIApplication.shared.windows.last?.addSubview(scrollView)
+        aboveViewController()?.view?.addSubview(scrollView)
     }
     
     //MARK: - 添加手势
     fileprivate func addGesture() {
        panGesture = UIPanGestureRecognizer(target: self, action: #selector(pangesture(_:)))
-       UIApplication.shared.windows.last?.addGestureRecognizer(panGesture)
+        aboveViewController()?.view?.addGestureRecognizer(panGesture)
     }
     
      //MARK: - 手势滑动处理
@@ -220,8 +220,17 @@ extension PhotosBrowserView {
             removeAnimation()
         }else {
             //复位imgView
-           resume()
+            resume()
         }
+    }
+    
+    //获取跟控制器
+    private func aboveViewController() -> UIViewController? {
+        var aboveController = UIApplication.shared.delegate?.window??.rootViewController
+        while aboveController?.presentedViewController != nil {
+            aboveController = aboveController?.presentedViewController
+        }
+        return aboveController
     }
 }
 

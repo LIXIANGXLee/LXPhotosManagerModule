@@ -72,6 +72,7 @@ extension NineGridPhotosView {
             if index >= photoViews.count  { //判断是否在缓存里取
                 photoView = SinglePhotoView()
                 photoView.delegate = self
+                photoView.type = .nineGrid
                 photoView.tag = index
                 addSubview(photoView)
                 photoViews.append(photoView)
@@ -148,7 +149,7 @@ extension NineGridPhotosView: SinglePhotoViewDelegate {
     public func singlePhotoView(with photoViewTapType: SinglePhotoViewTapType) {
 
         switch photoViewTapType {
-        case let .tapImgView(singlePhotoView):
+        case let .tapImgView(_, singlePhotoView):
             let photoViews = self.photoViews.filter { (photoView) -> Bool in
                 return photoView.tag < datasource.count
             }

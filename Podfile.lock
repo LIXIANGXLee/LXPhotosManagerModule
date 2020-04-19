@@ -1,12 +1,16 @@
 PODS:
-  - LXPhotosManager (0.1.0):
-    - LXPhotosManager/LXFileInfoProtocol (= 0.1.0)
-    - LXPhotosManager/LXNinegridPhotos (= 0.1.0)
-    - LXPhotosManager/LXPhotosBrowser (= 0.1.0)
-  - LXPhotosManager/LXFileInfoProtocol (0.1.0)
-  - LXPhotosManager/LXNinegridPhotos (0.1.0):
+  - LXPhotosManager (0.1.4):
+    - LXPhotosManager/LXFileInfoProtocol (= 0.1.4)
+    - LXPhotosManager/LXHelpers (= 0.1.4)
+    - LXPhotosManager/LXNinegridPhotos (= 0.1.4)
+    - LXPhotosManager/LXPhotosBrowser (= 0.1.4)
+  - LXPhotosManager/LXFileInfoProtocol (0.1.4)
+  - LXPhotosManager/LXHelpers (0.1.4)
+  - LXPhotosManager/LXNinegridPhotos (0.1.4):
     - LXPhotosManager/LXFileInfoProtocol
-  - LXPhotosManager/LXPhotosBrowser (0.1.0):
+    - LXPhotosManager/LXHelpers
+    - LXPhotosManager/LXPhotosBrowser
+  - LXPhotosManager/LXPhotosBrowser (0.1.4):
     - LXPhotosManager/LXFileInfoProtocol
 
 DEPENDENCIES:
@@ -17,7 +21,7 @@ EXTERNAL SOURCES:
     :path: "./"
 
 SPEC CHECKSUMS:
-  LXPhotosManager: f107d6f4c1664f53aab68371867a373bd4549dd6
+  LXPhotosManager: 8b84610d6a1cc1ea22448b329bcac8e908e117fc
 
 PODFILE CHECKSUM: f4fb62a0dc2293677d1dfcd8f9c9e4607a6e210f
 

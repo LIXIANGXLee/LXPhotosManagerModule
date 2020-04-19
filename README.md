@@ -71,7 +71,21 @@ class FileModel: FileInfoProtocol {
   }
   
 ```
+####  点击加号 可以选择相册图片 或者相机拍照  或者网络图片 删除图片缓存策略
 
+```
+  let addView  = AddPhotosView(frame: CGRect(x: 0, y: 100, width: UIScreen.main.bounds.width, height: 600))
+  view.addSubview(addView)
+  addView.loadBlock = { model, imgView in
+     if model.isNetWork {
+         imgView.kf.setImage(with: URL(string: model.imgUrl)!)
+     }else{
+         imgView.image = model.image
+     }
+  }
+  addView.pubPhotoModels = models
+  
+```
  **效果图展示和手势拖动时的效果** 
 
 

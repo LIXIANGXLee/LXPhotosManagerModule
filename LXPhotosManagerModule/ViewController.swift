@@ -9,157 +9,68 @@
 import UIKit
 import LXPhotosManager
 
-class FileModel: FileInfoProtocol {
-   
-    var image: UIImage = UIImage()
-    var height: CGFloat = 0.0
-    var width: CGFloat = 0.0
-    var imgUrl: String = ""
-}
-
-
-
 class ViewController: UIViewController {
-    // MARK: 定义属性
-    fileprivate lazy var collectionView : UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 10
-        layout.minimumInteritemSpacing = 10
-        layout.itemSize = CGSize(width: 120, height: 120)
-        let collectionView = UICollectionView(frame: CGRect(x: 0, y: 600, width: UIScreen.main.bounds.width, height: 400), collectionViewLayout: layout)
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        
-        collectionView.register(UINib(nibName: "PictureCell", bundle: nil), forCellWithReuseIdentifier: "cell")
-        collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        collectionView.backgroundColor = UIColor.white
-        
-        if #available(iOS 11.0, *) {
-            collectionView.contentInsetAdjustmentBehavior = UIScrollView.ContentInsetAdjustmentBehavior.never
-        }else{
-            collectionView.translatesAutoresizingMaskIntoConstraints = false
-        }
-        
-        return collectionView
-    }()
-    
-    var imgViews = [UIImageView]()
+    //tableView
+       fileprivate lazy var tableView: UITableView = {
+        let t = UITableView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height), style: UITableView.Style.plain)
+           t.dataSource = self
+           t.delegate = self
+           t.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+           t.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
+           t.sectionFooterHeight = 0.01
+           t.sectionHeaderHeight = 0.01
+           
+           return t
+       }()
+       
+
     let datas = [
-              "https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1661707474,1451343575&fm=26&gp=0.jpg",
-              "https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3159064993,1446035142&fm=26&gp=0.jpg",
-              "https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2712496081,4225310564&fm=26&gp=0.jpg"
-          ]
-    
-    var models = [FileInfoProtocol]()
-    
-    
+        "九宫格展示和图片浏览器(本地图片和网络图片)",
+        "添加图片的view（从相机选择或者从相册选择）"
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let model = FileModel()
-        model.width = 250
-        model.height = 250
-        model.imgUrl = datas[0]
-
-        let model1 = FileModel()
-        model1.width = 500
-        model1.height = 375
-        model1.imgUrl = datas[1]
-
-        let model2 = FileModel()
-        model2.width = 500
-        model2.height = 313
-        model2.imgUrl = datas[2]
         
-        models.append(model1)
-        models.append(model2)
-        models.append(model)
-        models.append(model2)
-        models.append(model)
-        models.append(model1)
-        models.append(model2)
-        models.append(model)
-        models.append(model2)
-        models.append(model)
-        models.append(model1)
-        models.append(model2)
-        models.append(model)
-        models.append(model2)
-        models.append(model)
-        models.append(model1)
-        models.append(model2)
-        models.append(model)
-        models.append(model2)
-        models.append(model)
-        models.append(model1)
-        models.append(model2)
-        models.append(model)
-        models.append(model2)
-        models.append(model)
+        self.navigationItem.title = "demo展示"
         
-        setUI()
+        self.view.backgroundColor = UIColor.white
         
-        view.addSubview(collectionView)
-    }
-
-    private func setUI() {
-        // 九宫格
-        let photoVeiw = NineGridPhotosView(frame: CGRect(x: 0, y: 100, width: UIScreen.main.bounds.width, height: 600))
-        photoVeiw.delegate = self
-        photoVeiw.loadBlock = { model, imgView in
-            imgView.kf.setImage(with: URL(string: model.imgUrl)!)
-        }
-        photoVeiw.datasource = models
-        view.addSubview(photoVeiw)
- 
-    }
-}
-
-extension ViewController: NineGridPhotosViewDelegate {
-    func nineGridPhotosView(with index: Int, photoViews: [SinglePhotoView], datasource: [FileInfoProtocol]) {
-        
-        //图片浏览器
-        let pView = PhotosBrowserView()
-        pView.imgViews = photoViews.map({ (singlePhotoView) -> UIImageView in
-            return singlePhotoView.imgView
-        })
-        pView.loadBlock = { model, imgView in
-          imgView.kf.setImage(with: URL(string: model.imgUrl)!)
-        }
-        pView.photos = datasource
-        pView.startAnimation(with: index, cellType: false)
-
-    }
-}
-// MARK:- collectionView的数据源&代理
-extension ViewController : UICollectionViewDataSource, UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return models.count
+        view.addSubview(tableView)
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PictureCell
-        cell.photo = models[indexPath.item]
+}
+// MARK: - UITableViewDelegate
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 55
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        var vc: UIViewController = LXPhotosBrowserViewController()
+        if indexPath.row == 0 {
+        }else if indexPath.row == 1 {
+            vc = LXAddPhotoViewController()
+        }
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+
+    }
+
+}
+
+// MARK: - UITableViewDataSource
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return datas.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell  = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.selectionStyle = .none
+        cell.textLabel?.text = datas[indexPath.row]
         return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        //图片浏览器
-        let pView = PhotosBrowserView()
-        pView.delegate = self
-        pView.loadBlock = { model, imgView in
-          imgView.kf.setImage(with: URL(string: model.imgUrl)!)
-        }
-        pView.photos = models
-        pView.startAnimation(with: indexPath.item, cellType: true)
-        
-    }
-}
-
-extension ViewController: PhotosBrowserViewDelagete {
-    func photosBrowserView(cellIndex: Int, photos: [FileInfoProtocol]) -> UIView {
-        return collectionView.cellForItem(at: IndexPath(item: cellIndex, section: 0)) ?? UIView()
     }
 }

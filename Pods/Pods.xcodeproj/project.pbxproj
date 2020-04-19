@@ -7,17 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E5B007F1DEDCA2B883603A451BF3C0B /* LXPhotosManager-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BC6DA05BBD0DAB1CF730E98AF75F848B /* LXPhotosManager-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		271D00BAE3B4FDBDD4742C8EEFACDD87 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		2854D5C44DB5C16DC78587A8D6438D3B /* FileInfoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CF1E29CCF30B24DDB6100FE8B343AC /* FileInfoProtocol.swift */; };
-		293AED2EC59D988959D7008A0CF14E5F /* SinglePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D07B80398F5EA96AA36ED66C874BDB1 /* SinglePhotoView.swift */; };
-		33A0A2128BCC2CFB14B246650B1322F3 /* NineGridPhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2EA002193D589E83296C9B55B12A24 /* NineGridPhotosView.swift */; };
-		4CBBAEA3350B261AB36E869ECCB85D2E /* LXPhotosManager-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CC1EB70ABEBFA5B8ACEC32B125DB0E /* LXPhotosManager-dummy.m */; };
-		5436CC70A70565C8118AD81A35B212B6 /* PhotosScrollViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023DB2CD77B50DF4BF51103D3F9AC8E5 /* PhotosScrollViewCell.swift */; };
+		1A99CF1E1059F30A52926FFA2D38E28E /* LXPhotosManager-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A17160FCD8892A842EE1F0896DF98B4 /* LXPhotosManager-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2AC8F7C567A6C974B9800EF33D02E493 /* LXPhotosManager-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E257C83B6BE911A16DFD2882807DC3EE /* LXPhotosManager-dummy.m */; };
+		2F6E514D44D9FD57683E93966D43F0A4 /* PhotosScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DCB5E27A685E278951909F9FC78D17 /* PhotosScrollView.swift */; };
+		3123AC20F639AFB679724C6532739A01 /* ImageBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5D707FDAD086726B64EF8C099E9DD /* ImageBundle.swift */; };
+		450D23595993C59C0DB82E8A7A0329C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		46B28BD41F8DCA0D167DE36C14E61019 /* SinglePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9004DEE95E52B2AF1E9CD34A6FED59FD /* SinglePhotoView.swift */; };
+		54CAAA62BE3D6859FCF731982684A204 /* PhotosBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA51CB4E35CE81C6AC418F5F6935380B /* PhotosBrowserView.swift */; };
+		55489F3088E394C65ED8DB34E15F7F13 /* NineGridPhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7810A849751D17B8F0C724A96F3E6F8 /* NineGridPhotosView.swift */; };
 		5B22D770C291DC4B0C3751810B0D0C0F /* Pods-LXPhotosManagerModule-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 76AFAE929FA9061D9073A07649D4EF4D /* Pods-LXPhotosManagerModule-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9A24559B0E304AAB6E263FD07B2AE1E6 /* ConvenienceBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698E7E8B0BC27EB2B934822337855202 /* ConvenienceBundle.swift */; };
+		A17A144DB9FE3F74BF2DB04356972AB5 /* PhotosScrollViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9688A09B5D779B841E78D76AD1DA19DA /* PhotosScrollViewCell.swift */; };
 		A78258A752BF4DDE264E14D3FB1C956B /* Pods-LXPhotosManagerModule-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F675C9C17A421622BD30F6A802B03A /* Pods-LXPhotosManagerModule-dummy.m */; };
-		A78AF44D2920D3D970000DDF6709AA4E /* PhotosBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42DA77923D60B30ADE69FEEFA45081F /* PhotosBrowserView.swift */; };
-		E6E0F791DB18C7DDB752AEA2F1A3A9CC /* PhotosScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F862438BAB34C528AF29C2E82F858C /* PhotosScrollView.swift */; };
+		B040BF6FF691A4E109E490D36969E30C /* FileInfoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C28837531681B4185700E06F71B340 /* FileInfoProtocol.swift */; };
+		D2B7D5F51E3B576F56AAD54016941830 /* NineGridPhotos.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EEDD4800DCAF88327B6D530C919BB6D1 /* NineGridPhotos.bundle */; };
+		E61879D81354227D88B55CA549BB9770 /* AddPhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D0AEE795BD326B5565F23C7EF0F759 /* AddPhotosView.swift */; };
 		EC66CE63649D1B7B77291789F6C32A1C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,37 +36,49 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		023DB2CD77B50DF4BF51103D3F9AC8E5 /* PhotosScrollViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PhotosScrollViewCell.swift; path = LXPhotosManager/LXPhotosBrowser/PhotosScrollViewCell.swift; sourceTree = "<group>"; };
 		0D0B2A1F8FDF9CF30BAAB6BCE38EA9A7 /* Pods-LXPhotosManagerModule-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LXPhotosManagerModule-Info.plist"; sourceTree = "<group>"; };
 		0D1DCD3610605C558364C11BC9937182 /* Pods-LXPhotosManagerModule.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-LXPhotosManagerModule.modulemap"; sourceTree = "<group>"; };
-		1173332F905DEE6E0A319976A9CB906A /* LXPhotosManager.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = LXPhotosManager.modulemap; sourceTree = "<group>"; };
-		1D07B80398F5EA96AA36ED66C874BDB1 /* SinglePhotoView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SinglePhotoView.swift; path = LXPhotosManager/LXNinegridPhotos/SinglePhotoView.swift; sourceTree = "<group>"; };
+		14BE70547DA36C23CCD296B27DB4B10F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		1F0BAFA305410408539E1469335ABFF8 /* LXPhotosManager-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "LXPhotosManager-Info.plist"; sourceTree = "<group>"; };
 		20F19083A55E1B7B73F9BB31D12242DD /* Pods-LXPhotosManagerModule-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LXPhotosManagerModule-acknowledgements.plist"; sourceTree = "<group>"; };
+		2AF5D707FDAD086726B64EF8C099E9DD /* ImageBundle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageBundle.swift; path = LXPhotosManager/LXNinegridPhotos/ImageBundle.swift; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		3831968266E39290AB3313E6944401FF /* Pods-LXPhotosManagerModule-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LXPhotosManagerModule-frameworks.sh"; sourceTree = "<group>"; };
-		4CFE375EB136ABC03F50E5256E7C3595 /* LXPhotosManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LXPhotosManager.release.xcconfig; sourceTree = "<group>"; };
 		524BA453EEB75A2B24E458F3D8DECBD4 /* Pods-LXPhotosManagerModule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LXPhotosManagerModule.release.xcconfig"; sourceTree = "<group>"; };
-		6B2CF3F151645A941CF157F1FFA5C161 /* LXPhotosManager-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "LXPhotosManager-Info.plist"; sourceTree = "<group>"; };
-		703993F971A2E5D5DE2F497B897F5F84 /* LXPhotosManager-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LXPhotosManager-prefix.pch"; sourceTree = "<group>"; };
+		67D0AEE795BD326B5565F23C7EF0F759 /* AddPhotosView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AddPhotosView.swift; path = LXPhotosManager/LXNinegridPhotos/AddPhotosView.swift; sourceTree = "<group>"; };
+		698E7E8B0BC27EB2B934822337855202 /* ConvenienceBundle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConvenienceBundle.swift; path = LXPhotosManager/LXHelpers/ConvenienceBundle.swift; sourceTree = "<group>"; };
+		6A17160FCD8892A842EE1F0896DF98B4 /* LXPhotosManager-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LXPhotosManager-umbrella.h"; sourceTree = "<group>"; };
+		714DA3C15FB87535DCFDB2BB1BB50669 /* LXPhotosManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LXPhotosManager.debug.xcconfig; sourceTree = "<group>"; };
 		76AFAE929FA9061D9073A07649D4EF4D /* Pods-LXPhotosManagerModule-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LXPhotosManagerModule-umbrella.h"; sourceTree = "<group>"; };
+		7CF5CE6B6E4824F8F8392006FBBA58EC /* LXPhotosManager.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = LXPhotosManager.modulemap; sourceTree = "<group>"; };
 		7FBAA2451F7F4308DFA322D2A63E0DB6 /* Pods-LXPhotosManagerModule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LXPhotosManagerModule.debug.xcconfig"; sourceTree = "<group>"; };
+		846005C08FC89FD6469ED750985480A1 /* LXPhotosManager.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = LXPhotosManager.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9004DEE95E52B2AF1E9CD34A6FED59FD /* SinglePhotoView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SinglePhotoView.swift; path = LXPhotosManager/LXNinegridPhotos/SinglePhotoView.swift; sourceTree = "<group>"; };
+		9688A09B5D779B841E78D76AD1DA19DA /* PhotosScrollViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PhotosScrollViewCell.swift; path = LXPhotosManager/LXPhotosBrowser/PhotosScrollViewCell.swift; sourceTree = "<group>"; };
 		96AD73D241DC1EDD92120CB70E351D52 /* LXPhotosManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = LXPhotosManager.framework; path = LXPhotosManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		98864B12D0C529FC13C445FE5633F576 /* LXPhotosManager.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = LXPhotosManager.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		99DCB5E27A685E278951909F9FC78D17 /* PhotosScrollView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PhotosScrollView.swift; path = LXPhotosManager/LXPhotosBrowser/PhotosScrollView.swift; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A8F862438BAB34C528AF29C2E82F858C /* PhotosScrollView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PhotosScrollView.swift; path = LXPhotosManager/LXPhotosBrowser/PhotosScrollView.swift; sourceTree = "<group>"; };
-		A9CC1EB70ABEBFA5B8ACEC32B125DB0E /* LXPhotosManager-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LXPhotosManager-dummy.m"; sourceTree = "<group>"; };
-		B321CEEAE52F71E493E4D646B501E25E /* LXPhotosManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LXPhotosManager.debug.xcconfig; sourceTree = "<group>"; };
-		B42DA77923D60B30ADE69FEEFA45081F /* PhotosBrowserView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PhotosBrowserView.swift; path = LXPhotosManager/LXPhotosBrowser/PhotosBrowserView.swift; sourceTree = "<group>"; };
-		BC6DA05BBD0DAB1CF730E98AF75F848B /* LXPhotosManager-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LXPhotosManager-umbrella.h"; sourceTree = "<group>"; };
-		C3CF1E29CCF30B24DDB6100FE8B343AC /* FileInfoProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FileInfoProtocol.swift; path = LXPhotosManager/LXFileInfoProtocol/FileInfoProtocol.swift; sourceTree = "<group>"; };
+		A5C28837531681B4185700E06F71B340 /* FileInfoProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FileInfoProtocol.swift; path = LXPhotosManager/LXFileInfoProtocol/FileInfoProtocol.swift; sourceTree = "<group>"; };
+		A7810A849751D17B8F0C724A96F3E6F8 /* NineGridPhotosView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NineGridPhotosView.swift; path = LXPhotosManager/LXNinegridPhotos/NineGridPhotosView.swift; sourceTree = "<group>"; };
+		ABD4543CFC0DAAFCE561215C26F27604 /* LXPhotosManager-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LXPhotosManager-prefix.pch"; sourceTree = "<group>"; };
+		B53E5FAC6688A1680565F35EA230A0E1 /* LXPhotosManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LXPhotosManager.release.xcconfig; sourceTree = "<group>"; };
 		D0290630738AC0594279B86E3FCB655E /* Pods-LXPhotosManagerModule-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-LXPhotosManagerModule-acknowledgements.markdown"; sourceTree = "<group>"; };
 		D7F675C9C17A421622BD30F6A802B03A /* Pods-LXPhotosManagerModule-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LXPhotosManagerModule-dummy.m"; sourceTree = "<group>"; };
-		EF2EA002193D589E83296C9B55B12A24 /* NineGridPhotosView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NineGridPhotosView.swift; path = LXPhotosManager/LXNinegridPhotos/NineGridPhotosView.swift; sourceTree = "<group>"; };
-		F5E2225B1F6B4FAC989A1EE3EB0EE2A0 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		E257C83B6BE911A16DFD2882807DC3EE /* LXPhotosManager-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LXPhotosManager-dummy.m"; sourceTree = "<group>"; };
+		EA51CB4E35CE81C6AC418F5F6935380B /* PhotosBrowserView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PhotosBrowserView.swift; path = LXPhotosManager/LXPhotosBrowser/PhotosBrowserView.swift; sourceTree = "<group>"; };
+		EEDD4800DCAF88327B6D530C919BB6D1 /* NineGridPhotos.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = NineGridPhotos.bundle; path = LXPhotosManager/LXNinegridPhotos/NineGridPhotos.bundle; sourceTree = "<group>"; };
 		F7919218235CA443109C9B72FC60A67C /* Pods_LXPhotosManagerModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_LXPhotosManagerModule.framework; path = "Pods-LXPhotosManagerModule.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		78EADC881C8ADD383640B36DE0F85F5A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				450D23595993C59C0DB82E8A7A0329C2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7B4E7A5CBBB69C0794A2D397A982E99A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -71,42 +87,46 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CEB1B79F02EE90E65F063E110A34A493 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				271D00BAE3B4FDBDD4742C8EEFACDD87 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1BCCBDE95857D287EABF07BAC1996909 /* Development Pods */ = {
+		002669C00DE07ECF779C15E6697C03BC /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				B51175BB961EEA18E9AD8BCA6CA3D222 /* LXPhotosManager */,
+				7CF5CE6B6E4824F8F8392006FBBA58EC /* LXPhotosManager.modulemap */,
+				E257C83B6BE911A16DFD2882807DC3EE /* LXPhotosManager-dummy.m */,
+				1F0BAFA305410408539E1469335ABFF8 /* LXPhotosManager-Info.plist */,
+				ABD4543CFC0DAAFCE561215C26F27604 /* LXPhotosManager-prefix.pch */,
+				6A17160FCD8892A842EE1F0896DF98B4 /* LXPhotosManager-umbrella.h */,
+				714DA3C15FB87535DCFDB2BB1BB50669 /* LXPhotosManager.debug.xcconfig */,
+				B53E5FAC6688A1680565F35EA230A0E1 /* LXPhotosManager.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Pods/Target Support Files/LXPhotosManager";
+			sourceTree = "<group>";
+		};
+		59C3FB77D433A46FBD86EF5992632C82 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				909A3B5ED73EBF707103DAADA203DE20 /* LXPhotosManager */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		1C7ED11BB2FC4E5175B8495F53A8B592 /* LXNinegridPhotos */ = {
+		663D93EE25C60F0C1697DFDD68512F7A /* LXHelpers */ = {
 			isa = PBXGroup;
 			children = (
-				EF2EA002193D589E83296C9B55B12A24 /* NineGridPhotosView.swift */,
-				1D07B80398F5EA96AA36ED66C874BDB1 /* SinglePhotoView.swift */,
+				698E7E8B0BC27EB2B934822337855202 /* ConvenienceBundle.swift */,
 			);
-			name = LXNinegridPhotos;
+			name = LXHelpers;
 			sourceTree = "<group>";
 		};
-		315DA61621FF7897FCAB46DD5F27ECEF /* LXPhotosBrowser */ = {
+		686C118D66FBFAB37158E2223C676E5A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B42DA77923D60B30ADE69FEEFA45081F /* PhotosBrowserView.swift */,
-				A8F862438BAB34C528AF29C2E82F858C /* PhotosScrollView.swift */,
-				023DB2CD77B50DF4BF51103D3F9AC8E5 /* PhotosScrollViewCell.swift */,
+				EEDD4800DCAF88327B6D530C919BB6D1 /* NineGridPhotos.bundle */,
 			);
-			name = LXPhotosBrowser;
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		71D1541C38C4F7C7CF597B89F1043BD2 /* Targets Support Files */ = {
@@ -117,37 +137,34 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		9BD5CC29589796D88FB8F9D815BC028E /* Support Files */ = {
+		87E466B6F4ACDF7E8A5A893911CE0CB4 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				1173332F905DEE6E0A319976A9CB906A /* LXPhotosManager.modulemap */,
-				A9CC1EB70ABEBFA5B8ACEC32B125DB0E /* LXPhotosManager-dummy.m */,
-				6B2CF3F151645A941CF157F1FFA5C161 /* LXPhotosManager-Info.plist */,
-				703993F971A2E5D5DE2F497B897F5F84 /* LXPhotosManager-prefix.pch */,
-				BC6DA05BBD0DAB1CF730E98AF75F848B /* LXPhotosManager-umbrella.h */,
-				B321CEEAE52F71E493E4D646B501E25E /* LXPhotosManager.debug.xcconfig */,
-				4CFE375EB136ABC03F50E5256E7C3595 /* LXPhotosManager.release.xcconfig */,
+				846005C08FC89FD6469ED750985480A1 /* LXPhotosManager.podspec */,
+				14BE70547DA36C23CCD296B27DB4B10F /* README.md */,
 			);
-			name = "Support Files";
-			path = "Pods/Target Support Files/LXPhotosManager";
+			name = Pod;
 			sourceTree = "<group>";
 		};
-		9C8A710DB8E1BF244BAA509049A2BF3C /* LXFileInfoProtocol */ = {
+		8D58A18E9ED3BF4FC085986CD0536991 /* LXPhotosBrowser */ = {
 			isa = PBXGroup;
 			children = (
-				C3CF1E29CCF30B24DDB6100FE8B343AC /* FileInfoProtocol.swift */,
+				EA51CB4E35CE81C6AC418F5F6935380B /* PhotosBrowserView.swift */,
+				99DCB5E27A685E278951909F9FC78D17 /* PhotosScrollView.swift */,
+				9688A09B5D779B841E78D76AD1DA19DA /* PhotosScrollViewCell.swift */,
 			);
-			name = LXFileInfoProtocol;
+			name = LXPhotosBrowser;
 			sourceTree = "<group>";
 		};
-		B51175BB961EEA18E9AD8BCA6CA3D222 /* LXPhotosManager */ = {
+		909A3B5ED73EBF707103DAADA203DE20 /* LXPhotosManager */ = {
 			isa = PBXGroup;
 			children = (
-				9C8A710DB8E1BF244BAA509049A2BF3C /* LXFileInfoProtocol */,
-				1C7ED11BB2FC4E5175B8495F53A8B592 /* LXNinegridPhotos */,
-				315DA61621FF7897FCAB46DD5F27ECEF /* LXPhotosBrowser */,
-				E2F02828635587D2552D0B4C9FD46D13 /* Pod */,
-				9BD5CC29589796D88FB8F9D815BC028E /* Support Files */,
+				CE841B9A82E6BFB157D4D0D5BDEDDFF5 /* LXFileInfoProtocol */,
+				663D93EE25C60F0C1697DFDD68512F7A /* LXHelpers */,
+				E13F75FE6D556ABE0B4BAFE9B197BFFB /* LXNinegridPhotos */,
+				8D58A18E9ED3BF4FC085986CD0536991 /* LXPhotosBrowser */,
+				87E466B6F4ACDF7E8A5A893911CE0CB4 /* Pod */,
+				002669C00DE07ECF779C15E6697C03BC /* Support Files */,
 			);
 			name = LXPhotosManager;
 			path = ..;
@@ -178,11 +195,19 @@
 			path = "Target Support Files/Pods-LXPhotosManagerModule";
 			sourceTree = "<group>";
 		};
+		CE841B9A82E6BFB157D4D0D5BDEDDFF5 /* LXFileInfoProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				A5C28837531681B4185700E06F71B340 /* FileInfoProtocol.swift */,
+			);
+			name = LXFileInfoProtocol;
+			sourceTree = "<group>";
+		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				1BCCBDE95857D287EABF07BAC1996909 /* Development Pods */,
+				59C3FB77D433A46FBD86EF5992632C82 /* Development Pods */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
 				DA1B8B15664BE7657AA0C2F7151D4236 /* Products */,
 				71D1541C38C4F7C7CF597B89F1043BD2 /* Targets Support Files */,
@@ -206,13 +231,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E2F02828635587D2552D0B4C9FD46D13 /* Pod */ = {
+		E13F75FE6D556ABE0B4BAFE9B197BFFB /* LXNinegridPhotos */ = {
 			isa = PBXGroup;
 			children = (
-				98864B12D0C529FC13C445FE5633F576 /* LXPhotosManager.podspec */,
-				F5E2225B1F6B4FAC989A1EE3EB0EE2A0 /* README.md */,
+				67D0AEE795BD326B5565F23C7EF0F759 /* AddPhotosView.swift */,
+				2AF5D707FDAD086726B64EF8C099E9DD /* ImageBundle.swift */,
+				A7810A849751D17B8F0C724A96F3E6F8 /* NineGridPhotosView.swift */,
+				9004DEE95E52B2AF1E9CD34A6FED59FD /* SinglePhotoView.swift */,
+				686C118D66FBFAB37158E2223C676E5A /* Resources */,
 			);
-			name = Pod;
+			name = LXNinegridPhotos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,11 +254,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FB7045E16ED31978E3B14F422608B65B /* Headers */ = {
+		FFE855A191C674F9727FA30605D4A7AB /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E5B007F1DEDCA2B883603A451BF3C0B /* LXPhotosManager-umbrella.h in Headers */,
+				1A99CF1E1059F30A52926FFA2D38E28E /* LXPhotosManager-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,12 +286,12 @@
 		};
 		C7637FD174B43BA75D64D7111755C9B0 /* LXPhotosManager */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 43616D525D0B84BA3943CF50884A097B /* Build configuration list for PBXNativeTarget "LXPhotosManager" */;
+			buildConfigurationList = 2E5AB78A866E0229C874D855C7003D74 /* Build configuration list for PBXNativeTarget "LXPhotosManager" */;
 			buildPhases = (
-				FB7045E16ED31978E3B14F422608B65B /* Headers */,
-				CF41C7C3BE7598CCEC9B8B07CBD7445E /* Sources */,
-				CEB1B79F02EE90E65F063E110A34A493 /* Frameworks */,
-				1C9D0F1D868E75F404096C585A243803 /* Resources */,
+				FFE855A191C674F9727FA30605D4A7AB /* Headers */,
+				AB2A6A8E7ECD36962FD3D2E8B83158A7 /* Sources */,
+				78EADC881C8ADD383640B36DE0F85F5A /* Frameworks */,
+				2A78C187388C823762A906CF60C0D106 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -303,10 +331,11 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		1C9D0F1D868E75F404096C585A243803 /* Resources */ = {
+		2A78C187388C823762A906CF60C0D106 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2B7D5F51E3B576F56AAD54016941830 /* NineGridPhotos.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,17 +357,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CF41C7C3BE7598CCEC9B8B07CBD7445E /* Sources */ = {
+		AB2A6A8E7ECD36962FD3D2E8B83158A7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2854D5C44DB5C16DC78587A8D6438D3B /* FileInfoProtocol.swift in Sources */,
-				4CBBAEA3350B261AB36E869ECCB85D2E /* LXPhotosManager-dummy.m in Sources */,
-				33A0A2128BCC2CFB14B246650B1322F3 /* NineGridPhotosView.swift in Sources */,
-				A78AF44D2920D3D970000DDF6709AA4E /* PhotosBrowserView.swift in Sources */,
-				E6E0F791DB18C7DDB752AEA2F1A3A9CC /* PhotosScrollView.swift in Sources */,
-				5436CC70A70565C8118AD81A35B212B6 /* PhotosScrollViewCell.swift in Sources */,
-				293AED2EC59D988959D7008A0CF14E5F /* SinglePhotoView.swift in Sources */,
+				E61879D81354227D88B55CA549BB9770 /* AddPhotosView.swift in Sources */,
+				9A24559B0E304AAB6E263FD07B2AE1E6 /* ConvenienceBundle.swift in Sources */,
+				B040BF6FF691A4E109E490D36969E30C /* FileInfoProtocol.swift in Sources */,
+				3123AC20F639AFB679724C6532739A01 /* ImageBundle.swift in Sources */,
+				2AC8F7C567A6C974B9800EF33D02E493 /* LXPhotosManager-dummy.m in Sources */,
+				55489F3088E394C65ED8DB34E15F7F13 /* NineGridPhotosView.swift in Sources */,
+				54CAAA62BE3D6859FCF731982684A204 /* PhotosBrowserView.swift in Sources */,
+				2F6E514D44D9FD57683E93966D43F0A4 /* PhotosScrollView.swift in Sources */,
+				A17A144DB9FE3F74BF2DB04356972AB5 /* PhotosScrollViewCell.swift in Sources */,
+				46B28BD41F8DCA0D167DE36C14E61019 /* SinglePhotoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,120 +386,7 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		26EE65F0B2EF35265296D944867792E4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4CFE375EB136ABC03F50E5256E7C3595 /* LXPhotosManager.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/LXPhotosManager/LXPhotosManager-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/LXPhotosManager/LXPhotosManager-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/LXPhotosManager/LXPhotosManager.modulemap";
-				PRODUCT_MODULE_NAME = LXPhotosManager;
-				PRODUCT_NAME = LXPhotosManager;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		5BFC5A750DAD35F2F0290F459C374E35 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 524BA453EEB75A2B24E458F3D8DECBD4 /* Pods-LXPhotosManagerModule.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-LXPhotosManagerModule/Pods-LXPhotosManagerModule-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-LXPhotosManagerModule/Pods-LXPhotosManagerModule.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		7D8177BD0E42DB6EA44B54FDDE938A9E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7FBAA2451F7F4308DFA322D2A63E0DB6 /* Pods-LXPhotosManagerModule.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-LXPhotosManagerModule/Pods-LXPhotosManagerModule-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-LXPhotosManagerModule/Pods-LXPhotosManagerModule.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		939F1A8F6BCEB7F9F64D9EEE50CAE014 /* Debug */ = {
+		131356BE54884448CA49C07BEDF4BB2A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -518,7 +437,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -531,9 +450,9 @@
 			};
 			name = Debug;
 		};
-		BC4564302C2BEFFE8D8701D63A3EBCC2 /* Debug */ = {
+		1D1BDDEBD73FD36D265DCAAEFED1E4FD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B321CEEAE52F71E493E4D646B501E25E /* LXPhotosManager.debug.xcconfig */;
+			baseConfigurationReference = 714DA3C15FB87535DCFDB2BB1BB50669 /* LXPhotosManager.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -566,7 +485,81 @@
 			};
 			name = Debug;
 		};
-		ECB437504DF805BD96CAABF97400B526 /* Release */ = {
+		C48D30101965E35846462D3D9DCEAB4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FBAA2451F7F4308DFA322D2A63E0DB6 /* Pods-LXPhotosManagerModule.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-LXPhotosManagerModule/Pods-LXPhotosManagerModule-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-LXPhotosManagerModule/Pods-LXPhotosManagerModule.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CE87674B6AF52115E725FEB4C3FC0F63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B53E5FAC6688A1680565F35EA230A0E1 /* LXPhotosManager.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/LXPhotosManager/LXPhotosManager-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/LXPhotosManager/LXPhotosManager-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/LXPhotosManager/LXPhotosManager.modulemap";
+				PRODUCT_MODULE_NAME = LXPhotosManager;
+				PRODUCT_NAME = LXPhotosManager;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F090CD07A80273D5A73C8EA19224ADDB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -614,7 +607,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -626,14 +619,53 @@
 			};
 			name = Release;
 		};
+		F0FC45A74934FF5ACEFACF700E86F4AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 524BA453EEB75A2B24E458F3D8DECBD4 /* Pods-LXPhotosManagerModule.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-LXPhotosManagerModule/Pods-LXPhotosManagerModule-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-LXPhotosManagerModule/Pods-LXPhotosManagerModule.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		43616D525D0B84BA3943CF50884A097B /* Build configuration list for PBXNativeTarget "LXPhotosManager" */ = {
+		2E5AB78A866E0229C874D855C7003D74 /* Build configuration list for PBXNativeTarget "LXPhotosManager" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BC4564302C2BEFFE8D8701D63A3EBCC2 /* Debug */,
-				26EE65F0B2EF35265296D944867792E4 /* Release */,
+				1D1BDDEBD73FD36D265DCAAEFED1E4FD /* Debug */,
+				CE87674B6AF52115E725FEB4C3FC0F63 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -641,8 +673,8 @@
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				939F1A8F6BCEB7F9F64D9EEE50CAE014 /* Debug */,
-				ECB437504DF805BD96CAABF97400B526 /* Release */,
+				131356BE54884448CA49C07BEDF4BB2A /* Debug */,
+				F090CD07A80273D5A73C8EA19224ADDB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -650,8 +682,8 @@
 		8502FED1FD2A041DD86F9FB093D18E48 /* Build configuration list for PBXNativeTarget "Pods-LXPhotosManagerModule" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7D8177BD0E42DB6EA44B54FDDE938A9E /* Debug */,
-				5BFC5A750DAD35F2F0290F459C374E35 /* Release */,
+				C48D30101965E35846462D3D9DCEAB4B /* Debug */,
+				F0FC45A74934FF5ACEFACF700E86F4AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

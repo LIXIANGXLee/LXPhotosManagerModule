@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "LXPhotosManager"
-  spec.version      = "0.1.4"
+  spec.version      = "0.2.0"
   spec.summary      = "LXPhotosManager is manager"
 
   # This description is used to generate tags and improve search results.
@@ -97,20 +97,30 @@ Pod::Spec.new do |spec|
 
     # 图片文件协议
     spec.subspec 'LXFileInfoProtocol' do |fileprotocol|
-      fileprotocol.source_files      = 'LXPhotosManager/LXFileInfoProtocol/*.{swift}'
+      fileprotocol.source_files = 'LXPhotosManager/LXFileInfoProtocol/*.{swift}'
+    end
+
+    # 图片加载 bundle @x1 @x2 @x3
+    spec.subspec 'LXHelpers' do |hp|
+      hp.source_files = 'LXPhotosManager/LXHelpers/*.{swift}'
     end
 
     # 图片浏览器
     spec.subspec 'LXPhotosBrowser' do |phbrowser|
-      phbrowser.source_files      = 'LXPhotosManager/LXPhotosBrowser/*.{swift}'
-      phbrowser.dependency 'LXPhotosManager/LXFileInfoProtocol'
+      phbrowser.source_files = 'LXPhotosManager/LXPhotosBrowser/*.{swift}'
+      phbrowser.dependency  'LXPhotosManager/LXFileInfoProtocol'
     end
     
-    # 九宫格方式显示图片
+    # 九宫格方式显示图片 和 选择添加图片
     spec.subspec 'LXNinegridPhotos' do |ninegrid|
-      ninegrid.source_files      = 'LXPhotosManager/LXNinegridPhotos/*.{swift}'
-      ninegrid.dependency 'LXPhotosManager/LXFileInfoProtocol'
+      ninegrid.source_files = 'LXPhotosManager/LXNinegridPhotos/*.{swift}'
+      ninegrid.resource = 'LXPhotosManager/LXNinegridPhotos/*.bundle'
+      ninegrid.dependency  'LXPhotosManager/LXFileInfoProtocol'
+      ninegrid.dependency  'LXPhotosManager/LXHelpers'
+      ninegrid.dependency  'LXPhotosManager/LXPhotosBrowser'
+
     end
+
     
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #

@@ -1,6 +1,6 @@
 {
   "name": "LXPhotosManager",
-  "version": "0.1.0",
+  "version": "0.1.4",
   "summary": "LXPhotosManager is manager",
   "description": "XLee manager LXPhotosManager",
   "homepage": "https://github.com/LIXIANGXLee/LXPhotosManagerModule",
@@ -11,14 +11,19 @@
   "platforms": {
     "ios": "9.2"
   },
+  "swift_versions": "5.0",
   "source": {
     "git": "https://github.com/LIXIANGXLee/LXPhotosManagerModule.git",
-    "tag": "0.1.0"
+    "tag": "0.1.4"
   },
   "subspecs": [
     {
       "name": "LXFileInfoProtocol",
       "source_files": "LXPhotosManager/LXFileInfoProtocol/*.{swift}"
+    },
+    {
+      "name": "LXHelpers",
+      "source_files": "LXPhotosManager/LXHelpers/*.{swift}"
     },
     {
       "name": "LXPhotosBrowser",
@@ -32,11 +37,19 @@
     {
       "name": "LXNinegridPhotos",
       "source_files": "LXPhotosManager/LXNinegridPhotos/*.{swift}",
+      "resources": "LXPhotosManager/LXNinegridPhotos/*.bundle",
       "dependencies": {
         "LXPhotosManager/LXFileInfoProtocol": [
+
+        ],
+        "LXPhotosManager/LXHelpers": [
+
+        ],
+        "LXPhotosManager/LXPhotosBrowser": [
 
         ]
       }
     }
-  ]
+  ],
+  "swift_version": "5.0"
 }

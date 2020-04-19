@@ -11,9 +11,15 @@ import UIKit
 //点击类型区分的枚举
 public enum SinglePhotoViewTapType {
     //点击图片
-    case tapImgView(SinglePhotoView)
+    case tapImgView(SinglePhotoViewType,SinglePhotoView)
     //点击删除图片
     case deleteImgView(SinglePhotoView)
+}
+
+//当前view显示样式
+public enum SinglePhotoViewType {
+    case add(isAdd: Bool) // 添加图片view用 isAdd = true 是默认的➕图片 false 是选择的图片
+    case nineGrid // 九宫格view
 }
 
 //点击 回调协议
@@ -37,8 +43,31 @@ public class SinglePhotoView: UIView {
     //代理协议
     public weak var delegate: SinglePhotoViewDelegate?
     
+    // 默认是九宫格布局
+    public var type: SinglePhotoViewType = .nineGrid {
+        didSet {
+            //选择添加图片的默认 ➕ 图片
+            if case let .add(isAdd: isAdd) = self.type {
+                if isAdd {imgView.image = UIImage.named("NinePhotoAdd")}
+            }
+        }
+    }
+    
+    //默认 ➕ 图片
+    public var addImage: UIImage? {
+        didSet {
+            if case let .add(isAdd: isAdd) = self.type {
+                if isAdd {
+                    guard let image = self.addImage else { return }
+                    imgView.image = image
+                }
+            }
+        }
+    }
+    
     //图片
     public var imgView: UIImageView!
+    private var closeImgView: UIImageView!
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -58,16 +87,42 @@ extension SinglePhotoView {
         imgView.isUserInteractionEnabled = true
         imgView.clipsToBounds = true
         addSubview(imgView)
-        
         imgView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapImgView)))
+        
+        closeImgView = UIImageView()
+        closeImgView.contentMode = .scaleAspectFill
+        closeImgView.isUserInteractionEnabled = true
+        closeImgView.clipsToBounds = true
+        closeImgView.image = UIImage.named("NinePhotoDelete")
+        addSubview(closeImgView)
+        closeImgView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapCloseImgView)))
     }
+    
     public override func layoutSubviews() {
         super.layoutSubviews()
         imgView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
+
+        //设置closeButton尺寸
+        if case let .add(isAdd: isAdd) = self.type  {
+            if !isAdd {
+                 closeImgView.frame = CGRect(x: self.frame.width - 20, y: 0, width: 20, height: 20)
+            }
+        }
+    }
+    
+    @objc private func tapCloseImgView() {
+        delegate?.singlePhotoView(with: SinglePhotoViewTapType.deleteImgView(self))
     }
     
     //图片点击
     @objc private func tapImgView() {
-        delegate?.singlePhotoView(with: SinglePhotoViewTapType.tapImgView(self))
+        
+        switch self.type {
+        case .nineGrid:
+            delegate?.singlePhotoView(with: SinglePhotoViewTapType.tapImgView(.nineGrid, self))
+              
+        case let .add(isAdd: isAdd):
+            delegate?.singlePhotoView(with: SinglePhotoViewTapType.tapImgView(.add(isAdd: isAdd), self))
+        }
     }
 }
