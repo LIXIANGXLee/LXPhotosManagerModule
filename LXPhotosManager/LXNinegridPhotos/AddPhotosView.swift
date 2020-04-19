@@ -10,6 +10,11 @@ import UIKit
 import AVFoundation
 import Photos
 
+// 回调协议
+public protocol AddPhotosViewDelegate: AnyObject {
+    func addPhotosView(with datasource: [FileInfoProtocol])
+}
+
 class AddPhotosView: UIView {
     //MARK: - 私有属性
     //存放所有图片的集合
@@ -43,6 +48,8 @@ class AddPhotosView: UIView {
 
     //显示横向几个（默认是4个）
     public var colCount: Int = 4
+    
+    public weak var delegate: AddPhotosViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -98,8 +105,8 @@ extension AddPhotosView {
             pictureView.tag = i
         }
         self.frame.size.height = photoViews[photoViews.count - 1].frame.maxY
-    
         loadCurrentViewMaxY?(self.frame.maxY)
+        delegate?.addPhotosView(with: self.photoModels)
     }
 }
 

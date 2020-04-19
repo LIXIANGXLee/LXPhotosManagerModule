@@ -75,16 +75,21 @@ class FileModel: FileInfoProtocol {
 
 ```
   let addView  = AddPhotosView(frame: CGRect(x: 0, y: 100, width: UIScreen.main.bounds.width, height: 600))
+  addView.delegate = self
   view.addSubview(addView)
   addView.loadBlock = { model, imgView in
-     if model.isNetWork {
+     if model.isNetWork { // 网络图片z加载
          imgView.kf.setImage(with: URL(string: model.imgUrl)!)
-     }else{
+     }else{ // 相册图片加载
          imgView.image = model.image
      }
   }
   addView.pubPhotoModels = models
   
+  //代理方法 选择后的数据源
+  func addPhotosView(with datasource: [FileInfoProtocol]) {
+       print(datasource)
+   }
 ```
  **效果图展示和手势拖动时的效果** 
 
