@@ -96,3 +96,4 @@ class FileModel: FileInfoProtocol {
 
 ![效果图](https://images.gitee.com/uploads/images/2020/0413/210512_a13591d4_1890422.png "Simulator Screen Shot - iPhone 11 Pro Max - 2020-04-13 at 21.01.36.png")
 ![收拾拖动时的效果图](https://images.gitee.com/uploads/images/2020/0413/210819_01e0de32_1890422.png "Simulator Screen Shot - iPhone 11 Pro Max - 2020-04-13 at 21.07.25.png")
+![选择添加图片](https://images.gitee.com/uploads/images/2020/0419/233028_ab66df44_1890422.png "Simulator Screen Shot - iPhone 11 Pro Max - 2020-04-19 at 22.43.20.png")
