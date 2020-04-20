@@ -19,7 +19,7 @@ protocol PhotosScrollViewCellDelegate: AnyObject {
     // MARK: -  ///点击时调用
     func photosScrollViewCell(didSelect photosScrollViewCell: PhotosScrollViewCell)
     
-    // MARK: -  ///拖拽滚动时调用
+    // MARK: -  ///拖拽滚动时调用或者长按回调
     func photosScrollViewCell(_ photosScrollViewCell: PhotosScrollViewCell,_ type: PhotosScrollViewType)
 }
 

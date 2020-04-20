@@ -91,6 +91,13 @@ class FileModel: FileInfoProtocol {
        print(datasource)
    }
 ```
+
+ **保存图片功能** 
+```
+SaveAsset.saveImageToAsset(with: image) { (saveAssetType) in
+    
+}
+```
  **效果图展示和手势拖动时的效果** 
 
 

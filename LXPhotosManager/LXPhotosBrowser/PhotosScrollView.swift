@@ -14,7 +14,7 @@ protocol PhotosScrollViewDelegate: AnyObject {
     func photosScrollView(_ photosScrollView: PhotosScrollView,didSelectPhotoAt index: Int)
     // MARK: - cell滚动偏移量
     func photosScrollView(_ photosScrollView: PhotosScrollView,contentOffSetAt index: Int)
-     // MARK: -  拖拽滚动时调用
+     // MARK: -  拖拽滚动时调用或者长按回调
     func photosScrollView(_ photosScrollView: PhotosScrollView,_ type: PhotosScrollViewType)
 
 }

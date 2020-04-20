@@ -62,4 +62,40 @@ extension LXAddPhotoViewController: AddPhotosViewDelegate {
     func addPhotosView(with datasource: [FileInfoProtocol]) {
         print("--=-=-=-=",datasource)
     }
+    func addPhotosView(longPress addPhotosView: AddPhotosView, model: FileInfoProtocol) {
+        
+        if model.isNetWork {
+            UIImageView().kf.setImage(with: URL(string: model.imgUrl), placeholder: nil, options: nil, progressBlock: nil) { (image, error, cacge, url) in
+               SaveAsset.saveImageToAsset(with:  image ?? UIImage()) { (type) in
+                   if case .success = type {
+                        let msg = "保存图片成功"
+                           let alertController = UIAlertController(title: nil, message: msg, preferredStyle: .alert)
+                           alertController.addAction(UIAlertAction(title: "确定", style: .default, handler: nil))
+                           alertController.modalPresentationStyle = .fullScreen
+                          self.present(alertController, animated: true, completion: nil)
+                      }else if case let  .failure(error) = type {
+                             let alertController = UIAlertController(title: nil, message: error, preferredStyle: .alert)
+                             alertController.addAction(UIAlertAction(title: "确定", style: .default, handler: nil))
+                             alertController.modalPresentationStyle = .fullScreen
+                            self.present(alertController, animated: true, completion: nil)
+                      }
+                   }
+               }
+        }else {
+            SaveAsset.saveImageToAsset(with:  model.image) { (type) in
+                if case .success = type {
+                 let msg = "保存图片成功"
+                    let alertController = UIAlertController(title: nil, message: msg, preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "确定", style: .default, handler: nil))
+                    alertController.modalPresentationStyle = .fullScreen
+                   self.present(alertController, animated: true, completion: nil)
+               }else if case let  .failure(error) = type {
+                      let alertController = UIAlertController(title: nil, message: error, preferredStyle: .alert)
+                      alertController.addAction(UIAlertAction(title: "确定", style: .default, handler: nil))
+                      alertController.modalPresentationStyle = .fullScreen
+                     self.present(alertController, animated: true, completion: nil)
+               }
+            }
+        }
+    }
 }

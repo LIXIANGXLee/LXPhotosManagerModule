@@ -25,7 +25,7 @@ class LXPhotosBrowserViewController: UIViewController {
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 10
         layout.itemSize = CGSize(width: 120, height: 120)
-        let collectionView = UICollectionView(frame: CGRect(x: 0, y: 600, width: UIScreen.main.bounds.width, height: 400), collectionViewLayout: layout)
+        let collectionView = UICollectionView(frame: CGRect(x: 0, y: 500, width: UIScreen.main.bounds.width, height: 400), collectionViewLayout: layout)
         collectionView.dataSource = self
         collectionView.delegate = self
         
@@ -106,7 +106,7 @@ class LXPhotosBrowserViewController: UIViewController {
 
     private func setUI() {
         // 九宫格
-        let photoVeiw = NineGridPhotosView(frame: CGRect(x: 0, y: 100, width: UIScreen.main.bounds.width, height: 600))
+        let photoVeiw = NineGridPhotosView(frame: CGRect(x: 0, y: 100, width: UIScreen.main.bounds.width, height: 500))
         photoVeiw.delegate = self
         photoVeiw.loadBlock = { model, imgView in
             imgView.kf.setImage(with: URL(string: model.imgUrl)!)
@@ -122,6 +122,7 @@ extension LXPhotosBrowserViewController: NineGridPhotosViewDelegate {
         
         //图片浏览器
         let pView = PhotosBrowserView()
+        pView.delegate = self
         pView.imgViews = photoViews.map({ (singlePhotoView) -> UIImageView in
             return singlePhotoView.imgView
         })
@@ -163,5 +164,28 @@ extension LXPhotosBrowserViewController : UICollectionViewDataSource, UICollecti
 extension LXPhotosBrowserViewController: PhotosBrowserViewDelagete {
     func photosBrowserView(cellIndex: Int, photos: [FileInfoProtocol]) -> UIView {
         return collectionView.cellForItem(at: IndexPath(item: cellIndex, section: 0)) ?? UIView()
+    }
+    
+    
+    /// 长按保存图片
+    func photosBrowserView(longPress photosBrowserView: PhotosBrowserView, _ model: FileInfoProtocol) {
+
+        UIImageView().kf.setImage(with: URL(string: model.imgUrl), placeholder: nil, options: nil, progressBlock: nil) { (image, error, cacge, url) in
+            
+            SaveAsset.saveImageToAsset(with:  image ?? UIImage()) { (type) in
+               if case .success = type {
+                     let msg = "保存图片成功"
+                        let alertController = UIAlertController(title: nil, message: msg, preferredStyle: .alert)
+                        alertController.addAction(UIAlertAction(title: "确定", style: .default, handler: nil))
+                        alertController.modalPresentationStyle = .fullScreen
+                       self.present(alertController, animated: true, completion: nil)
+                   }else if case let  .failure(error) = type {
+                          let alertController = UIAlertController(title: nil, message: error, preferredStyle: .alert)
+                          alertController.addAction(UIAlertAction(title: "确定", style: .default, handler: nil))
+                          alertController.modalPresentationStyle = .fullScreen
+                         self.present(alertController, animated: true, completion: nil)
+                }
+            }
+        }
     }
 }

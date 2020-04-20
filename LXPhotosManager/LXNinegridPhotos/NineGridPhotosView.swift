@@ -10,6 +10,8 @@ import UIKit
 
 //点击 回调协议
 public protocol NineGridPhotosViewDelegate: AnyObject {
+    
+    //数据源回调
     func nineGridPhotosView(with index: Int,photoViews: [SinglePhotoView],datasource: [FileInfoProtocol])
 }
 

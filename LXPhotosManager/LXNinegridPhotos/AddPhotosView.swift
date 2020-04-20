@@ -12,10 +12,16 @@ import Photos
 
 // 回调协议
 public protocol AddPhotosViewDelegate: AnyObject {
+    
+    //数据源回调
     func addPhotosView(with datasource: [FileInfoProtocol])
+    
+    //长按回调
+    func addPhotosView(longPress addPhotosView : AddPhotosView, model: FileInfoProtocol)
+
 }
 
-class AddPhotosView: UIView {
+public class AddPhotosView: UIView {
     //MARK: - 私有属性
     //存放所有图片的集合
     private var photoViews = [SinglePhotoView]()
@@ -95,8 +101,8 @@ extension AddPhotosView {
     
  private func setLayOut() {
 
-    let w: CGFloat = (self.frame.width - marginCol * CGFloat(colCount - 1)) / CGFloat(colCount)
-    let h = w
+        let w: CGFloat = (self.frame.width - marginCol * CGFloat(colCount - 1)) / CGFloat(colCount)
+        let h = w
         for i in 0..<photoViews.count {
             let pictureView = photoViews[i]
             let col = i % colCount
@@ -171,6 +177,7 @@ extension AddPhotosView {
     private func selectPhotoBrowser(index: Int) {
         //图片浏览器
         let pView = PhotosBrowserView()
+        pView.delegate = self
         pView.imgViews = photoViews.filter({ [weak self] (singlePhotoView) -> Bool in
             return singlePhotoView.tag != ((self?.photoViews.count ?? 0) - 1)
         }).map({ (singlePhotoView) -> UIImageView in
@@ -184,8 +191,14 @@ extension AddPhotosView {
  
 }
 
+extension AddPhotosView: PhotosBrowserViewDelagete {
+    public func photosBrowserView(longPress photosBrowserView: PhotosBrowserView, _ model: FileInfoProtocol) {
+        delegate?.addPhotosView(longPress: self, model: model)
+    }
+}
+
 extension AddPhotosView: SinglePhotoViewDelegate {
-    func singlePhotoView(with type: SinglePhotoViewTapType) {
+    public func singlePhotoView(with type: SinglePhotoViewTapType) {
         switch type {
         case let .tapImgView(singleType, singlePhotoView):
             if case let  SinglePhotoViewType.add(isAdd: isAdd) = singleType {
@@ -207,12 +220,14 @@ extension AddPhotosView: SinglePhotoViewDelegate {
 
 extension AddPhotosView: UIImagePickerControllerDelegate , UINavigationControllerDelegate {
     //点击使用图片, 使用该图片
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         aboveViewController()?.dismiss(animated: true, completion: nil)
        
         guard let image = info[.originalImage] as? UIImage else {  return  }
         
-        let photo = PhotoModel(image: image, height: image.size.height, width: image.size.width)
+        let photo = PhotoModel(image: image,
+                               height: image.size.height,
+                               width: image.size.width)
         photoModels.append(photo)
         //创建UI
         setNomalUI(with: photo)

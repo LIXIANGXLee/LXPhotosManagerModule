@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "LXPhotosManager"
-  spec.version      = "0.2.0"
+  spec.version      = "0.2.1"
   spec.summary      = "LXPhotosManager is manager"
 
   # This description is used to generate tags and improve search results.
@@ -54,7 +54,7 @@ Pod::Spec.new do |spec|
   #  profile URL.
   #
 
-  spec.author             = { "lixiang" => "lixiang@gokuaidian.com" }
+  spec.author             = { "lixiang" => "1367015013@qq.com" }
   # Or just: spec.author    = "lixiang"
   # spec.authors            = { "lixiang" => "lixiang@gokuaidian.com" }
   # spec.social_media_url   = "https://twitter.com/lixiang"
@@ -103,6 +103,10 @@ Pod::Spec.new do |spec|
     # 图片加载 bundle @x1 @x2 @x3
     spec.subspec 'LXHelpers' do |hp|
       hp.source_files = 'LXPhotosManager/LXHelpers/*.{swift}'
+    end
+    # 图片保存
+    spec.subspec 'SaveAsset' do |sa|
+      sa.source_files = 'LXPhotosManager/SaveAsset/*.{swift}'
     end
 
     # 图片浏览器
