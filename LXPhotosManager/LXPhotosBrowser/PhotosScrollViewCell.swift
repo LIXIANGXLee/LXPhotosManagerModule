@@ -16,60 +16,60 @@ import UIKit
 }
 
 protocol PhotosScrollViewCellDelegate: AnyObject {
-    // MARK: -  ///点击时调用
+     ///点击时调用
     func photosScrollViewCell(didSelect photosScrollViewCell: PhotosScrollViewCell)
     
-    // MARK: -  ///拖拽滚动时调用或者长按回调
+    ///拖拽滚动时调用或者长按回调
     func photosScrollViewCell(_ photosScrollViewCell: PhotosScrollViewCell,_ type: PhotosScrollViewType)
 }
 
 class PhotosScrollViewCell: UICollectionViewCell {
 
-    //判断拖拽以及拖拽时记录起始point
+    ///判断拖拽以及拖拽时记录起始point
     fileprivate var isDrag: Bool = false
     fileprivate var isBeganPoint: CGPoint = .zero
     
     fileprivate lazy var singleTag: UITapGestureRecognizer = {
-        let t = UITapGestureRecognizer(target: self, action:#selector(imgView(withSingleTap:)))
-        t.numberOfTapsRequired = 1
-        t.require(toFail: self.doubleTag)
-        return t
+        let singleTag = UITapGestureRecognizer(target: self, action:#selector(imgView(withSingleTap:)))
+        singleTag.numberOfTapsRequired = 1
+        singleTag.require(toFail: self.doubleTag)
+        return singleTag
     }()
     
     fileprivate lazy var doubleTag: UITapGestureRecognizer = {
-        let t = UITapGestureRecognizer(target: self, action:#selector(imgView(withdoubleTap:)))
-        t.numberOfTapsRequired = 2
-        return t
+        let doubleTag = UITapGestureRecognizer(target: self, action:#selector(imgView(withdoubleTap:)))
+        doubleTag.numberOfTapsRequired = 2
+        return doubleTag
     }()
     
     fileprivate lazy var longPress: UILongPressGestureRecognizer = {
-        let l = UILongPressGestureRecognizer(target: self, action:#selector(imgView(withLongPress:)))
-        l.minimumPressDuration = 0.8
-        return l
+        let longPress = UILongPressGestureRecognizer(target: self, action:#selector(imgView(withLongPress:)))
+        longPress.minimumPressDuration = 0.8
+        return longPress
     }()
     
     fileprivate lazy var imgView: UIImageView = {
-        let v = UIImageView()
-        v.isUserInteractionEnabled = true
-        v.contentMode = .scaleAspectFill
-        return v
+        let imgView = UIImageView()
+        imgView.isUserInteractionEnabled = true
+        imgView.contentMode = .scaleAspectFill
+        return imgView
     }()
     
     fileprivate lazy var scrollView: UIScrollView = {
-        let s = UIScrollView(frame: self.bounds)
-        s.contentSize = .zero
-        s.showsVerticalScrollIndicator = false
-        s.showsHorizontalScrollIndicator = false
-        s.isScrollEnabled = true
-        s.maximumZoomScale = 3
-        s.minimumZoomScale = 1.0
-        s.delegate = self
+        let scrollView = UIScrollView(frame: self.bounds)
+        scrollView.contentSize = .zero
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.isScrollEnabled = true
+        scrollView.maximumZoomScale = 3
+        scrollView.minimumZoomScale = 1.0
+        scrollView.delegate = self
         if #available(iOS 11.0, *) {
-            s.contentInsetAdjustmentBehavior = UIScrollView.ContentInsetAdjustmentBehavior.never
+            scrollView.contentInsetAdjustmentBehavior = UIScrollView.ContentInsetAdjustmentBehavior.never
         }else{
-            s.translatesAutoresizingMaskIntoConstraints = false
+            scrollView.translatesAutoresizingMaskIntoConstraints = false
         }
-        return s
+        return scrollView
     }()
     
     //指示器
@@ -82,15 +82,15 @@ class PhotosScrollViewCell: UICollectionViewCell {
     }()
     
     // MARK: - public
-    //imgView的尺寸
+    ///imgView的尺寸
     fileprivate(set) var imgViewZoomRect: CGRect = .zero
-    //代理
+    ///代理
     weak var delegate: PhotosScrollViewCellDelegate?
-    //用于加载图片的代码块, 必须赋值
+    ///用于加载图片的代码块, 必须赋值
     var loadBlock: ((FileInfoProtocol,UIImageView) -> ())?
-    //可选项 是否加载高清图
+    ///可选项 是否加载高清图
     var finishAnimation: ((FileInfoProtocol,UIImageView) -> ())?
-    //是否显示指示器
+    ///是否显示指示器
     var isFinishActivityAnimation: Bool = false {
         didSet {           
             if self.isFinishActivityAnimation {
@@ -101,7 +101,7 @@ class PhotosScrollViewCell: UICollectionViewCell {
         }
     }
     
-    //数据源
+    ///数据源
     var model: FileInfoProtocol? {
         didSet {
             guard let m = model, m.width != 0 else { return }
@@ -143,7 +143,7 @@ class PhotosScrollViewCell: UICollectionViewCell {
 
 extension PhotosScrollViewCell {
     
-    // MARK: - 设置图片尺寸
+    ///设置图片尺寸
     fileprivate func setImgViewRect(_ model: FileInfoProtocol) {
         let imgW = (bounds.width - 20)
         let imgH = imgW * model.height / model.width
@@ -155,12 +155,12 @@ extension PhotosScrollViewCell {
         }
     }
     
-    // MARK: - 图片单击方法
+    ///图片单击方法
     @objc fileprivate func imgView(withSingleTap gesture: UITapGestureRecognizer) {
         delegate?.photosScrollViewCell(didSelect: self)
     }
     
-    // MARK: - 图片双击方法
+    ///图片双击方法
     @objc fileprivate func imgView(withdoubleTap gesture: UITapGestureRecognizer) {
         let scale: CGFloat = (scrollView.zoomScale == 1.0) ? 3.0 : 1.0
         let center = gesture.location(in: gesture.view)
@@ -171,7 +171,7 @@ extension PhotosScrollViewCell {
         setResetImgViewZoomRect()
         
     }
-     // MARK: - 图片长按方法
+     ///图片长按方法
     @objc fileprivate func imgView(withLongPress gesture: UITapGestureRecognizer) {
         
         if gesture.state == .began {
@@ -180,14 +180,14 @@ extension PhotosScrollViewCell {
         }
     }
     
-    // MARK: - 复位
+    ///复位
     fileprivate func setResetScrollView() {
         scrollView.contentSize = .zero
         scrollView.contentInset = .zero
         scrollView.zoomScale = 1.0
     }
     
-     //外部调用尺寸（相对父视图是屏幕宽度的view）
+     ///外部调用尺寸（相对父视图是屏幕宽度的view）
     fileprivate func setResetImgViewZoomRect() {
         
         if imgView.frame.height > scrollView.frame.height  {
@@ -201,12 +201,12 @@ extension PhotosScrollViewCell {
  // MARK: - UIScrollViewDelegate
 extension PhotosScrollViewCell: UIScrollViewDelegate {
     
-    //绑定缩放图片
+    ///绑定缩放图片
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return imgView
     }
     
-    //缩放后设置位置坐标
+    ///缩放后设置位置坐标
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
         let offSetX = (scrollView.frame.width > scrollView.contentSize.width) ? (scrollView.frame.width - scrollView.contentSize.width) * 0.5 : 0
         let offSetY = (scrollView.frame.height > scrollView.contentSize.height) ? (scrollView.frame.height - scrollView.contentSize.height) * 0.5 : 0

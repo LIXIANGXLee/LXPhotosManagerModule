@@ -25,49 +25,49 @@ class PhotosScrollView: UIView {
     fileprivate var index: Int
     fileprivate var cellType: Bool
     fileprivate lazy var layOut: UICollectionViewFlowLayout = {
-        let l = UICollectionViewFlowLayout()
-        l.scrollDirection = UICollectionView.ScrollDirection.horizontal
-        l.itemSize = CGSize(width: self.bounds.width + 20, height: self.bounds.height)
-        l.minimumLineSpacing = .leastNormalMagnitude
-        l.minimumInteritemSpacing = .leastNormalMagnitude
-        return l
+        let layOut = UICollectionViewFlowLayout()
+        layOut.scrollDirection = UICollectionView.ScrollDirection.horizontal
+        layOut.itemSize = CGSize(width: self.bounds.width + 20, height: self.bounds.height)
+        layOut.minimumLineSpacing = .leastNormalMagnitude
+        layOut.minimumInteritemSpacing = .leastNormalMagnitude
+        return layOut
     }()
     
     fileprivate(set) lazy var collectionView: UICollectionView = {
-        let c = UICollectionView(frame: CGRect(x: 0, y: 0, width: self.bounds.width + 20, height: self.bounds.height), collectionViewLayout: self.layOut)
-        c.showsVerticalScrollIndicator = false
-        c.showsHorizontalScrollIndicator = false
-        c.dataSource = self
-        c.delegate = self
-        c.isPagingEnabled = true
-        c.register(PhotosScrollViewCell.self, forCellWithReuseIdentifier: identified)
+        let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: self.bounds.width + 20, height: self.bounds.height), collectionViewLayout: self.layOut)
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.isPagingEnabled = true
+        collectionView.register(PhotosScrollViewCell.self, forCellWithReuseIdentifier: identified)
         
         if #available(iOS 11.0, *) {
-            c.contentInsetAdjustmentBehavior = UIScrollView.ContentInsetAdjustmentBehavior.never
+            collectionView.contentInsetAdjustmentBehavior = UIScrollView.ContentInsetAdjustmentBehavior.never
         }else{
-            c.translatesAutoresizingMaskIntoConstraints = false
+            collectionView.translatesAutoresizingMaskIntoConstraints = false
         }
-        return c
+        return collectionView
     }()
     
     fileprivate lazy var pageControl: UIPageControl = {
-        let p = UIPageControl(frame: CGRect(x: 0, y: self.bounds.height - Const.TabBarH - 20, width: self.bounds.width, height: 20))
-        p.pageIndicatorTintColor = UIColor.lightGray
-        p.currentPageIndicatorTintColor = UIColor.white
-        p.hidesForSinglePage = true
-        p.isEnabled = false
-        return p
+        let pageControl = UIPageControl(frame: CGRect(x: 0, y: self.bounds.height - Const.TabBarH - 20, width: self.bounds.width, height: 20))
+        pageControl.pageIndicatorTintColor = UIColor.lightGray
+        pageControl.currentPageIndicatorTintColor = UIColor.white
+        pageControl.hidesForSinglePage = true
+        pageControl.isEnabled = false
+        return pageControl
     }()
     
     fileprivate var photosScrollCell: PhotosScrollViewCell!
     
-   // MARK: - public
-    //代理
+    // MARK: - public
+    ///代理
      weak var delegate: PhotosScrollViewDelegate?
      var loadBlock: ((FileInfoProtocol,UIImageView) -> ())?
-    //可选项 是否加载高清图
+    ///可选项 是否加载高清图
      var finishAnimation: ((FileInfoProtocol,UIImageView) -> ())?
-    //是否显示指示器
+    ///是否显示指示器
      var isFinishActivityAnimation: Bool = false {
         didSet {
            photosScrollCell.isFinishActivityAnimation = self.isFinishActivityAnimation
