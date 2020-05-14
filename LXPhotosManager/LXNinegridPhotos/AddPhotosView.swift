@@ -85,6 +85,7 @@ extension AddPhotosView {
         let photoView: SinglePhotoView
         if self.cacheIMgViews.count > 0 {
             photoView =  self.cacheIMgViews.first!
+            self.cacheIMgViews.removeFirst()
             photoView.isHidden = false
         }else {
             photoView = SinglePhotoView()
