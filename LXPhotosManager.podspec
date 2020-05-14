@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "LXPhotosManager"
-  spec.version      = "0.2.3"
+  spec.version      = "0.2.4"
   spec.summary      = "LXPhotosManager is manager"
 
   # This description is used to generate tags and improve search results.
@@ -56,7 +56,7 @@ Pod::Spec.new do |spec|
 
   spec.author             = { "lixiang" => "1367015013@qq.com" }
   # Or just: spec.author    = "lixiang"
-  # spec.authors            = { "lixiang" => "lixiang@gokuaidian.com" }
+  # spec.authors            = { "lixiang" => "1367015013@qq.com" }
   # spec.social_media_url   = "https://twitter.com/lixiang"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

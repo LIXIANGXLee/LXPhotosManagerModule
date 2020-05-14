@@ -45,7 +45,6 @@ class LXAddPhotoViewController: UIViewController {
         let addView  = AddPhotosView(frame: CGRect(x: 0, y: 100, width: UIScreen.main.bounds.width, height: 600))
         view.addSubview(addView)
         addView.delegate = self
-
         addView.loadBlock = { model, imgView in
             if model.isNetWork {
                 imgView.kf.setImage(with: URL(string: model.imgUrl)!)

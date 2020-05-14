@@ -57,7 +57,15 @@ class LXPhotosBrowserViewController: UIViewController {
         models.append(model)
         models.append(model1)
         models.append(model2)
-
+        models.append(model2)
+        models.append(model)
+        models.append(model1)
+        models.append(model2)
+        models.append(model2)
+        models.append(model)
+        models.append(model1)
+        models.append(model2)
+      
         setUI()
         
     }
@@ -65,13 +73,16 @@ class LXPhotosBrowserViewController: UIViewController {
     private func setUI() {
         // 九宫格
         let photoVeiw = NineGridPhotosView(frame: CGRect(x: 0, y: 100, width: UIScreen.main.bounds.width, height: 500))
+
         photoVeiw.delegate = self
         photoVeiw.loadBlock = { model, imgView in
             imgView.kf.setImage(with: URL(string: model.imgUrl)!)
         }
         photoVeiw.datasource = models
+        photoVeiw.photoMaxCount = 7
+
         view.addSubview(photoVeiw)
- 
+
     }
 }
 
