@@ -37,6 +37,7 @@
 		040CFC8724475AB200CAFF40 /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040CFC6E24475AB200CAFF40 /* Placeholder.swift */; };
 		040CFC8824475AB200CAFF40 /* KingfisherOptionsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040CFC6F24475AB200CAFF40 /* KingfisherOptionsInfo.swift */; };
 		040CFC8924475AB200CAFF40 /* ImagePrefetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040CFC7024475AB200CAFF40 /* ImagePrefetcher.swift */; };
+		04282EE9246D7D970039083E /* LXPhotosListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04282EE8246D7D970039083E /* LXPhotosListViewController.swift */; };
 		0465403E244807D300740B0B /* SinglePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04654036244807D300740B0B /* SinglePhotoView.swift */; };
 		0465403F244807D300740B0B /* NineGridPhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04654037244807D300740B0B /* NineGridPhotosView.swift */; };
 		04654040244807D300740B0B /* PhotosScrollViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04654039244807D300740B0B /* PhotosScrollViewCell.swift */; };
@@ -91,6 +92,7 @@
 		040CFC6E24475AB200CAFF40 /* Placeholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
 		040CFC6F24475AB200CAFF40 /* KingfisherOptionsInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KingfisherOptionsInfo.swift; sourceTree = "<group>"; };
 		040CFC7024475AB200CAFF40 /* ImagePrefetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePrefetcher.swift; sourceTree = "<group>"; };
+		04282EE8246D7D970039083E /* LXPhotosListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LXPhotosListViewController.swift; sourceTree = "<group>"; };
 		04654036244807D300740B0B /* SinglePhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglePhotoView.swift; sourceTree = "<group>"; };
 		04654037244807D300740B0B /* NineGridPhotosView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NineGridPhotosView.swift; sourceTree = "<group>"; };
 		04654039244807D300740B0B /* PhotosScrollViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosScrollViewCell.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 			children = (
 				049F0FFA244939EF00738079 /* LXAddPhotoViewController.swift */,
 				049F0FFB244939EF00738079 /* LXPhotosBrowserViewController.swift */,
+				04282EE8246D7D970039083E /* LXPhotosListViewController.swift */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				0465403F244807D300740B0B /* NineGridPhotosView.swift in Sources */,
 				040CFC7724475AB200CAFF40 /* ImageView+Kingfisher.swift in Sources */,
 				0465403E244807D300740B0B /* SinglePhotoView.swift in Sources */,
+				04282EE9246D7D970039083E /* LXPhotosListViewController.swift in Sources */,
 				040CFC8224475AB200CAFF40 /* ImageTransition.swift in Sources */,
 				040CFC7D24475AB200CAFF40 /* ImageDownloader.swift in Sources */,
 				040CFC7824475AB200CAFF40 /* Image.swift in Sources */,

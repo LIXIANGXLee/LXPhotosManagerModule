@@ -26,6 +26,7 @@ class ViewController: UIViewController {
 
     let datas = [
         "九宫格展示和图片浏览器(本地图片和网络图片)",
+        "UICollectionView图片列表",
         "添加图片的view（从相机选择或者从相册选择）"
     ]
     
@@ -51,8 +52,10 @@ extension ViewController: UITableViewDelegate {
         var vc: UIViewController = LXPhotosBrowserViewController()
         if indexPath.row == 0 {
         }else if indexPath.row == 1 {
+            vc = LXPhotosListViewController()
+        }else if indexPath.row == 2 {
             vc = LXAddPhotoViewController()
-        }
+        }        
         
         self.navigationController?.pushViewController(vc, animated: true)
 

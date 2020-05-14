@@ -18,6 +18,9 @@ class LXAddPhotoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+           self.view.backgroundColor = UIColor.white
+           self.navigationItem.title = "图片添加"
+        
            let model = FileModel()
            model.width = 250
            model.height = 250

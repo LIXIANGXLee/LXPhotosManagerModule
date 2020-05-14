@@ -9,53 +9,30 @@
 import UIKit
 import LXPhotosManager
 
-class FileModel: FileInfoProtocol {
-    var isNetWork: Bool = true   
-    var image: UIImage = UIImage()
-    var height: CGFloat = 0.0
-    var width: CGFloat = 0.0
-    var imgUrl: String = ""
+public class FileModel: FileInfoProtocol {
+    public var isNetWork: Bool = true
+    public var image: UIImage = UIImage()
+    public var height: CGFloat = 0.0
+    public var width: CGFloat = 0.0
+    public var imgUrl: String = ""
 }
 
 
 class LXPhotosBrowserViewController: UIViewController {
-    // MARK: 定义属性
-    fileprivate lazy var collectionView : UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 10
-        layout.minimumInteritemSpacing = 10
-        layout.itemSize = CGSize(width: 120, height: 120)
-        let collectionView = UICollectionView(frame: CGRect(x: 0, y: 500, width: UIScreen.main.bounds.width, height: 400), collectionViewLayout: layout)
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        
-        collectionView.register(UINib(nibName: "PictureCell", bundle: nil), forCellWithReuseIdentifier: "cell")
-        collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        collectionView.backgroundColor = UIColor.white
-        
-        if #available(iOS 11.0, *) {
-            collectionView.contentInsetAdjustmentBehavior = UIScrollView.ContentInsetAdjustmentBehavior.never
-        }else{
-            collectionView.translatesAutoresizingMaskIntoConstraints = false
-        }
-        
-        return collectionView
-    }()
+   
     
     var imgViews = [UIImageView]()
     let datas = [
-              "https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1661707474,1451343575&fm=26&gp=0.jpg",
-              "https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3159064993,1446035142&fm=26&gp=0.jpg",
-              "https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2712496081,4225310564&fm=26&gp=0.jpg"
+  "https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1661707474,1451343575&fm=26&gp=0.jpg",
+  "https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3159064993,1446035142&fm=26&gp=0.jpg",
+  "https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2712496081,4225310564&fm=26&gp=0.jpg"
           ]
     
     var models = [FileInfoProtocol]()
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationItem.title = "九宫格图片"
         self.view.backgroundColor = UIColor.white
         
         let model = FileModel()
@@ -80,28 +57,9 @@ class LXPhotosBrowserViewController: UIViewController {
         models.append(model)
         models.append(model1)
         models.append(model2)
-        models.append(model)
-        models.append(model2)
-        models.append(model)
-        models.append(model1)
-        models.append(model2)
-        models.append(model)
-        models.append(model2)
-        models.append(model)
-        models.append(model1)
-        models.append(model2)
-        models.append(model)
-        models.append(model2)
-        models.append(model)
-        models.append(model1)
-        models.append(model2)
-        models.append(model)
-        models.append(model2)
-        models.append(model)
-        
+
         setUI()
         
-        view.addSubview(collectionView)
     }
 
     private func setUI() {
@@ -134,39 +92,9 @@ extension LXPhotosBrowserViewController: NineGridPhotosViewDelegate {
 
     }
 }
-// MARK:- collectionView的数据源&代理
-extension LXPhotosBrowserViewController : UICollectionViewDataSource, UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return models.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PictureCell
-        cell.photo = models[indexPath.item]
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        //图片浏览器
-        let pView = PhotosBrowserView()
-        pView.delegate = self
-        pView.loadBlock = { model, imgView in
-          imgView.kf.setImage(with: URL(string: model.imgUrl)!)
-        }
-        pView.photos = models
-        pView.startAnimation(with: indexPath.item, cellType: true)
-        
-    }
-}
 
 extension LXPhotosBrowserViewController: PhotosBrowserViewDelagete {
-    func photosBrowserView(cellIndex: Int, photos: [FileInfoProtocol]) -> UIView {
-        return collectionView.cellForItem(at: IndexPath(item: cellIndex, section: 0)) ?? UIView()
-    }
-    
-    
+
     /// 长按保存图片
     func photosBrowserView(longPress photosBrowserView: PhotosBrowserView, _ model: FileInfoProtocol) {
 
