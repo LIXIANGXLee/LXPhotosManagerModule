@@ -8,31 +8,31 @@
 
 import UIKit
 
-//点击类型区分的枚举
+//MARK: - 点击类型区分的枚举
 public enum SinglePhotoViewTapType {
-    //点击图片
+    ///点击图片
     case tapImgView(SinglePhotoViewType,SinglePhotoView)
-    //点击删除图片
+    ///点击删除图片
     case deleteImgView(SinglePhotoView)
 }
 
-//当前view显示样式
+///当前view显示样式
 public enum SinglePhotoViewType {
     case add(isAdd: Bool) // 添加图片view用 isAdd = true 是默认的➕图片 false 是选择的图片
     case nineGrid // 九宫格view
 }
 
-//点击 回调协议
+//MARK: - 点击 回调协议
 public protocol SinglePhotoViewDelegate: AnyObject {
      func singlePhotoView(with type: SinglePhotoViewTapType)
 }
 
 public class SinglePhotoView: UIView {
     
-    //加载图片方式
+    ///加载图片方式
     public var loadBlock: ((FileInfoProtocol,UIImageView) -> ())?
 
-    //单个图片数据源
+    ///单个图片数据源
     public var photo: FileInfoProtocol? {
         didSet {
             guard let photo = self.photo else { return}
@@ -40,10 +40,10 @@ public class SinglePhotoView: UIView {
         }
     }
     
-    //代理协议
+    /// 代理协议
     public weak var delegate: SinglePhotoViewDelegate?
     
-    // 默认是九宫格布局
+    /// 默认是九宫格布局
     public var type: SinglePhotoViewType = .nineGrid {
         didSet {
             //选择添加图片的默认 ➕ 图片
@@ -53,7 +53,7 @@ public class SinglePhotoView: UIView {
         }
     }
     
-    //默认 ➕ 图片
+    /// 默认 ➕ 图片
     public var addImage: UIImage? {
         didSet {
             if case let .add(isAdd: isAdd) = self.type {
@@ -65,7 +65,7 @@ public class SinglePhotoView: UIView {
         }
     }
     
-    //图片
+    /// 图片
     public var imgView: UIImageView!
     private var closeImgView: UIImageView!
     
@@ -80,7 +80,7 @@ public class SinglePhotoView: UIView {
 }
 
 extension SinglePhotoView {
-
+    /// 初始化UI
     private func setUI() {
         imgView = UIImageView()
         imgView.contentMode = .scaleAspectFill
@@ -98,6 +98,7 @@ extension SinglePhotoView {
         closeImgView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapCloseImgView)))
     }
     
+    /// 尺寸布局
     public override func layoutSubviews() {
         super.layoutSubviews()
         imgView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
@@ -110,17 +111,16 @@ extension SinglePhotoView {
         }
     }
     
+    /// 删除图片
     @objc private func tapCloseImgView() {
         delegate?.singlePhotoView(with: SinglePhotoViewTapType.deleteImgView(self))
     }
     
-    //图片点击
+    ///点击图片
     @objc private func tapImgView() {
-        
         switch self.type {
         case .nineGrid:
             delegate?.singlePhotoView(with: SinglePhotoViewTapType.tapImgView(.nineGrid, self))
-              
         case let .add(isAdd: isAdd):
             delegate?.singlePhotoView(with: SinglePhotoViewTapType.tapImgView(.add(isAdd: isAdd), self))
         }

@@ -10,20 +10,21 @@ import UIKit
 
 //MARK: - 快速从bundle中加载图片
 public struct ConvenienceBundle {
-    private let path: String?           //默认bundle下文件夹名字
+    private let path: String?          //默认bundle下文件夹名字
     private let bundlePath: String     //bundle文件全路径
-    private let bundleName: String
+    private let bundleName: String     // 文件名字
     
-    /// 初始化一个便利bundle构建器
+    /// 自定义指定构造器 用于初始化
     public init(bundlePath: String, bundleName: String, path: String? = nil) {
         self.bundlePath = bundlePath
         self.path = path
         self.bundleName = bundleName
     }
-    /// 根据资源名称和资源路径加载资源,
+    
+    /// 根据资源名称和资源路径加载资源
     ///
-    /// - imageNamed: 图片的名称或者路径
-    /// - path: bundle中的路径,如果指定则不使用默认的路径
+    /// - imageNamed: 图片的名称
+    /// - path: bundle中的路径 nil 则使用默认图片
     public func imageNamed(_ imageName: String, path: String? = nil) -> UIImage? {
         var imagePath = "\(bundlePath)/\(bundleName)/"
         if let path = path {
@@ -35,7 +36,8 @@ public struct ConvenienceBundle {
         return ImageBuilder.loadImage(imagePath)
     }
 }
-/// 图片建造器,根据全路径返回适合的图片资源
+
+/// 图片建造器
 fileprivate struct ImageBuilder {
     static var x1ImageBuilder: ImageAdaptNode = X1ImageBuilder(successor: X2ImageBuilder(successor: X3ImageBuilder()))
     static var x2ImageBuilder: ImageAdaptNode = X2ImageBuilder(successor: X3ImageBuilder(successor: X1ImageBuilder()))
@@ -52,10 +54,26 @@ fileprivate struct ImageBuilder {
     }
 }
 
-/// 声明责任链结点(责任链设计模式)
+/// 声明责任链结点 方便查找遍历
 fileprivate protocol ImageAdaptNode {
     init(successor: ImageAdaptNode?)
     func loadImage(_ imagePath: String) -> UIImage?
+}
+
+/// 一倍图建造器
+fileprivate struct X1ImageBuilder: ImageAdaptNode {
+    private var successor: ImageAdaptNode?
+    init(successor: ImageAdaptNode? = nil) {
+        self.successor = successor
+    }
+    //加载一倍图 加载失败 则遍历
+    func loadImage(_ imagePath: String) -> UIImage? {
+        if let image = UIImage(contentsOfFile: "\(imagePath).png") {
+            return image
+        }else{
+            return successor?.loadImage(imagePath)
+        }
+    }
 }
 
 /// 二倍图建造器
@@ -64,9 +82,9 @@ fileprivate struct X2ImageBuilder: ImageAdaptNode {
     init(successor: ImageAdaptNode? = nil) {
         self.successor = successor
     }
-    /// 试图加载二倍图
+    
+    //加载二倍图 加载失败 则遍历
     func loadImage(_ imagePath: String) -> UIImage? {
-        //加载二倍图,加载失败则继续遍历职责链
         if let image = UIImage(contentsOfFile: "\(imagePath)@2x.png") {
             return image
         }else{
@@ -81,25 +99,10 @@ fileprivate struct X3ImageBuilder: ImageAdaptNode {
     init(successor: ImageAdaptNode? = nil) {
         self.successor = successor
     }
-    /// 试图加载三倍图
+    
+    //加载三倍图 加载失败 则遍历
     func loadImage(_ imagePath: String) -> UIImage? {
         if let image = UIImage(contentsOfFile: "\(imagePath)@3x.png") {
-            return image
-        }else{
-            return successor?.loadImage(imagePath)
-        }
-    }
-}
-
-/// 一倍图建造器
-fileprivate struct X1ImageBuilder: ImageAdaptNode {
-    private var successor: ImageAdaptNode?
-    init(successor: ImageAdaptNode? = nil) {
-        self.successor = successor
-    }
-    /// 试图加载一倍图
-    func loadImage(_ imagePath: String) -> UIImage? {
-        if let image = UIImage(contentsOfFile: "\(imagePath).png") {
             return image
         }else{
             return successor?.loadImage(imagePath)

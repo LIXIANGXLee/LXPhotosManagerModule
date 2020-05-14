@@ -17,14 +17,14 @@ public enum SaveAssetType {
 
 public class SaveAsset: NSObject {
  
-    //创建图片唯一标识
+    ///创建图片唯一标识
     fileprivate static var assetImageLocalIdentifier: String?
     
-    //创建相册薄的唯一标识
+    ///创建相册薄的唯一标识
     fileprivate static var assetCollectionLocalIdentifier: String?
-  
+    ///回调函数（带返回值） 定义
     public typealias CallBack = ((SaveAssetType) -> ())
-    //回调函数
+    ///回调函数
     fileprivate static var callBack: CallBack?
     fileprivate static var colloctionName: String?
     fileprivate static var image: UIImage = UIImage()
@@ -104,19 +104,19 @@ extension SaveAsset {
                      request?.insertAssets(asset, at: IndexSet(arrayLiteral: 0))
                  }
                }) { (success, error) in
-                 if success {
-                     DispatchQueue.main.async {
-                         callBack?(.success(image))
-                     }
-                 }else {
-                     DispatchQueue.main.async {
-                         callBack?(.failure("保存图片失败!"))
+                     if success {
+                         DispatchQueue.main.async {
+                             callBack?(.success(image))
+                         }
+                     }else {
+                         DispatchQueue.main.async {
+                             callBack?(.failure("保存图片失败!"))
+                         }
                      }
                  }
-             }
-         }
-     }
- }
+            }
+        }
+    }
  
      ///获取相薄
     fileprivate class func getAssetCollection(with colloctionName: String) -> PHAssetCollection? {

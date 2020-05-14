@@ -11,18 +11,18 @@ import UIKit
 //点击 回调协议
 public protocol NineGridPhotosViewDelegate: AnyObject {
     
-    //数据源回调
+    ///数据源回调
     func nineGridPhotosView(with index: Int,photoViews: [SinglePhotoView],datasource: [FileInfoProtocol])
 }
 
 public class NineGridPhotosView: UIView {
 
     //MARK: - 私有属性
-    //存放所有图片的集合
+    ///存放所有图片的集合
     private var photoViews = [SinglePhotoView]()
     
      //MARK: - 公共属性
-    //图片文件数据源
+    ///图片文件数据源
     public var datasource =  [FileInfoProtocol](){
         didSet {
             if  datasource.count >= photoMaxCount{
@@ -42,23 +42,23 @@ public class NineGridPhotosView: UIView {
         }
     }
     
-    //加载图片方式
+    /// 加载图片方式
     public var loadBlock: ((FileInfoProtocol,UIImageView) -> ())?
     
-    // 加载最大高度回调
+    /// 加载最大高度回调
     public var loadCurrentViewMaxY: ((CGFloat) -> ())?
 
-    //图片最大个数（默认最大个数是9个）
+    /// 图片最大个数（默认最大个数是9个）
     public var photoMaxCount: Int = 9
     
-    //代理协议
+    /// 代理协议
     public weak var delegate: NineGridPhotosViewDelegate?
     
-    //只有一张图片的时候设置（多张不用设置）
+    /// 只有一张图片的时候设置（多张不用设置）
     public var singleViewH: CGFloat = 163
     public var singleViewW: CGFloat = 163
 
-    //多张图片的间隔
+    /// 多张图片的间隔
     public var marginRol: CGFloat = 5.0
     public var marginCol: CGFloat = 5.0
 
@@ -66,7 +66,7 @@ public class NineGridPhotosView: UIView {
 }
 
 extension NineGridPhotosView {
-    
+    /// 初始化UI
     private func setUI() {
         var photoView: SinglePhotoView
         for (index,photo) in self.datasource.enumerated() {
@@ -146,6 +146,7 @@ extension NineGridPhotosView {
     }
 }
 
+//MARK: - 类扩展（代理回调）
 extension NineGridPhotosView: SinglePhotoViewDelegate {
 
     public func singlePhotoView(with photoViewTapType: SinglePhotoViewTapType) {

@@ -10,28 +10,28 @@ import UIKit
 import AVFoundation
 import Photos
 
-// 回调协议
+/// 回调协议
 public protocol AddPhotosViewDelegate: AnyObject {
     
-    //数据源回调
+    ///数据源回调
     func addPhotosView(with datasource: [FileInfoProtocol])
     
-    //长按回调
+    ///长按回调
     func addPhotosView(longPress addPhotosView : AddPhotosView, model: FileInfoProtocol)
 
 }
 
 public class AddPhotosView: UIView {
     //MARK: - 私有属性
-    //存放所有图片的集合
+    ///存放所有图片的集合
     private var photoViews = [SinglePhotoView]()
     private var photoModels = [FileInfoProtocol]()
     
-    //缓存策略的图片集合
+    ///缓存策略的图片集合
     private var cacheIMgViews = [SinglePhotoView]()
     
     //MARK: - 共有属性
-    //数据源（可外部传入）
+    ///数据源（可外部传入）
     public var pubPhotoModels = [FileInfoProtocol]() {
         didSet {
             for photoModel in pubPhotoModels {
@@ -42,17 +42,17 @@ public class AddPhotosView: UIView {
         }
     }
     
-    //加载图片方式
+    ///加载图片方式
     public var loadBlock: ((FileInfoProtocol,UIImageView) -> ())?
     
-    // 加载最大高度回调
+    /// 加载最大高度回调
     public var loadCurrentViewMaxY: ((CGFloat) -> ())?
 
     //MARK: - 共有属性
     public var marginCol: CGFloat = 10
     public var marginRol: CGFloat = 10
 
-    //显示横向几个（默认是4个）
+    ///显示横向几个（默认是4个）
     public var colCount: Int = 4
     
     public weak var delegate: AddPhotosViewDelegate?
@@ -71,7 +71,9 @@ public class AddPhotosView: UIView {
     
 }
 
+//MARK: - 类扩展（UI）
 extension AddPhotosView {
+    /// 初始化UI
     private func setAddUI() {
        let photoView  = SinglePhotoView()
        photoView.delegate = self
@@ -80,7 +82,7 @@ extension AddPhotosView {
        photoViews.append(photoView)
     }
     
-    //设置正常图片
+    ///设置正常图片
     private func setNomalUI(with photo: FileInfoProtocol) {
         let photoView: SinglePhotoView
         if self.cacheIMgViews.count > 0 {
@@ -100,7 +102,8 @@ extension AddPhotosView {
 
     }
     
- private func setLayOut() {
+    /// 尺寸布局
+    private func setLayOut() {
 
         let w: CGFloat = (self.frame.width - marginCol * CGFloat(colCount - 1)) / CGFloat(colCount)
         let h = w
@@ -111,15 +114,19 @@ extension AddPhotosView {
             pictureView.frame = CGRect(x: (marginCol + w) * CGFloat(col), y: (marginRol + h) * CGFloat(row), width: w, height: h)
             pictureView.tag = i
         }
+        ///当前view最大高度
         self.frame.size.height = photoViews[photoViews.count - 1].frame.maxY
+        ///在大高度回调
         loadCurrentViewMaxY?(self.frame.maxY)
+        ///代理回调
         delegate?.addPhotosView(with: self.photoModels)
     }
 }
 
+//MARK: - 类扩展（VC）
 extension AddPhotosView {
     
-    //获取跟控制器
+    ///获取跟控制器
     fileprivate func aboveViewController() -> UIViewController? {
         var aboveController = UIApplication.shared.delegate?.window??.rootViewController
         while aboveController?.presentedViewController != nil {
@@ -127,8 +134,9 @@ extension AddPhotosView {
         }
         return aboveController
     }
-    
-   private func selectLicense() {
+
+    /// 相册相机选择
+    private func selectLicense() {
        let sheetController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         sheetController.addAction(UIAlertAction(title: "打开相机", style: .default, handler: {  [weak self] (alert) in
              self?.openCamera()
@@ -138,9 +146,10 @@ extension AddPhotosView {
         }))
        sheetController.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
        aboveViewController()?.present(sheetController, animated: true, completion: nil)
-  }
-    
-  private func openCamera() {
+    }
+
+    /// 选择相机
+    private func openCamera() {
            let picker = UIImagePickerController()
            picker.delegate = self
            //判断是否有上传相册权限
@@ -158,6 +167,7 @@ extension AddPhotosView {
               aboveViewController()?.present(alertController, animated: true, completion: nil)
            }
        }
+     /// 选择相册
        private func openAlbum() {
            let picker = UIImagePickerController()
            picker.delegate = self
@@ -174,7 +184,8 @@ extension AddPhotosView {
                aboveViewController()?.present(alertController, animated: true, completion: nil)
            }
        }
-    
+
+    ///图片浏览器
     private func selectPhotoBrowser(index: Int) {
         //图片浏览器
         let pView = PhotosBrowserView()
@@ -192,12 +203,14 @@ extension AddPhotosView {
  
 }
 
+//MARK: - 类扩展（代理回调）
 extension AddPhotosView: PhotosBrowserViewDelagete {
     public func photosBrowserView(longPress photosBrowserView: PhotosBrowserView, _ model: FileInfoProtocol) {
         delegate?.addPhotosView(longPress: self, model: model)
     }
 }
 
+//MARK: - 类扩展（代理回调）
 extension AddPhotosView: SinglePhotoViewDelegate {
     public func singlePhotoView(with type: SinglePhotoViewTapType) {
         switch type {
@@ -219,6 +232,7 @@ extension AddPhotosView: SinglePhotoViewDelegate {
     }
 }
 
+//MARK: - 类扩展（代理回调）
 extension AddPhotosView: UIImagePickerControllerDelegate , UINavigationControllerDelegate {
     //点击使用图片, 使用该图片
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -237,6 +251,7 @@ extension AddPhotosView: UIImagePickerControllerDelegate , UINavigationControlle
     }
 }
 
+///模型数据
 public class PhotoModel: FileInfoProtocol {
     public var isNetWork: Bool
     public var image: UIImage
@@ -257,6 +272,7 @@ public class PhotoModel: FileInfoProtocol {
     }
 }
 
+//MARK: - 类扩展（隐私管理）
 public class PrivilegeManager: NSObject {
     
     /// 判断是否有访问相机的权限
