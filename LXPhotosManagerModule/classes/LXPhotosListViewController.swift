@@ -32,7 +32,9 @@ class LXPhotosListViewController: UIViewController {
           ]
     
     var models = [FileInfoProtocol]()
-    
+    deinit {
+           print("\(self)内存已释放")
+       }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "图片列表"

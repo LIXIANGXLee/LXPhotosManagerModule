@@ -29,7 +29,9 @@ class LXPhotosBrowserViewController: UIViewController {
           ]
     
     var models = [FileInfoProtocol]()
-    
+    deinit {
+           print("\(self)内存已释放")
+       }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "九宫格图片"

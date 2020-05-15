@@ -48,15 +48,20 @@ public class AddPhotosView: UIView {
     /// 加载最大高度回调
     public var loadCurrentViewMaxY: ((CGFloat) -> ())?
 
-    //MARK: - 共有属性
+    ///间距
     public var marginCol: CGFloat = 10
     public var marginRol: CGFloat = 10
 
     ///显示横向几个（默认是4个）
     public var colCount: Int = 4
     
+    ///添加图片做大个数（默认是9个）
+    public var photoMaxCount: Int = 4
+
+    /// 代理协议
     public weak var delegate: AddPhotosViewDelegate?
     
+    /// 自定义指定构造器
     override init(frame: CGRect) {
         super.init(frame: frame)
         //初始化UI
@@ -107,15 +112,24 @@ extension AddPhotosView {
 
         let w: CGFloat = (self.frame.width - marginCol * CGFloat(colCount - 1)) / CGFloat(colCount)
         let h = w
+        var maxSelfH: CGFloat = 0
         for i in 0..<photoViews.count {
             let pictureView = photoViews[i]
             let col = i % colCount
             let row = i / colCount
-            pictureView.frame = CGRect(x: (marginCol + w) * CGFloat(col), y: (marginRol + h) * CGFloat(row), width: w, height: h)
             pictureView.tag = i
+            pictureView.frame = CGRect(x: (marginCol + w) * CGFloat(col), y: (marginRol + h) * CGFloat(row), width: w, height: h)
+            pictureView.isHidden = false
+            if photoViews.count > self.photoMaxCount {
+               pictureView.isHidden = i == self.photoMaxCount
+               maxSelfH = photoViews[photoViews.count - 2].frame.maxY
+            }else{
+               maxSelfH = photoViews[photoViews.count - 1].frame.maxY
+            }
+            
         }
         ///当前view最大高度
-        self.frame.size.height = photoViews[photoViews.count - 1].frame.maxY
+        self.frame.size.height = maxSelfH
         ///在大高度回调
         loadCurrentViewMaxY?(self.frame.maxY)
         ///代理回调

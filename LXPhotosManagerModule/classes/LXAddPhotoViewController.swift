@@ -16,6 +16,10 @@ class LXAddPhotoViewController: UIViewController {
              ]
     var models = [FileInfoProtocol]()
     
+    deinit {
+        print("\(self)内存已释放")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
            self.view.backgroundColor = UIColor.white
@@ -45,6 +49,7 @@ class LXAddPhotoViewController: UIViewController {
         let addView  = AddPhotosView(frame: CGRect(x: 0, y: 100, width: UIScreen.main.bounds.width, height: 600))
         view.addSubview(addView)
         addView.delegate = self
+        
         addView.loadBlock = { model, imgView in
             if model.isNetWork {
                 imgView.kf.setImage(with: URL(string: model.imgUrl)!)
@@ -52,6 +57,7 @@ class LXAddPhotoViewController: UIViewController {
                 imgView.image = model.image
             }
         }
+        addView.photoMaxCount = 6
         addView.pubPhotoModels = models
         addView.loadCurrentViewMaxY = { maxY in
             print("---------\(maxY)")
