@@ -8,8 +8,9 @@
 // 图片浏览器显示动画界面
 
 import UIKit
+import LXFitManager
 
-public struct Const {
+public struct PhotosBrowserConst {
     static let ScreenW : CGFloat = UIScreen.main.bounds.width
     static let ScreenH : CGFloat = UIScreen.main.bounds.height
     static let TabBarH : CGFloat = (ScreenH == 812 || ScreenH == 896) ? 83 : 49
@@ -54,9 +55,7 @@ public class PhotosBrowserView: UIView {
 
     ///当前模型
     fileprivate var fileModel: FileInfoProtocol {
-        get {
-            return self.photos[self.index]
-        }
+        get { return self.photos[self.index] }
     }
     
     ///图片原始尺寸
@@ -86,11 +85,11 @@ public class PhotosBrowserView: UIView {
     }()
 
     //MARK: - system
-    override init(frame: CGRect) {
+   public override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.black
         self.alpha = 0.0
-        self.frame = CGRect(x: 0, y: 0, width: Const.ScreenW, height: Const.ScreenH)
+        self.frame = CGRect(x: 0, y: 0, width: PhotosBrowserConst.ScreenW, height: PhotosBrowserConst.ScreenH)
         aboveViewController()?.view?.addSubview(self)
     }
     
@@ -230,7 +229,7 @@ extension PhotosBrowserView {
     
      /// 结束滑动处理
     private func endScrollChange(_ point: CGPoint) {       
-        if point.y >= 20 {
+        if point.y >= LXFit.fitFloat(20) {
             //移除imgView
             removeAnimation()
         }else {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LXFitManager
 
  enum PhotosScrollViewType{
     case began(CGPoint) //开始
@@ -74,9 +75,9 @@ class PhotosScrollViewCell: UICollectionViewCell {
     
     //指示器
     fileprivate lazy var indicatorView: UIActivityIndicatorView = {
-        let iView = UIActivityIndicatorView(frame: CGRect(x: (self.scrollView.frame.width - 60 ) * 0.5, y: (self.scrollView.frame.height - 60 ) * 0.5, width: 60, height: 60))
+        let iView = UIActivityIndicatorView(frame: CGRect(x: (self.scrollView.frame.width - LXFit.fitFloat(60)) * 0.5, y: (self.scrollView.frame.height - LXFit.fitFloat(60)) * 0.5, width: LXFit.fitFloat(60), height: LXFit.fitFloat(60)))
         iView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
-        iView.layer.cornerRadius = 6
+        iView.layer.cornerRadius = LXFit.fitFloat(6)
         iView.clipsToBounds = true
         return iView
     }()
@@ -145,7 +146,7 @@ extension PhotosScrollViewCell {
     
     ///设置图片尺寸
     fileprivate func setImgViewRect(_ model: FileInfoProtocol) {
-        let imgW = (bounds.width - 20)
+        let imgW = bounds.width - LXFit.fitFloat(20)
         let imgH = imgW * model.height / model.width
         if imgH > bounds.height { //图片高度大于当前view高度
             scrollView.contentSize = CGSize(width: 0, height: imgH)
@@ -210,7 +211,7 @@ extension PhotosScrollViewCell: UIScrollViewDelegate {
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
         let offSetX = (scrollView.frame.width > scrollView.contentSize.width) ? (scrollView.frame.width - scrollView.contentSize.width) * 0.5 : 0
         let offSetY = (scrollView.frame.height > scrollView.contentSize.height) ? (scrollView.frame.height - scrollView.contentSize.height) * 0.5 : 0
-        imgView.center = CGPoint(x: scrollView.contentSize.width * 0.5 + offSetX, y:  scrollView.contentSize.height * 0.5 + offSetY)
+        imgView.center = CGPoint(x: (scrollView.contentSize.width - LXFit.fitFloat(20)) * 0.5 + offSetX, y:  scrollView.contentSize.height * 0.5 + offSetY)
         
         //外部调用尺寸（相对父视图是屏幕宽度的view）
          setResetImgViewZoomRect()
@@ -227,7 +228,7 @@ extension PhotosScrollViewCell: UIScrollViewDelegate {
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y <= 100 && !scrollView.isZooming{
+        if scrollView.contentOffset.y <= LXFit.fitFloat(100) && !scrollView.isZooming{
             isDrag = true
             isBeganPoint = scrollView.contentOffset
         }
@@ -236,7 +237,7 @@ extension PhotosScrollViewCell: UIScrollViewDelegate {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
          isDrag = false
         //滚动大图时 停止调用
-      if  scrollView.contentOffset.y < -100 && !scrollView.isZooming{
+      if  scrollView.contentOffset.y < LXFit.fitFloat(-100) && !scrollView.isZooming{
             delegate?.photosScrollViewCell(self, .end(CGPoint(x: -scrollView.contentOffset.x + isBeganPoint.x, y: -scrollView.contentOffset.y + isBeganPoint.y)))
         }else{
             delegate?.photosScrollViewCell(self, .resume)

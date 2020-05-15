@@ -1,0 +1,6 @@
+framework module LXFitManager {
+  umbrella header "LXFitManager-umbrella.h"
+
+  export *
+  module * { export * }
+}

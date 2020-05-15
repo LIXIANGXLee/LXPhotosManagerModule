@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import LXFitManager
+import LXPhotosManager
 
 class LXAddPhotoViewController: UIViewController {
     let datas = [
@@ -57,7 +59,7 @@ class LXAddPhotoViewController: UIViewController {
                 imgView.image = model.image
             }
         }
-        addView.photoMaxCount = 6
+
         addView.pubPhotoModels = models
         addView.loadCurrentViewMaxY = { maxY in
             print("---------\(maxY)")

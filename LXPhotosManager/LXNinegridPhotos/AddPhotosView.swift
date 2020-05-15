@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import Photos
+import LXFitManager
 
 /// 回调协议
 public protocol AddPhotosViewDelegate: AnyObject {
@@ -20,7 +21,7 @@ public protocol AddPhotosViewDelegate: AnyObject {
     func addPhotosView(longPress addPhotosView : AddPhotosView, model: FileInfoProtocol)
 
 }
-
+//MARK: -  添加图片的类
 public class AddPhotosView: UIView {
     //MARK: - 私有属性
     ///存放所有图片的集合
@@ -30,8 +31,8 @@ public class AddPhotosView: UIView {
     ///缓存策略的图片集合
     private var cacheImgViews = [SinglePhotoView]()
     
-    /// 加号 ➕ 图片修改（不设置 则使用默认的）
-    private var addImage: UIImage?
+    /// 加号 ➕ 和删除图片的配置信息
+    private var config: SinglePhotoConfig
     
     //MARK: - 共有属性
     ///数据源（可外部传入）
@@ -51,27 +52,19 @@ public class AddPhotosView: UIView {
     /// 加载最大高度回调
     public var loadCurrentViewMaxY: ((CGFloat) -> ())?
 
-    ///间距
-    public var marginCol: CGFloat = 10
-    public var marginRol: CGFloat = 10
-
-    ///显示横向几个（默认是4个）
-    public var colCount: Int = 4
-    
-    ///添加图片做大个数（默认是9个）
-    public var photoMaxCount: Int = 4
-
     /// 代理协议
     public weak var delegate: AddPhotosViewDelegate?
     
     /// 自定义指定构造器
     /// frame 默认尺寸设置
     /// addImage 加号 ➕ 图片修改（不设置 则使用默认的）
-    init(frame: CGRect,
-         addImage: UIImage? = UIImage.named("NinePhotoAdd"))
+    public init(frame: CGRect,
+         config: SinglePhotoConfig = SinglePhotoConfig())
     {
-        self.addImage = addImage
+        self.config = config
         super.init(frame: frame)
+        backgroundColor = UIColor.white
+
         //初始化UI
         setAddUI()
         // 布局 尺寸
@@ -90,7 +83,7 @@ extension AddPhotosView {
     private func setAddUI() {
        let photoView  = SinglePhotoView()
        photoView.delegate = self
-       photoView.type = .add(isAdd: true, addImage: self.addImage)
+       photoView.type = .add(isAdd: true, config: config)
        addSubview(photoView)
        photoViews.append(photoView)
     }
@@ -105,7 +98,7 @@ extension AddPhotosView {
         }else {
             photoView = SinglePhotoView()
             photoView.delegate = self
-            photoView.type = .add(isAdd: false, addImage: nil)
+            photoView.type = .add(isAdd: false, config: config)
             addSubview(photoView)
         }
        
@@ -118,18 +111,18 @@ extension AddPhotosView {
     /// 尺寸布局
     private func setLayOut() {
 
-        let w: CGFloat = (self.frame.width - marginCol * CGFloat(colCount - 1)) / CGFloat(colCount)
+        let w: CGFloat = (self.frame.width - config.marginCol * CGFloat(config.colCount - 1) - config.marginLeft - config.marginright) / CGFloat(config.colCount)
         let h = w
         var maxSelfH: CGFloat = 0
         for i in 0..<photoViews.count {
             let pictureView = photoViews[i]
-            let col = i % colCount
-            let row = i / colCount
+            let col = i % config.colCount
+            let row = i / config.colCount
             pictureView.tag = i
-            pictureView.frame = CGRect(x: (marginCol + w) * CGFloat(col), y: (marginRol + h) * CGFloat(row), width: w, height: h)
+            pictureView.frame = CGRect(x: config.marginLeft + (config.marginCol + w) * CGFloat(col), y:((config.deleteImagePointOffSet.y < 0) ? -config.deleteImagePointOffSet.y : 0) + (config.marginRol + h) * CGFloat(row), width: w, height: h)
             pictureView.isHidden = false
-            if photoViews.count > self.photoMaxCount {
-               pictureView.isHidden = i == self.photoMaxCount
+            if photoViews.count > config.photoMaxCount {
+               pictureView.isHidden = i == config.photoMaxCount
                maxSelfH = photoViews[photoViews.count - 2].frame.maxY
             }else{
                maxSelfH = photoViews[photoViews.count - 1].frame.maxY
@@ -237,7 +230,7 @@ extension AddPhotosView: SinglePhotoViewDelegate {
     public func singlePhotoView(with type: SinglePhotoViewTapType) {
         switch type {
         case let .tapImgView(singleType, singlePhotoView):
-            if case let  SinglePhotoViewType.add(isAdd: isAdd,addImage:_) = singleType {
+            if case let  SinglePhotoViewType.add(isAdd: isAdd, config: _) = singleType {
                 if isAdd { // 点击➕号
                     self.selectLicense()
                 }else { // 点击图片

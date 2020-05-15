@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LXFitManager
 
 protocol PhotosScrollViewDelegate: AnyObject {
     
@@ -27,14 +28,14 @@ class PhotosScrollView: UIView {
     fileprivate lazy var layOut: UICollectionViewFlowLayout = {
         let layOut = UICollectionViewFlowLayout()
         layOut.scrollDirection = UICollectionView.ScrollDirection.horizontal
-        layOut.itemSize = CGSize(width: self.bounds.width + 20, height: self.bounds.height)
+        layOut.itemSize = CGSize(width: self.bounds.width + LXFit.fitFloat(20), height: self.bounds.height)
         layOut.minimumLineSpacing = .leastNormalMagnitude
         layOut.minimumInteritemSpacing = .leastNormalMagnitude
         return layOut
     }()
     
     fileprivate(set) lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: self.bounds.width + 20, height: self.bounds.height), collectionViewLayout: self.layOut)
+        let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: self.bounds.width + LXFit.fitFloat(20), height: self.bounds.height), collectionViewLayout: self.layOut)
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.dataSource = self
@@ -51,7 +52,7 @@ class PhotosScrollView: UIView {
     }()
     
     fileprivate lazy var pageControl: UIPageControl = {
-        let pageControl = UIPageControl(frame: CGRect(x: 0, y: self.bounds.height - Const.TabBarH - 20, width: self.bounds.width, height: 20))
+        let pageControl = UIPageControl(frame: CGRect(x: 0, y: self.bounds.height - PhotosBrowserConst.TabBarH - LXFit.fitFloat(20), width: self.bounds.width, height: LXFit.fitFloat(20)))
         pageControl.pageIndicatorTintColor = UIColor.lightGray
         pageControl.currentPageIndicatorTintColor = UIColor.white
         pageControl.hidesForSinglePage = true

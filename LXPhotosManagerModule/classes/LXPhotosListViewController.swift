@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LXPhotosManager
 
 class LXPhotosListViewController: UIViewController {
     // MARK: 定义属性

@@ -8,8 +8,8 @@
 
 import UIKit
 
-fileprivate class ConvenienceBundlePath {}
-extension UIImage {
+fileprivate class ConvenienceBundleSelfPath {}
+public extension UIImage {
     
     /// 图片加载
    static func named(_ imageName: String?) -> UIImage? {
@@ -17,5 +17,5 @@ extension UIImage {
        return imageBundle.imageNamed(imageName)
    }
    
-   private static var imageBundle = ConvenienceBundle(bundlePath: Bundle(for: ConvenienceBundlePath.self).bundlePath, bundleName: "NineGridPhotos.bundle")
+   private static var imageBundle = ConvenienceBundle(bundlePath: Bundle(for: ConvenienceBundleSelfPath.self).bundlePath, bundleName: "NineGridPhotos.bundle")
 }

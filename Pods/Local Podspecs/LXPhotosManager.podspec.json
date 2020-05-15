@@ -1,6 +1,6 @@
 {
   "name": "LXPhotosManager",
-  "version": "0.2.4",
+  "version": "0.2.6",
   "summary": "LXPhotosManager is manager",
   "description": "XLee manager LXPhotosManager",
   "homepage": "https://github.com/LIXIANGXLee/LXPhotosManagerModule",
@@ -14,7 +14,12 @@
   "swift_versions": "5.0",
   "source": {
     "git": "https://github.com/LIXIANGXLee/LXPhotosManagerModule.git",
-    "tag": "0.2.4"
+    "tag": "0.2.6"
+  },
+  "dependencies": {
+    "LXFitManager": [
+
+    ]
   },
   "subspecs": [
     {

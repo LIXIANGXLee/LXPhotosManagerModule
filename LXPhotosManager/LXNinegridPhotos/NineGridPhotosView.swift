@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LXFitManager
 
 //点击 回调协议
 public protocol NineGridPhotosViewDelegate: AnyObject {
@@ -23,7 +24,6 @@ public class NineGridPhotosView: UIView {
     private var currentDatasource =  [FileInfoProtocol]()
 
      //MARK: - 公共属性
-
     /// 加载图片方式
     public var loadBlock: ((FileInfoProtocol,UIImageView) -> ())?
     
@@ -44,12 +44,12 @@ public class NineGridPhotosView: UIView {
     public weak var delegate: NineGridPhotosViewDelegate?
     
     /// 只有一张图片的时候设置（多张不用设置）
-    public var singleViewH: CGFloat = 163
-    public var singleViewW: CGFloat = 163
+    public var singleViewH: CGFloat = LXFit.fitFloat(180)
+    public var singleViewW: CGFloat = LXFit.fitFloat(180)
 
     /// 多张图片的间隔
-    public var marginRol: CGFloat = 5.0
-    public var marginCol: CGFloat = 5.0
+    public var marginRol: CGFloat = LXFit.fitFloat(5.0)
+    public var marginCol: CGFloat = LXFit.fitFloat(5.0)
 
     
 }
@@ -120,10 +120,10 @@ extension NineGridPhotosView {
             var imgH: CGFloat = 0.0
             if photoW != 0.0 && photoH != 0.0 {
                 if photoH > photoW {
-                    imgH = min(photoH, 163)
+                    imgH = min(photoH, singleViewH)
                     imgW = imgH * photoW / photoH
                 }else{
-                    imgW = min(photoW, 163)
+                    imgW = min(photoW, singleViewW)
                     imgH = imgW * photoH / photoW
                 }
             }

@@ -19,8 +19,8 @@ public enum SinglePhotoViewTapType {
 ///当前view显示样式
 public enum SinglePhotoViewType {
     /// 添加图片view用 isAdd = true 是默认的➕图片 false 是选择的图片
-    /// addImage加号图片 nil 则使用默认的
-    case add(isAdd: Bool,addImage: UIImage?)
+    /// config加号图片 和 删除图片 配置信息 
+    case add(isAdd: Bool, config: SinglePhotoConfig)
     
     /// 九宫格view
     case nineGrid
@@ -49,13 +49,11 @@ public class SinglePhotoView: UIView {
     
     /// 默认是九宫格布局
     public var type: SinglePhotoViewType = .nineGrid { didSet { setDefaultAddImage() } }
-    
-    /// 默认 ➕ 图片
-    public var addImage: UIImage? { didSet { setDefaultAddImage() } }
-    
-    /// 图片
+   
+    /// 展示的图片
     public var imgView: UIImageView!
-    private var closeImgView: UIImageView!
+    ///删除的图片
+    private var deleteImgView: UIImageView!
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -68,17 +66,53 @@ public class SinglePhotoView: UIView {
 }
 
 extension SinglePhotoView {
+    ///响应事件的view
+     public override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+      if !deleteImgView.isHidden {
+             let newP = self.convert(point, to: deleteImgView)
+             if deleteImgView.point(inside: newP, with: event) {
+                 return deleteImgView
+             }else{
+                  return super.hitTest(point, with: event)
+             }
+         }else{
+            return super.hitTest(point, with: event)
+         }
+      }
+    
+    /// 尺寸布局
+    public override func layoutSubviews() {
+       super.layoutSubviews()
+       imgView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
+
+       //设置closeButton尺寸
+       if case let .add(isAdd: isAdd, config: config) = self.type  {
+           if !isAdd {
+               deleteImgView.frame = CGRect(x: self.frame.width - config.deleteImageSize.width + config.deleteImagePointOffSet.x, y: config.deleteImagePointOffSet.y, width: config.deleteImageSize.width, height: config.deleteImageSize.width)
+           }
+       }
+   }
+}
+
+extension SinglePhotoView {
     
     ///设置默认加号➕ 图片
     private func setDefaultAddImage() {
         //选择添加图片的默认 ➕ 图片
-        if case let .add(isAdd: isAdd,addImage: addImage) = self.type {
+        if case let .add(isAdd: isAdd, config: config) = self.type {
             if isAdd {
-                if let addImg = addImage {
+                if let addImg = config.addImage {
                     imgView.image = addImg
                 }else{
                     imgView.image = UIImage.named("NinePhotoAdd")
                 }
+            }else{
+                deleteImgView.layer.cornerRadius = config.deleteImageRadius
+               if let deleteImg = config.deleteImage {
+                   deleteImgView.image = deleteImg
+               }else{
+                   deleteImgView.image = UIImage.named("NinePhotoAdd")
+               }
             }
         }
     }
@@ -92,28 +126,14 @@ extension SinglePhotoView {
         addSubview(imgView)
         imgView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapImgView)))
         
-        closeImgView = UIImageView()
-        closeImgView.contentMode = .scaleAspectFill
-        closeImgView.isUserInteractionEnabled = true
-        closeImgView.clipsToBounds = true
-        closeImgView.image = UIImage.named("NinePhotoDelete")
-        addSubview(closeImgView)
-        closeImgView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapCloseImgView)))
+        deleteImgView = UIImageView()
+        deleteImgView.contentMode = .scaleAspectFill
+        deleteImgView.isUserInteractionEnabled = true
+        deleteImgView.clipsToBounds = true
+        addSubview(deleteImgView)
+        deleteImgView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapCloseImgView)))
     }
-    
-    /// 尺寸布局
-    public override func layoutSubviews() {
-        super.layoutSubviews()
-        imgView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
-
-        //设置closeButton尺寸
-        if case let .add(isAdd: isAdd, addImage: _) = self.type  {
-            if !isAdd {
-                 closeImgView.frame = CGRect(x: self.frame.width - 20, y: 0, width: 20, height: 20)
-            }
-        }
-    }
-    
+        
     /// 删除图片
     @objc private func tapCloseImgView() {
         delegate?.singlePhotoView(with: SinglePhotoViewTapType.deleteImgView(self))
@@ -124,8 +144,8 @@ extension SinglePhotoView {
         switch self.type {
         case .nineGrid:
             delegate?.singlePhotoView(with: SinglePhotoViewTapType.tapImgView(.nineGrid, self))
-        case let .add(isAdd: isAdd, addImage: addImage):
-            delegate?.singlePhotoView(with: SinglePhotoViewTapType.tapImgView(.add(isAdd: isAdd, addImage: addImage), self))
+        case let .add(isAdd: isAdd, config: config):
+            delegate?.singlePhotoView(with: SinglePhotoViewTapType.tapImgView(.add(isAdd: isAdd,  config: config), self))
         }
     }
 }

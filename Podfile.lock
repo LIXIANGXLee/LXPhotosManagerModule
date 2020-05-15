@@ -1,29 +1,41 @@
 PODS:
-  - LXPhotosManager (0.2.4):
-    - LXPhotosManager/LXFileInfoProtocol (= 0.2.4)
-    - LXPhotosManager/LXHelpers (= 0.2.4)
-    - LXPhotosManager/LXNinegridPhotos (= 0.2.4)
-    - LXPhotosManager/LXPhotosBrowser (= 0.2.4)
-    - LXPhotosManager/SaveAsset (= 0.2.4)
-  - LXPhotosManager/LXFileInfoProtocol (0.2.4)
-  - LXPhotosManager/LXHelpers (0.2.4)
-  - LXPhotosManager/LXNinegridPhotos (0.2.4):
+  - LXFitManager (1.1.0)
+  - LXPhotosManager (0.2.6):
+    - LXFitManager
+    - LXPhotosManager/LXFileInfoProtocol (= 0.2.6)
+    - LXPhotosManager/LXHelpers (= 0.2.6)
+    - LXPhotosManager/LXNinegridPhotos (= 0.2.6)
+    - LXPhotosManager/LXPhotosBrowser (= 0.2.6)
+    - LXPhotosManager/SaveAsset (= 0.2.6)
+  - LXPhotosManager/LXFileInfoProtocol (0.2.6):
+    - LXFitManager
+  - LXPhotosManager/LXHelpers (0.2.6):
+    - LXFitManager
+  - LXPhotosManager/LXNinegridPhotos (0.2.6):
+    - LXFitManager
     - LXPhotosManager/LXFileInfoProtocol
     - LXPhotosManager/LXHelpers
     - LXPhotosManager/LXPhotosBrowser
-  - LXPhotosManager/LXPhotosBrowser (0.2.4):
+  - LXPhotosManager/LXPhotosBrowser (0.2.6):
+    - LXFitManager
     - LXPhotosManager/LXFileInfoProtocol
-  - LXPhotosManager/SaveAsset (0.2.4)
+  - LXPhotosManager/SaveAsset (0.2.6):
+    - LXFitManager
 
 DEPENDENCIES:
   - LXPhotosManager (from `./`)
+
+SPEC REPOS:
+  trunk:
+    - LXFitManager
 
 EXTERNAL SOURCES:
   LXPhotosManager:
     :path: "./"
 
 SPEC CHECKSUMS:
-  LXPhotosManager: 2e30e58923249a97ec5962ed11faa94a7b4e999f
+  LXFitManager: d76fa8e60a899fccf87c66fe33e19479e1d64906
+  LXPhotosManager: b4e492472f2187d830f63cc1ee1e358949225974
 
 PODFILE CHECKSUM: f4fb62a0dc2293677d1dfcd8f9c9e4607a6e210f
 

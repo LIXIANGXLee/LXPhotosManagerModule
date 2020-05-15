@@ -84,6 +84,10 @@ class LXPhotosBrowserViewController: UIViewController {
         photoVeiw.photoMaxCount = 7
 
         view.addSubview(photoVeiw)
+        
+        photoVeiw.loadCurrentViewMaxY = { maxH in
+            print("---\(maxH)")
+        }
 
     }
 }
