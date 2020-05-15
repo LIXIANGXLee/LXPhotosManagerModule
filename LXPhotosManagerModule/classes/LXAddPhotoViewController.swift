@@ -46,7 +46,7 @@ class LXAddPhotoViewController: UIViewController {
                         
         view.backgroundColor = UIColor.white
         
-        let addView  = AddPhotosView(frame: CGRect(x: 0, y: 100, width: UIScreen.main.bounds.width, height: 600))
+        let addView = AddPhotosView(frame: CGRect(x: 0, y: 100, width: UIScreen.main.bounds.width, height: 600))
         view.addSubview(addView)
         addView.delegate = self
         

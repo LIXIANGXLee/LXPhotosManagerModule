@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "LXPhotosManager"
-  spec.version      = "0.2.5"
+  spec.version      = "0.2.6"
   spec.summary      = "LXPhotosManager is manager"
 
   # This description is used to generate tags and improve search results.

@@ -18,8 +18,12 @@ public enum SinglePhotoViewTapType {
 
 ///当前view显示样式
 public enum SinglePhotoViewType {
-    case add(isAdd: Bool) // 添加图片view用 isAdd = true 是默认的➕图片 false 是选择的图片
-    case nineGrid // 九宫格view
+    /// 添加图片view用 isAdd = true 是默认的➕图片 false 是选择的图片
+    /// addImage加号图片 nil 则使用默认的
+    case add(isAdd: Bool,addImage: UIImage?)
+    
+    /// 九宫格view
+    case nineGrid
 }
 
 //MARK: - 点击 回调协议
@@ -44,26 +48,10 @@ public class SinglePhotoView: UIView {
     public weak var delegate: SinglePhotoViewDelegate?
     
     /// 默认是九宫格布局
-    public var type: SinglePhotoViewType = .nineGrid {
-        didSet {
-            //选择添加图片的默认 ➕ 图片
-            if case let .add(isAdd: isAdd) = self.type {
-                if isAdd {imgView.image = UIImage.named("NinePhotoAdd")}
-            }
-        }
-    }
+    public var type: SinglePhotoViewType = .nineGrid { didSet { setDefaultAddImage() } }
     
     /// 默认 ➕ 图片
-    public var addImage: UIImage? {
-        didSet {
-            if case let .add(isAdd: isAdd) = self.type {
-                if isAdd {
-                    guard let image = self.addImage else { return }
-                    imgView.image = image
-                }
-            }
-        }
-    }
+    public var addImage: UIImage? { didSet { setDefaultAddImage() } }
     
     /// 图片
     public var imgView: UIImageView!
@@ -80,6 +68,21 @@ public class SinglePhotoView: UIView {
 }
 
 extension SinglePhotoView {
+    
+    ///设置默认加号➕ 图片
+    private func setDefaultAddImage() {
+        //选择添加图片的默认 ➕ 图片
+        if case let .add(isAdd: isAdd,addImage: addImage) = self.type {
+            if isAdd {
+                if let addImg = addImage {
+                    imgView.image = addImg
+                }else{
+                    imgView.image = UIImage.named("NinePhotoAdd")
+                }
+            }
+        }
+    }
+    
     /// 初始化UI
     private func setUI() {
         imgView = UIImageView()
@@ -104,7 +107,7 @@ extension SinglePhotoView {
         imgView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
 
         //设置closeButton尺寸
-        if case let .add(isAdd: isAdd) = self.type  {
+        if case let .add(isAdd: isAdd, addImage: _) = self.type  {
             if !isAdd {
                  closeImgView.frame = CGRect(x: self.frame.width - 20, y: 0, width: 20, height: 20)
             }
@@ -121,8 +124,8 @@ extension SinglePhotoView {
         switch self.type {
         case .nineGrid:
             delegate?.singlePhotoView(with: SinglePhotoViewTapType.tapImgView(.nineGrid, self))
-        case let .add(isAdd: isAdd):
-            delegate?.singlePhotoView(with: SinglePhotoViewTapType.tapImgView(.add(isAdd: isAdd), self))
+        case let .add(isAdd: isAdd, addImage: addImage):
+            delegate?.singlePhotoView(with: SinglePhotoViewTapType.tapImgView(.add(isAdd: isAdd, addImage: addImage), self))
         }
     }
 }

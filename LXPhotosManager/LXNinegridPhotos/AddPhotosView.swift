@@ -28,7 +28,10 @@ public class AddPhotosView: UIView {
     private var photoModels = [FileInfoProtocol]()
     
     ///缓存策略的图片集合
-    private var cacheIMgViews = [SinglePhotoView]()
+    private var cacheImgViews = [SinglePhotoView]()
+    
+    /// 加号 ➕ 图片修改（不设置 则使用默认的）
+    private var addImage: UIImage?
     
     //MARK: - 共有属性
     ///数据源（可外部传入）
@@ -62,7 +65,12 @@ public class AddPhotosView: UIView {
     public weak var delegate: AddPhotosViewDelegate?
     
     /// 自定义指定构造器
-    override init(frame: CGRect) {
+    /// frame 默认尺寸设置
+    /// addImage 加号 ➕ 图片修改（不设置 则使用默认的）
+    init(frame: CGRect,
+         addImage: UIImage? = UIImage.named("NinePhotoAdd"))
+    {
+        self.addImage = addImage
         super.init(frame: frame)
         //初始化UI
         setAddUI()
@@ -82,7 +90,7 @@ extension AddPhotosView {
     private func setAddUI() {
        let photoView  = SinglePhotoView()
        photoView.delegate = self
-       photoView.type = .add(isAdd: true)
+       photoView.type = .add(isAdd: true, addImage: self.addImage)
        addSubview(photoView)
        photoViews.append(photoView)
     }
@@ -90,14 +98,14 @@ extension AddPhotosView {
     ///设置正常图片
     private func setNomalUI(with photo: FileInfoProtocol) {
         let photoView: SinglePhotoView
-        if self.cacheIMgViews.count > 0 {
-            photoView =  self.cacheIMgViews.first!
-            self.cacheIMgViews.removeFirst()
+        if self.cacheImgViews.count > 0 {
+            photoView =  self.cacheImgViews.first!
+            self.cacheImgViews.removeFirst()
             photoView.isHidden = false
         }else {
             photoView = SinglePhotoView()
             photoView.delegate = self
-            photoView.type = .add(isAdd: false)
+            photoView.type = .add(isAdd: false, addImage: nil)
             addSubview(photoView)
         }
        
@@ -229,7 +237,7 @@ extension AddPhotosView: SinglePhotoViewDelegate {
     public func singlePhotoView(with type: SinglePhotoViewTapType) {
         switch type {
         case let .tapImgView(singleType, singlePhotoView):
-            if case let  SinglePhotoViewType.add(isAdd: isAdd) = singleType {
+            if case let  SinglePhotoViewType.add(isAdd: isAdd,addImage:_) = singleType {
                 if isAdd { // 点击➕号
                     self.selectLicense()
                 }else { // 点击图片
@@ -237,7 +245,7 @@ extension AddPhotosView: SinglePhotoViewDelegate {
                 }
             }
         case let .deleteImgView(singlePhotoView):
-            self.cacheIMgViews.append(singlePhotoView)
+            self.cacheImgViews.append(singlePhotoView)
             singlePhotoView.isHidden = true
             self.photoViews.remove(at: singlePhotoView.tag)
             self.photoModels.remove(at: singlePhotoView.tag)
