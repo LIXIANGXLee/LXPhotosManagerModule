@@ -240,8 +240,11 @@ extension AddPhotosView: SinglePhotoViewDelegate {
         case let .deleteImgView(singlePhotoView):
             self.cacheImgViews.append(singlePhotoView)
             singlePhotoView.isHidden = true
-            self.photoViews.remove(at: singlePhotoView.tag)
-            self.photoModels.remove(at: singlePhotoView.tag)
+            // 删除需小心 加判断 否则 连点击 会有越界问题
+            if self.photoViews.contains(singlePhotoView){
+                self.photoViews.remove(at: singlePhotoView.tag)
+                self.photoModels.remove(at: singlePhotoView.tag)
+            }
             setLayOut()
         }
     }

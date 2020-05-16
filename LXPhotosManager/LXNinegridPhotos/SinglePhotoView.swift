@@ -124,23 +124,37 @@ extension SinglePhotoView {
         imgView.isUserInteractionEnabled = true
         imgView.clipsToBounds = true
         addSubview(imgView)
-        imgView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapImgView)))
+        imgView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapImgView(_:))))
         
         deleteImgView = UIImageView()
         deleteImgView.contentMode = .scaleAspectFill
         deleteImgView.isUserInteractionEnabled = true
         deleteImgView.clipsToBounds = true
         addSubview(deleteImgView)
-        deleteImgView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapCloseImgView)))
+        deleteImgView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapDeleteImgView(_:))))
     }
         
     /// 删除图片
-    @objc private func tapCloseImgView() {
+    @objc private func tapDeleteImgView(_ gesture: UIGestureRecognizer) {
+        // 预防连续点击
+        gesture.view?.isUserInteractionEnabled = false
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0) {
+             gesture.view?.isUserInteractionEnabled = true
+        }
+        
+        // 删除代理回调
         delegate?.singlePhotoView(with: SinglePhotoViewTapType.deleteImgView(self))
     }
     
     ///点击图片
-    @objc private func tapImgView() {
+    @objc private func tapImgView(_ gesture: UIGestureRecognizer) {
+        // 预防连续点击
+        gesture.view?.isUserInteractionEnabled = false
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0) {
+             gesture.view?.isUserInteractionEnabled = true
+        }
+        
+        //  点击加号或者点击图片
         switch self.type {
         case .nineGrid:
             delegate?.singlePhotoView(with: SinglePhotoViewTapType.tapImgView(.nineGrid, self))

@@ -16,8 +16,8 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "LXPhotosManager"
-  spec.version      = "0.3.0"
-  spec.summary      = "LXPhotosManager is manager"
+  spec.version      = "0.3.1"
+  spec.summary      = "九宫格、图片添加、图片浏览器"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,8 +25,7 @@ Pod::Spec.new do |spec|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   spec.description  = <<-DESC
-           XLee manager LXPhotosManager
-
+           XLee manager LXPhotosManager 九宫格、图片添加、图片浏览器
                    DESC
 
   spec.homepage     = "https://github.com/LIXIANGXLee/LXPhotosManagerModule"
@@ -105,8 +104,8 @@ Pod::Spec.new do |spec|
       hp.source_files = 'LXPhotosManager/LXHelpers/*.{swift}'
     end
     # 图片保存
-    spec.subspec 'SaveAsset' do |sa|
-      sa.source_files = 'LXPhotosManager/SaveAsset/*.{swift}'
+    spec.subspec 'LXSaveAsset' do |sa|
+      sa.source_files = 'LXPhotosManager/LXSaveAsset/*.{swift}'
     end
 
     # 图片浏览器
