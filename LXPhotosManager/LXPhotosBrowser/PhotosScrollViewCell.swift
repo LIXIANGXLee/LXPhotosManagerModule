@@ -211,7 +211,7 @@ extension PhotosScrollViewCell: UIScrollViewDelegate {
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
         let offSetX = (scrollView.frame.width > scrollView.contentSize.width) ? (scrollView.frame.width - scrollView.contentSize.width) * 0.5 : 0
         let offSetY = (scrollView.frame.height > scrollView.contentSize.height) ? (scrollView.frame.height - scrollView.contentSize.height) * 0.5 : 0
-        imgView.center = CGPoint(x: (scrollView.contentSize.width - LXFit.fitFloat(20)) * 0.5 + offSetX, y:  scrollView.contentSize.height * 0.5 + offSetY)
+        imgView.center = CGPoint(x: scrollView.contentSize.width  * 0.5 - LXFit.fitFloat(20) + offSetX, y:  scrollView.contentSize.height * 0.5 + offSetY)
         
         //外部调用尺寸（相对父视图是屏幕宽度的view）
          setResetImgViewZoomRect()
