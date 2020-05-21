@@ -54,6 +54,7 @@
 		04B3B0CD24765F9C000865F4 /* ConvenienceSelfBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3B0C124765F9C000865F4 /* ConvenienceSelfBundle.swift */; };
 		04B3B0CE24765F9C000865F4 /* SaveAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3B0C224765F9C000865F4 /* SaveAsset.swift */; };
 		04B3B0CF24765F9C000865F4 /* FileInfoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3B0C324765F9C000865F4 /* FileInfoProtocol.swift */; };
+		04B3B0D12476DAD9000865F4 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3B0D02476DAD9000865F4 /* UIImageExtension.swift */; };
 		462FF14A88732753896D8A2A /* Pods_LXPhotosManagerModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8B4CCE567E964DE29D0157C /* Pods_LXPhotosManagerModule.framework */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +111,7 @@
 		04B3B0C124765F9C000865F4 /* ConvenienceSelfBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvenienceSelfBundle.swift; sourceTree = "<group>"; };
 		04B3B0C224765F9C000865F4 /* SaveAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveAsset.swift; sourceTree = "<group>"; };
 		04B3B0C324765F9C000865F4 /* FileInfoProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileInfoProtocol.swift; sourceTree = "<group>"; };
+		04B3B0D02476DAD9000865F4 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		4D9B5374C189866F4307AE11 /* Pods-LXPhotosManagerModule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LXPhotosManagerModule.release.xcconfig"; path = "Target Support Files/Pods-LXPhotosManagerModule/Pods-LXPhotosManagerModule.release.xcconfig"; sourceTree = "<group>"; };
 		B8B4CCE567E964DE29D0157C /* Pods_LXPhotosManagerModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LXPhotosManagerModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -261,6 +263,7 @@
 				04B3B0C124765F9C000865F4 /* ConvenienceSelfBundle.swift */,
 				04B3B0C224765F9C000865F4 /* SaveAsset.swift */,
 				04B3B0C324765F9C000865F4 /* FileInfoProtocol.swift */,
+				04B3B0D02476DAD9000865F4 /* UIImageExtension.swift */,
 			);
 			path = LXHelpers;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				040CFC7C24475AB200CAFF40 /* Resource.swift in Sources */,
 				049F0FFD244939EF00738079 /* LXPhotosBrowserViewController.swift in Sources */,
 				040CFC8624475AB200CAFF40 /* Filter.swift in Sources */,
+				04B3B0D12476DAD9000865F4 /* UIImageExtension.swift in Sources */,
 				040CFC7724475AB200CAFF40 /* ImageView+Kingfisher.swift in Sources */,
 				04282EE9246D7D970039083E /* LXPhotosListViewController.swift in Sources */,
 				040CFC8224475AB200CAFF40 /* ImageTransition.swift in Sources */,

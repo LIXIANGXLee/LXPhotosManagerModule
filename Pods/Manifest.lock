@@ -1,16 +1,16 @@
 PODS:
   - LXFitManager (1.1.0)
-  - LXPhotosManager (0.3.2):
+  - LXPhotosManager (0.3.3):
     - LXFitManager
-    - LXPhotosManager/LXHelpers (= 0.3.2)
-    - LXPhotosManager/LXNinegridPhotos (= 0.3.2)
-    - LXPhotosManager/LXPhotosBrowser (= 0.3.2)
-  - LXPhotosManager/LXHelpers (0.3.2):
+    - LXPhotosManager/LXHelpers (= 0.3.3)
+    - LXPhotosManager/LXNinegridPhotos (= 0.3.3)
+    - LXPhotosManager/LXPhotosBrowser (= 0.3.3)
+  - LXPhotosManager/LXHelpers (0.3.3):
     - LXFitManager
-  - LXPhotosManager/LXNinegridPhotos (0.3.2):
+  - LXPhotosManager/LXNinegridPhotos (0.3.3):
     - LXFitManager
     - LXPhotosManager/LXPhotosBrowser
-  - LXPhotosManager/LXPhotosBrowser (0.3.2):
+  - LXPhotosManager/LXPhotosBrowser (0.3.3):
     - LXFitManager
     - LXPhotosManager/LXHelpers
 
@@ -27,7 +27,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   LXFitManager: d76fa8e60a899fccf87c66fe33e19479e1d64906
-  LXPhotosManager: c40e46b77765f1832c813cc420bc627dccec8393
+  LXPhotosManager: 0056856a2d59fe949e3eea852a6bd415f07e2f64
 
 PODFILE CHECKSUM: f4fb62a0dc2293677d1dfcd8f9c9e4607a6e210f
 

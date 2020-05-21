@@ -10,11 +10,14 @@ import UIKit
 //import LXPhotosManager
 
 public class FileModel: FileInfoProtocol {
+    
     public var isNetWork: Bool = true
     public var image: UIImage = UIImage()
     public var height: CGFloat = 0.0
     public var width: CGFloat = 0.0
     public var imgUrl: String = ""
+    public var videoUrl: String = ""
+
 }
 
 
@@ -93,6 +96,12 @@ class LXPhotosBrowserViewController: UIViewController {
 }
 
 extension LXPhotosBrowserViewController: NineGridPhotosViewDelegate {
+    func nineGridPhotosView(videoPlay model: FileInfoProtocol) {
+        
+        print("=======s视频播放")
+        
+    }
+    
     func nineGridPhotosView(with index: Int, photoViews: [SinglePhotoView], datasource: [FileInfoProtocol]) {
         
         //图片浏览器

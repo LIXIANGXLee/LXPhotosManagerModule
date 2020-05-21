@@ -11,7 +11,8 @@ import UIKit
 //MARK: - 点击类型区分的枚举
 public enum SinglePhotoViewTapType {
     ///点击图片
-    case tapImgView(SinglePhotoViewType,SinglePhotoView)
+    case tapImgView(SinglePhotoViewType,SinglePhotoType,SinglePhotoView)
+    
     ///点击删除图片
     case deleteImgView(SinglePhotoView)
 }
@@ -23,7 +24,7 @@ public enum SinglePhotoViewType {
     case add(isAdd: Bool, config: SinglePhotoConfig)
     
     /// 九宫格view
-    case nineGrid
+    case nineGrid(type: SinglePhotoType)
 }
 
 //MARK: - 点击 回调协议
@@ -48,12 +49,15 @@ public class SinglePhotoView: UIView {
     public weak var delegate: SinglePhotoViewDelegate?
     
     /// 默认是九宫格布局
-    public var type: SinglePhotoViewType = .nineGrid { didSet { setDefaultAddImage() } }
+    public var type: SinglePhotoViewType = .nineGrid(type: .photo) { didSet { setDefaultAddImage() } }
    
     /// 展示的图片
     public var imgView: UIImageView!
     ///删除的图片
     private var deleteImgView: UIImageView!
+    
+    ///视频播放的图片
+    private var videoImgView: UIImageView!
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -89,6 +93,12 @@ extension SinglePhotoView {
        if case let .add(isAdd: isAdd, config: config) = self.type  {
            if !isAdd {
                deleteImgView.frame = CGRect(x: self.frame.width - config.deleteImageSize.width + config.deleteImagePointOffSet.x, y: config.deleteImagePointOffSet.y, width: config.deleteImageSize.width, height: config.deleteImageSize.width)
+            
+                /// 视频时调用
+                if config.type == .video {
+                    videoImgView.frame = CGRect(x: 0, y: 0, width: config.videoPlayImageSize.width, height: config.videoPlayImageSize.height)
+                    videoImgView.center = imgView.center
+                }
            }
        }
    }
@@ -113,6 +123,12 @@ extension SinglePhotoView {
                }else{
                    deleteImgView.image = UIImage.named("NinePhotoAdd")
                }
+                
+               if let videoPlayImg = config.videoPlayImage {
+                    videoImgView.image = videoPlayImg
+               }else{
+                    videoImgView.image = UIImage.named("video_centerPlay")
+               }
             }
         }
     }
@@ -132,6 +148,10 @@ extension SinglePhotoView {
         deleteImgView.clipsToBounds = true
         addSubview(deleteImgView)
         deleteImgView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapDeleteImgView(_:))))
+        
+        videoImgView = UIImageView()
+        videoImgView.contentMode = .scaleAspectFill
+        imgView.addSubview(videoImgView)
     }
         
     /// 删除图片
@@ -156,10 +176,10 @@ extension SinglePhotoView {
         
         //  点击加号或者点击图片
         switch self.type {
-        case .nineGrid:
-            delegate?.singlePhotoView(with: SinglePhotoViewTapType.tapImgView(.nineGrid, self))
+        case let .nineGrid(type: type):
+            delegate?.singlePhotoView(with: SinglePhotoViewTapType.tapImgView(.nineGrid(type: type),type, self))
         case let .add(isAdd: isAdd, config: config):
-            delegate?.singlePhotoView(with: SinglePhotoViewTapType.tapImgView(.add(isAdd: isAdd,  config: config), self))
+            delegate?.singlePhotoView(with: SinglePhotoViewTapType.tapImgView(.add(isAdd: isAdd,  config: config),config.type, self))
         }
     }
 }

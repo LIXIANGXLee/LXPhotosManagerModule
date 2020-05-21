@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 import Photos
 import LXFitManager
+import MobileCoreServices
 
 /// 回调协议
 public protocol AddPhotosViewDelegate: AnyObject {
@@ -19,6 +20,9 @@ public protocol AddPhotosViewDelegate: AnyObject {
     
     ///长按回调
     func addPhotosView(longPress addPhotosView : AddPhotosView, model: FileInfoProtocol)
+    
+    ///点击视频播放
+    func addPhotosView(videoPlay addPhotosView : AddPhotosView, model: FileInfoProtocol)
 
 }
 //MARK: -  添加图片的类
@@ -33,6 +37,7 @@ public class AddPhotosView: UIView {
     
     /// 加号 ➕ 和删除图片的配置信息
     private var config: SinglePhotoConfig
+    private var type: SinglePhotoType = .photo
     
     //MARK: - 共有属性
     ///数据源（可外部传入）
@@ -151,27 +156,29 @@ extension AddPhotosView {
     }
 
     /// 相册相机选择
-    private func selectLicense() {
+    private func selectLicense(_ type: SinglePhotoType) {
        let sheetController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        sheetController.addAction(UIAlertAction(title: "打开相机", style: .default, handler: {  [weak self] (alert) in
-             self?.openCamera()
+        sheetController.addAction(UIAlertAction(title: (type == .photo) ?  "拍照": "拍摄" , style: .default, handler: {  [weak self] (alert) in
+             self?.openCamera(type)
         }))
-       sheetController.addAction(UIAlertAction(title: "打开相册", style: .default, handler: {  [weak self] (alert) in
-               self?.openAlbum()
+       sheetController.addAction(UIAlertAction(title: "相册", style: .default, handler: {  [weak self] (alert) in
+               self?.openAlbum(type)
         }))
        sheetController.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
        aboveViewController()?.present(sheetController, animated: true, completion: nil)
     }
 
     /// 选择相机
-    private func openCamera() {
+    private func openCamera(_ type: SinglePhotoType) {
            let picker = UIImagePickerController()
            picker.delegate = self
            //判断是否有上传相册权限
            if PrivilegeManager.isSupportCamera {
                picker.sourceType = .camera
+               if (type == .video) {
+                   picker.mediaTypes = [kUTTypeMovie as String]
+               }
                picker.modalPresentationStyle = .fullScreen
-
                aboveViewController()?.present(picker, animated: true, completion: nil)
            }else{
                let msg = "启动相机失败,请在手机设置中打开相机权限"
@@ -183,12 +190,15 @@ extension AddPhotosView {
            }
        }
      /// 选择相册
-       private func openAlbum() {
+    private func openAlbum(_ type: SinglePhotoType) {
            let picker = UIImagePickerController()
            picker.delegate = self
            //判断是否有上传相册权限
            if PrivilegeManager.isSupportPhotoAlbum {
                picker.sourceType = .photoLibrary
+                if (type == .video) {
+                    picker.mediaTypes = [kUTTypeMovie as String]
+                }
                picker.modalPresentationStyle = .fullScreen
                aboveViewController()?.present(picker, animated: true, completion: nil)
            }else{
@@ -229,12 +239,19 @@ extension AddPhotosView: PhotosBrowserViewDelagete {
 extension AddPhotosView: SinglePhotoViewDelegate {
     public func singlePhotoView(with type: SinglePhotoViewTapType) {
         switch type {
-        case let .tapImgView(singleType, singlePhotoView):
+        case let .tapImgView(singleType,type, singlePhotoView):
             if case let  SinglePhotoViewType.add(isAdd: isAdd, config: _) = singleType {
                 if isAdd { // 点击➕号
-                    self.selectLicense()
-                }else { // 点击图片
-                    self.selectPhotoBrowser(index: singlePhotoView.tag)
+                    self.type = type
+                    self.selectLicense(type)
+                }else {
+                    if type == .photo {// 点击图片
+                        self.selectPhotoBrowser(index: singlePhotoView.tag)
+                    }else {// 点击视频
+                        if let photo = singlePhotoView.photo {
+                            delegate?.addPhotosView(videoPlay: self, model: photo)
+                        }
+                    }
                 }
             }
         case let .deleteImgView(singlePhotoView):
@@ -255,17 +272,22 @@ extension AddPhotosView: UIImagePickerControllerDelegate , UINavigationControlle
     //点击使用图片, 使用该图片
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         aboveViewController()?.dismiss(animated: true, completion: nil)
-       
-        guard let image = info[.originalImage] as? UIImage else {  return  }
+               
+        var photo: PhotoModel
+        if type == .photo {
+            guard let image = info[.originalImage] as? UIImage else {  return  }
+            photo = PhotoModel(image: image.fixOrientation(),height: image.size.height, width: image.size.width)
+        }else {
+            guard let image = UIImage.imageWithVideoUrl(videoUrl: info[.mediaURL] as? URL) else {  return  }
+            photo = PhotoModel(image: image,height: image.size.height, width: image.size.width)
+        }
         
-        let photo = PhotoModel(image: image,
-                               height: image.size.height,
-                               width: image.size.width)
-        photoModels.append(photo)
-        //创建UI
-        setNomalUI(with: photo)
-        // 布局 尺寸
-        setLayOut()
+         //添加数据源
+         photoModels.append(photo)
+         //创建UI
+         setNomalUI(with: photo)
+         // 布局 尺寸
+         setLayOut()
     }
 }
 
@@ -276,16 +298,20 @@ public class PhotoModel: FileInfoProtocol {
     public var height: CGFloat
     public var width: CGFloat
     public var imgUrl: String
+    public var videoUrl: String
+
     init(image: UIImage,
          height: CGFloat,
          width: CGFloat,
          isNetWork: Bool = false,
-         imgUrl: String = "")
+         imgUrl: String = "",
+         videoUrl: String = "")
     {
         self.image = image
         self.height = height
         self.width = width
         self.imgUrl = imgUrl
+        self.videoUrl = videoUrl
         self.isNetWork = isNetWork
     }
 }

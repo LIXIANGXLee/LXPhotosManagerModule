@@ -16,8 +16,8 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "LXPhotosManager"
-  spec.version      = "0.3.3"
-  spec.summary      = "九宫格、图片添加、图片浏览器"
+  spec.version      = "0.4.0"
+  spec.summary      = "九宫格、图片和视频的添加、图片浏览器"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?

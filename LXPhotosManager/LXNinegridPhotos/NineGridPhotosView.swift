@@ -14,6 +14,9 @@ public protocol NineGridPhotosViewDelegate: AnyObject {
     
     ///数据源回调
     func nineGridPhotosView(with index: Int,photoViews: [SinglePhotoView],datasource: [FileInfoProtocol])
+    
+    ///点击视频播放
+    func nineGridPhotosView(videoPlay model: FileInfoProtocol)
 }
 
 public class NineGridPhotosView: UIView {
@@ -51,7 +54,23 @@ public class NineGridPhotosView: UIView {
     public var marginRol: CGFloat = LXFit.fitFloat(5.0)
     public var marginCol: CGFloat = LXFit.fitFloat(5.0)
 
+    private var type: SinglePhotoType
     
+    /// 自定义指定构造器
+    /// frame 默认尺寸设置
+    /// addImage 加号 ➕ 图片修改（不设置 则使用默认的）
+    public init(frame: CGRect,
+                type: SinglePhotoType = .photo)
+    {
+        self.type = type
+        super.init(frame: frame)
+        backgroundColor = UIColor.white
+
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
 //MARK: - 公共属性
@@ -89,7 +108,7 @@ extension NineGridPhotosView {
             if index >= photoViews.count  { //判断是否在缓存里取
                 photoView = SinglePhotoView()
                 photoView.delegate = self
-                photoView.type = .nineGrid
+                photoView.type = .nineGrid(type: type)
                 photoView.tag = index
                 addSubview(photoView)
                 photoViews.append(photoView)
@@ -167,11 +186,19 @@ extension NineGridPhotosView: SinglePhotoViewDelegate {
     public func singlePhotoView(with photoViewTapType: SinglePhotoViewTapType) {
 
         switch photoViewTapType {
-        case let .tapImgView(_, singlePhotoView):
-            let photoViews = self.photoViews.filter { (photoView) -> Bool in
-                return photoView.tag < currentDatasource.count
+        case let .tapImgView(_, type, singlePhotoView):
+            
+            if type == .photo {
+                let photoViews = self.photoViews.filter { (photoView) -> Bool in
+                    return photoView.tag < currentDatasource.count
+                }
+                delegate?.nineGridPhotosView(with: singlePhotoView.tag, photoViews: photoViews, datasource: currentDatasource)
+            }else {
+                if let photo = singlePhotoView.photo {
+                   delegate?.nineGridPhotosView(videoPlay: photo)
+               }
             }
-            delegate?.nineGridPhotosView(with: singlePhotoView.tag, photoViews: photoViews, datasource: currentDatasource)
+            
         default:
             break
         }
