@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import LXPhotosManager
+//import LXPhotosManager
 
 public class FileModel: FileInfoProtocol {
     public var isNetWork: Bool = true

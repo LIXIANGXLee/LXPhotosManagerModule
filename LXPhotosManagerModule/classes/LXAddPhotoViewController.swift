@@ -8,7 +8,7 @@
 
 import UIKit
 import LXFitManager
-import LXPhotosManager
+//import LXPhotosManager
 
 class LXAddPhotoViewController: UIViewController {
     let datas = [

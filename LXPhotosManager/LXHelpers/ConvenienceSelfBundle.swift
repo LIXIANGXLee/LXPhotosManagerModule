@@ -9,7 +9,7 @@
 import UIKit
 
 //MARK: - 快速从bundle中加载图片
-public struct ConvenienceBundle {
+public struct ConvenienceSelfBundle {
     private let path: String?          //默认bundle下文件夹名字
     private let bundlePath: String     //bundle文件全路径
     private let bundleName: String     // 文件名字

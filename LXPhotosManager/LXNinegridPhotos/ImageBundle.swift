@@ -17,5 +17,5 @@ public extension UIImage {
        return imageBundle.imageNamed(imageName)
    }
    
-   private static var imageBundle = ConvenienceBundle(bundlePath: Bundle(for: ConvenienceBundleSelfPath.self).bundlePath, bundleName: "NineGridPhotos.bundle")
+   private static var imageBundle = ConvenienceSelfBundle(bundlePath: Bundle(for: ConvenienceBundleSelfPath.self).bundlePath, bundleName: "NineGridPhotos.bundle")
 }

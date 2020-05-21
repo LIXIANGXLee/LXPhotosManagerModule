@@ -42,6 +42,18 @@
 		0465409E24488EA200740B0B /* PictureCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0465409C24488EA100740B0B /* PictureCell.xib */; };
 		049F0FFC244939EF00738079 /* LXAddPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F0FFA244939EF00738079 /* LXAddPhotoViewController.swift */; };
 		049F0FFD244939EF00738079 /* LXPhotosBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F0FFB244939EF00738079 /* LXPhotosBrowserViewController.swift */; };
+		04B3B0C424765F9C000865F4 /* NineGridPhotos.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04B3B0B624765F9C000865F4 /* NineGridPhotos.bundle */; };
+		04B3B0C524765F9C000865F4 /* SinglePhotoConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3B0B724765F9C000865F4 /* SinglePhotoConfig.swift */; };
+		04B3B0C624765F9C000865F4 /* SinglePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3B0B824765F9C000865F4 /* SinglePhotoView.swift */; };
+		04B3B0C724765F9C000865F4 /* AddPhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3B0B924765F9C000865F4 /* AddPhotosView.swift */; };
+		04B3B0C824765F9C000865F4 /* NineGridPhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3B0BA24765F9C000865F4 /* NineGridPhotosView.swift */; };
+		04B3B0C924765F9C000865F4 /* ImageBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3B0BB24765F9C000865F4 /* ImageBundle.swift */; };
+		04B3B0CA24765F9C000865F4 /* PhotosScrollViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3B0BD24765F9C000865F4 /* PhotosScrollViewCell.swift */; };
+		04B3B0CB24765F9C000865F4 /* PhotosScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3B0BE24765F9C000865F4 /* PhotosScrollView.swift */; };
+		04B3B0CC24765F9C000865F4 /* PhotosBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3B0BF24765F9C000865F4 /* PhotosBrowserView.swift */; };
+		04B3B0CD24765F9C000865F4 /* ConvenienceSelfBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3B0C124765F9C000865F4 /* ConvenienceSelfBundle.swift */; };
+		04B3B0CE24765F9C000865F4 /* SaveAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3B0C224765F9C000865F4 /* SaveAsset.swift */; };
+		04B3B0CF24765F9C000865F4 /* FileInfoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3B0C324765F9C000865F4 /* FileInfoProtocol.swift */; };
 		462FF14A88732753896D8A2A /* Pods_LXPhotosManagerModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8B4CCE567E964DE29D0157C /* Pods_LXPhotosManagerModule.framework */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +98,18 @@
 		0465409C24488EA100740B0B /* PictureCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PictureCell.xib; sourceTree = "<group>"; };
 		049F0FFA244939EF00738079 /* LXAddPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXAddPhotoViewController.swift; sourceTree = "<group>"; };
 		049F0FFB244939EF00738079 /* LXPhotosBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXPhotosBrowserViewController.swift; sourceTree = "<group>"; };
+		04B3B0B624765F9C000865F4 /* NineGridPhotos.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = NineGridPhotos.bundle; sourceTree = "<group>"; };
+		04B3B0B724765F9C000865F4 /* SinglePhotoConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglePhotoConfig.swift; sourceTree = "<group>"; };
+		04B3B0B824765F9C000865F4 /* SinglePhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglePhotoView.swift; sourceTree = "<group>"; };
+		04B3B0B924765F9C000865F4 /* AddPhotosView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPhotosView.swift; sourceTree = "<group>"; };
+		04B3B0BA24765F9C000865F4 /* NineGridPhotosView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NineGridPhotosView.swift; sourceTree = "<group>"; };
+		04B3B0BB24765F9C000865F4 /* ImageBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageBundle.swift; sourceTree = "<group>"; };
+		04B3B0BD24765F9C000865F4 /* PhotosScrollViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosScrollViewCell.swift; sourceTree = "<group>"; };
+		04B3B0BE24765F9C000865F4 /* PhotosScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosScrollView.swift; sourceTree = "<group>"; };
+		04B3B0BF24765F9C000865F4 /* PhotosBrowserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosBrowserView.swift; sourceTree = "<group>"; };
+		04B3B0C124765F9C000865F4 /* ConvenienceSelfBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvenienceSelfBundle.swift; sourceTree = "<group>"; };
+		04B3B0C224765F9C000865F4 /* SaveAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveAsset.swift; sourceTree = "<group>"; };
+		04B3B0C324765F9C000865F4 /* FileInfoProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileInfoProtocol.swift; sourceTree = "<group>"; };
 		4D9B5374C189866F4307AE11 /* Pods-LXPhotosManagerModule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LXPhotosManagerModule.release.xcconfig"; path = "Target Support Files/Pods-LXPhotosManagerModule/Pods-LXPhotosManagerModule.release.xcconfig"; sourceTree = "<group>"; };
 		B8B4CCE567E964DE29D0157C /* Pods_LXPhotosManagerModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LXPhotosManagerModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -113,6 +137,7 @@
 		040CFC2F2447581000CAFF40 = {
 			isa = PBXGroup;
 			children = (
+				04B3B0B424765F9C000865F4 /* LXPhotosManager */,
 				040CFC542447594600CAFF40 /* LXPhotosManager.podspec */,
 				040CFC3A2447581000CAFF40 /* LXPhotosManagerModule */,
 				040CFC392447581000CAFF40 /* Products */,
@@ -197,6 +222,49 @@
 			path = classes;
 			sourceTree = "<group>";
 		};
+		04B3B0B424765F9C000865F4 /* LXPhotosManager */ = {
+			isa = PBXGroup;
+			children = (
+				04B3B0B524765F9C000865F4 /* LXNinegridPhotos */,
+				04B3B0BC24765F9C000865F4 /* LXPhotosBrowser */,
+				04B3B0C024765F9C000865F4 /* LXHelpers */,
+			);
+			path = LXPhotosManager;
+			sourceTree = "<group>";
+		};
+		04B3B0B524765F9C000865F4 /* LXNinegridPhotos */ = {
+			isa = PBXGroup;
+			children = (
+				04B3B0B624765F9C000865F4 /* NineGridPhotos.bundle */,
+				04B3B0B724765F9C000865F4 /* SinglePhotoConfig.swift */,
+				04B3B0B824765F9C000865F4 /* SinglePhotoView.swift */,
+				04B3B0B924765F9C000865F4 /* AddPhotosView.swift */,
+				04B3B0BA24765F9C000865F4 /* NineGridPhotosView.swift */,
+				04B3B0BB24765F9C000865F4 /* ImageBundle.swift */,
+			);
+			path = LXNinegridPhotos;
+			sourceTree = "<group>";
+		};
+		04B3B0BC24765F9C000865F4 /* LXPhotosBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				04B3B0BD24765F9C000865F4 /* PhotosScrollViewCell.swift */,
+				04B3B0BE24765F9C000865F4 /* PhotosScrollView.swift */,
+				04B3B0BF24765F9C000865F4 /* PhotosBrowserView.swift */,
+			);
+			path = LXPhotosBrowser;
+			sourceTree = "<group>";
+		};
+		04B3B0C024765F9C000865F4 /* LXHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				04B3B0C124765F9C000865F4 /* ConvenienceSelfBundle.swift */,
+				04B3B0C224765F9C000865F4 /* SaveAsset.swift */,
+				04B3B0C324765F9C000865F4 /* FileInfoProtocol.swift */,
+			);
+			path = LXHelpers;
+			sourceTree = "<group>";
+		};
 		A8C5D842BC7D8392ED6FD394 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +339,7 @@
 				0465409E24488EA200740B0B /* PictureCell.xib in Resources */,
 				040CFC7224475AB200CAFF40 /* README.md in Resources */,
 				040CFC7124475AB200CAFF40 /* LICENSE in Resources */,
+				04B3B0C424765F9C000865F4 /* NineGridPhotos.bundle in Resources */,
 				040CFC432447581000CAFF40 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,23 +401,34 @@
 				04282EE9246D7D970039083E /* LXPhotosListViewController.swift in Sources */,
 				040CFC8224475AB200CAFF40 /* ImageTransition.swift in Sources */,
 				040CFC7D24475AB200CAFF40 /* ImageDownloader.swift in Sources */,
+				04B3B0CB24765F9C000865F4 /* PhotosScrollView.swift in Sources */,
 				040CFC7824475AB200CAFF40 /* Image.swift in Sources */,
 				040CFC7424475AB200CAFF40 /* ThreadHelper.swift in Sources */,
+				04B3B0CD24765F9C000865F4 /* ConvenienceSelfBundle.swift in Sources */,
+				04B3B0C524765F9C000865F4 /* SinglePhotoConfig.swift in Sources */,
 				040CFC8324475AB200CAFF40 /* AnimatedImageView.swift in Sources */,
 				040CFC7924475AB200CAFF40 /* Indicator.swift in Sources */,
 				040CFC8424475AB200CAFF40 /* String+MD5.swift in Sources */,
 				040CFC402447581000CAFF40 /* ViewController.swift in Sources */,
+				04B3B0C724765F9C000865F4 /* AddPhotosView.swift in Sources */,
 				040CFC8824475AB200CAFF40 /* KingfisherOptionsInfo.swift in Sources */,
+				04B3B0C624765F9C000865F4 /* SinglePhotoView.swift in Sources */,
 				040CFC7624475AB200CAFF40 /* RequestModifier.swift in Sources */,
+				04B3B0CE24765F9C000865F4 /* SaveAsset.swift in Sources */,
 				040CFC8524475AB200CAFF40 /* ImageProcessor.swift in Sources */,
+				04B3B0CF24765F9C000865F4 /* FileInfoProtocol.swift in Sources */,
 				040CFC3C2447581000CAFF40 /* AppDelegate.swift in Sources */,
+				04B3B0CC24765F9C000865F4 /* PhotosBrowserView.swift in Sources */,
 				040CFC7E24475AB200CAFF40 /* Box.swift in Sources */,
 				040CFC7B24475AB200CAFF40 /* UIButton+Kingfisher.swift in Sources */,
 				040CFC7524475AB200CAFF40 /* Kingfisher.swift in Sources */,
+				04B3B0CA24765F9C000865F4 /* PhotosScrollViewCell.swift in Sources */,
 				040CFC8124475AB200CAFF40 /* FormatIndicatedCacheSerializer.swift in Sources */,
 				040CFC8024475AB200CAFF40 /* KingfisherManager.swift in Sources */,
 				040CFC8924475AB200CAFF40 /* ImagePrefetcher.swift in Sources */,
 				040CFC7A24475AB200CAFF40 /* CacheSerializer.swift in Sources */,
+				04B3B0C824765F9C000865F4 /* NineGridPhotosView.swift in Sources */,
+				04B3B0C924765F9C000865F4 /* ImageBundle.swift in Sources */,
 				040CFC7324475AB200CAFF40 /* ImageCache.swift in Sources */,
 				049F0FFC244939EF00738079 /* LXAddPhotoViewController.swift in Sources */,
 				040CFC8724475AB200CAFF40 /* Placeholder.swift in Sources */,
