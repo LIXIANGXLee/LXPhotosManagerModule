@@ -48,7 +48,7 @@ class LXAddPhotoViewController: UIViewController {
                         
         view.backgroundColor = UIColor.white
         var config = SinglePhotoConfig()
-        config.type = SinglePhotoType.video
+//        config.type = SinglePhotoType.video
         let addView = AddPhotosView(frame: CGRect(x: 0, y: 100, width: UIScreen.main.bounds.width, height: 600),config: config)
         view.addSubview(addView)
         addView.delegate = self

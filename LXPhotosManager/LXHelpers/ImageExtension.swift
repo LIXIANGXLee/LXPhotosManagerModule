@@ -14,14 +14,15 @@ extension UIImage {
       /// 获取视频缩略图
       ///
       /// - Parameters:
+      ///   - seconds 获取第几秒缩略图
       ///   - videoUrl: 视频Url (本地的url和远程的url都可以)
-      public static func imageWithVideoUrl(videoUrl: URL?) -> UIImage?{
+    public static func imageWithVideo(start seconds: Float64 = 0, videoUrl: URL?) -> UIImage?{
           guard let videoUrl = videoUrl else { return nil }
           
           let asset = AVURLAsset(url: videoUrl, options: nil)
           let generator = AVAssetImageGenerator(asset: asset)
           generator.appliesPreferredTrackTransform = true
-          let time = CMTimeMakeWithSeconds(0, preferredTimescale: 600)
+          let time = CMTimeMakeWithSeconds(seconds, preferredTimescale: 600)
           guard let image = try? generator.copyCGImage(at: time, actualTime: nil) else { return nil }
           let shotImage = UIImage(cgImage: image)
           return shotImage;

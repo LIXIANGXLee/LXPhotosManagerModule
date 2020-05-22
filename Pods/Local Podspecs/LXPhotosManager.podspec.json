@@ -1,7 +1,7 @@
 {
   "name": "LXPhotosManager",
-  "version": "0.3.3",
-  "summary": "九宫格、图片添加、图片浏览器",
+  "version": "0.4.0",
+  "summary": "九宫格、图片和视频的添加、图片浏览器",
   "description": "XLee manager LXPhotosManager 九宫格、图片添加、图片浏览器",
   "homepage": "https://github.com/LIXIANGXLee/LXPhotosManagerModule",
   "license": "MIT",
@@ -14,7 +14,7 @@
   "swift_versions": "5.0",
   "source": {
     "git": "https://github.com/LIXIANGXLee/LXPhotosManagerModule.git",
-    "tag": "0.3.3"
+    "tag": "0.4.0"
   },
   "dependencies": {
     "LXFitManager": [

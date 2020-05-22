@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import LXFitManager
 
 //MARK: - 点击类型区分的枚举
 public enum SinglePhotoViewTapType {
-    ///点击图片
-    case tapImgView(SinglePhotoViewType,SinglePhotoType,SinglePhotoView)
+    ///点击图片或者点击播放视频
+    ///SinglePhotoViewType 判断是加号添加 还是九宫格
+    ///SinglePhotoView 当前view
+    case tapImgView(SinglePhotoViewType,SinglePhotoView)
     
     ///点击删除图片
     case deleteImgView(SinglePhotoView)
@@ -100,7 +103,10 @@ extension SinglePhotoView {
                     videoImgView.center = imgView.center
                 }
            }
-       }
+       }else if case let .nineGrid(type: type) = self.type, type == .video  {
+            videoImgView.frame = CGRect(x: 0, y: 0, width: LXFit.fitFloat(20) , height: LXFit.fitFloat(20))
+            videoImgView.center = imgView.center
+        }
    }
 }
 
@@ -130,6 +136,8 @@ extension SinglePhotoView {
                     videoImgView.image = UIImage.named("video_centerPlay")
                }
             }
+        }else  if case let .nineGrid(type: type) = self.type, type == .video  {
+            videoImgView.image = UIImage.named("video_centerPlay")
         }
     }
     
@@ -174,12 +182,12 @@ extension SinglePhotoView {
              gesture.view?.isUserInteractionEnabled = true
         }
         
-        //  点击加号或者点击图片
+        //  点击加号或者点击图片 或者点击视频
         switch self.type {
         case let .nineGrid(type: type):
-            delegate?.singlePhotoView(with: SinglePhotoViewTapType.tapImgView(.nineGrid(type: type),type, self))
+            delegate?.singlePhotoView(with: SinglePhotoViewTapType.tapImgView(.nineGrid(type: type), self))
         case let .add(isAdd: isAdd, config: config):
-            delegate?.singlePhotoView(with: SinglePhotoViewTapType.tapImgView(.add(isAdd: isAdd,  config: config),config.type, self))
+            delegate?.singlePhotoView(with: SinglePhotoViewTapType.tapImgView(.add(isAdd: isAdd,  config: config),self))
         }
     }
 }

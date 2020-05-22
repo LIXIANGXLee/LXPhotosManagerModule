@@ -239,13 +239,13 @@ extension AddPhotosView: PhotosBrowserViewDelagete {
 extension AddPhotosView: SinglePhotoViewDelegate {
     public func singlePhotoView(with type: SinglePhotoViewTapType) {
         switch type {
-        case let .tapImgView(singleType,type, singlePhotoView):
-            if case let  SinglePhotoViewType.add(isAdd: isAdd, config: _) = singleType {
+        case let .tapImgView(singleType, singlePhotoView):
+            if case let  SinglePhotoViewType.add(isAdd: isAdd, config: config) = singleType {
                 if isAdd { // 点击➕号
-                    self.type = type
-                    self.selectLicense(type)
+                    self.type = config.type
+                    self.selectLicense(self.type)
                 }else {
-                    if type == .photo {// 点击图片
+                    if config.type == .photo {// 点击图片
                         self.selectPhotoBrowser(index: singlePhotoView.tag)
                     }else {// 点击视频
                         if let photo = singlePhotoView.photo {
@@ -278,8 +278,8 @@ extension AddPhotosView: UIImagePickerControllerDelegate , UINavigationControlle
             guard let image = info[.originalImage] as? UIImage else {  return  }
             photo = PhotoModel(image: image.fixOrientation(),height: image.size.height, width: image.size.width)
         }else {
-            guard let image = UIImage.imageWithVideoUrl(videoUrl: info[.mediaURL] as? URL) else {  return  }
-            photo = PhotoModel(image: image,height: image.size.height, width: image.size.width)
+            guard let url = info[.mediaURL] as? URL, let image = UIImage.imageWithVideo(videoUrl:url) else {  return  }
+            photo = PhotoModel(image: image, height: image.size.height, width: image.size.width,videoUrl:url.absoluteString)
         }
         
          //添加数据源

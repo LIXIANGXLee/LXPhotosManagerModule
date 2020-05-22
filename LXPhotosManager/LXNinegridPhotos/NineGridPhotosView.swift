@@ -186,19 +186,20 @@ extension NineGridPhotosView: SinglePhotoViewDelegate {
     public func singlePhotoView(with photoViewTapType: SinglePhotoViewTapType) {
 
         switch photoViewTapType {
-        case let .tapImgView(_, type, singlePhotoView):
-            
-            if type == .photo {
-                let photoViews = self.photoViews.filter { (photoView) -> Bool in
-                    return photoView.tag < currentDatasource.count
-                }
-                delegate?.nineGridPhotosView(with: singlePhotoView.tag, photoViews: photoViews, datasource: currentDatasource)
-            }else {
-                if let photo = singlePhotoView.photo {
-                   delegate?.nineGridPhotosView(videoPlay: photo)
+        case let .tapImgView(singlePhotoViewType, singlePhotoView):
+            /// 匹配是九宫格点击
+            if case .nineGrid(type: type) = singlePhotoViewType {
+                if type == .photo { //判断是否为图片
+                    let photoViews = self.photoViews.filter { (photoView) -> Bool in
+                   return photoView.tag < currentDatasource.count
                }
+               delegate?.nineGridPhotosView(with: singlePhotoView.tag, photoViews: photoViews, datasource: currentDatasource)
+                }else{ // 否则是视频
+                    if let photo = singlePhotoView.photo {
+                        delegate?.nineGridPhotosView(videoPlay: photo)
+                    }
+                }
             }
-            
         default:
             break
         }

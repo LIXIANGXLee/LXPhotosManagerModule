@@ -7,30 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		187D5AD0D3DE9E10EF7A2BAF0DDCA2ED /* ImageBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC047464E76A3AC3868A782D4832DAF /* ImageBundle.swift */; };
-		25B0368DE955A5F9FDA0CA088D5391D2 /* ConvenienceSelfBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343D100D9DCA707747EB0E2B758C05DB /* ConvenienceSelfBundle.swift */; };
+		04D04C69B94512F9718048FC03069E62 /* PhotosBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593C23C721470481CF502E2D768F67BF /* PhotosBrowserView.swift */; };
+		108AED25F15C915AEBEA0C57B6C4EC8D /* SaveAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6860AA8C67A7AB55ED171661EF72BE8 /* SaveAsset.swift */; };
+		15A96119DCC59FE3508D75C9E9E9E67D /* ConvenienceSelfBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AF5D4E052C0D2AB52057B28202E2AA /* ConvenienceSelfBundle.swift */; };
+		1E0BDBA00FFF121E0E9DE9E2F2E8197F /* SinglePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0225E7479D9C7A61E80F217E604D75C5 /* SinglePhotoView.swift */; };
+		2387359F21F6B011B51DFE0C1042C400 /* SinglePhotoConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDCCE6F7A0AFDAB86CB4795B21134BB /* SinglePhotoConfig.swift */; };
+		3127C13A852B470A764E624F1F51743C /* FileInfoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744430E4DECE471F23CDAA2CED54FBF9 /* FileInfoProtocol.swift */; };
 		3276268D2C321D98767E9A89F38AF762 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDCB65B3DDB68CB2801794AC6AD13094 /* Foundation.framework */; };
-		409028BA1D319BFB19AF657F7FBEE79A /* FileInfoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56ACDE713BAA23921B64BE01F3A780DF /* FileInfoProtocol.swift */; };
 		53F3E390F35CF8D7CCD87F99E8CF3FDF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDCB65B3DDB68CB2801794AC6AD13094 /* Foundation.framework */; };
-		608610C918CB2E4F1940D3D42FA553CD /* SaveAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46093047C677B95D0C0DAC3DFB9FB7DB /* SaveAsset.swift */; };
-		6262C49038865F7BE75144CA14827912 /* PhotosScrollViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B12DC4EACD2375BEDFE8F803891B0C /* PhotosScrollViewCell.swift */; };
 		6789A82069F2B29516DA7E637FE17FBC /* Pods-LXPhotosManagerModule-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F675C9C17A421622BD30F6A802B03A /* Pods-LXPhotosManagerModule-dummy.m */; };
-		6875A588C2A28D30EC9465F9C4216E73 /* PhotosScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADFEDD293B10844245E97095CCE6AA3 /* PhotosScrollView.swift */; };
 		78A332990C52FA4A69BFEC96495A14BB /* Pods-LXPhotosManagerModule-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 76AFAE929FA9061D9073A07649D4EF4D /* Pods-LXPhotosManagerModule-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7A04CDF981D068D83B1B34A7728A7468 /* LXFitManager-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 05FD14158262C9770469178DB5ADACE5 /* LXFitManager-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		817A847ADF7D445E0B187737B16F43DE /* LXFitManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210710B83846B0CA28FD57365AC8809C /* LXFitManager.framework */; };
+		8B04A9CDCE4DDAA0BFD693A0BFBFBDAD /* NineGridPhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E39E8C9F3D01248693A339B7D3F06E7 /* NineGridPhotosView.swift */; };
 		A093DCCE4A412A20834EEAFD56FF24B3 /* LXFitManager-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D71F0A043311BA8E159F6CBD00F5FD /* LXFitManager-dummy.m */; };
+		A4FBF6C9F1D05D97BB07A008213C1B11 /* PhotosScrollViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B12DC4EACD2375BEDFE8F803891B0C /* PhotosScrollViewCell.swift */; };
 		A84A502929E973FA2B3BFC561520DDDB /* LXFit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64C08C4BA5EC19BAD61DCC7ECCBF345 /* LXFit.swift */; };
-		ABA4E4FD3C1A710765817D03B04F77A9 /* SinglePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0225E7479D9C7A61E80F217E604D75C5 /* SinglePhotoView.swift */; };
-		ABE8C30331AFD5516737A4B57C1FC4C3 /* AddPhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB11CE03E1527DEC137B94CB7385333 /* AddPhotosView.swift */; };
-		B987DDDAAC2DCA900780FC1D4F67CBBE /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E0F158253AB4B4C9C8DCE2A738E1DA /* UIImageExtension.swift */; };
-		BA63D68E709E402AE452D4410EFB641D /* LXPhotosManager-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BACB06DEEB7530E0026A19AD017032E0 /* LXPhotosManager-dummy.m */; };
+		B2A58D9EBE72950997E7FD709F7B48A6 /* ImageBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC047464E76A3AC3868A782D4832DAF /* ImageBundle.swift */; };
 		BF1DAB028CD2F6FDA4C32C7BD25D1045 /* LXPhotosManager-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DB373D30AD25700D6932C81111A339CE /* LXPhotosManager-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C51E0A4FF7E94744BAD6AD07EDFEA840 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDCB65B3DDB68CB2801794AC6AD13094 /* Foundation.framework */; };
-		CEAAC2F02D6CA6FAE46D1842D165352C /* PhotosBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593C23C721470481CF502E2D768F67BF /* PhotosBrowserView.swift */; };
+		C9F6280827B0C873A947CA520EE2CB9A /* LXPhotosManager-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BACB06DEEB7530E0026A19AD017032E0 /* LXPhotosManager-dummy.m */; };
+		CB8A6BA3B6880EC0656B126352E8EACB /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813629379EFC16BE4070C095150AC435 /* ImageExtension.swift */; };
+		CC8BF3034080C1442ED96624562DBE45 /* PhotosScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADFEDD293B10844245E97095CCE6AA3 /* PhotosScrollView.swift */; };
+		DA6315632A1F140B94C3745C4B4979E8 /* AddPhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB11CE03E1527DEC137B94CB7385333 /* AddPhotosView.swift */; };
 		E427AE83E59A6948CB5085701F11142F /* NineGridPhotos.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FE03711B786FE2DCF60FD9E5CAF2F991 /* NineGridPhotos.bundle */; };
-		F70D35D04281507BC0E0ADDE45350D05 /* NineGridPhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E39E8C9F3D01248693A339B7D3F06E7 /* NineGridPhotosView.swift */; };
-		FF96563F1E5AA183C9425516B8229842 /* SinglePhotoConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDCCE6F7A0AFDAB86CB4795B21134BB /* SinglePhotoConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,22 +69,20 @@
 		21F4D39098C1452CE1C8E979B1AD9E7D /* LXFitManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LXFitManager.debug.xcconfig; sourceTree = "<group>"; };
 		28F5EDEAF976AD2FFE5A04344AD1A11F /* LXPhotosManager.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = LXPhotosManager.modulemap; sourceTree = "<group>"; };
 		2DC047464E76A3AC3868A782D4832DAF /* ImageBundle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageBundle.swift; path = LXPhotosManager/LXNinegridPhotos/ImageBundle.swift; sourceTree = "<group>"; };
-		343D100D9DCA707747EB0E2B758C05DB /* ConvenienceSelfBundle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConvenienceSelfBundle.swift; path = LXPhotosManager/LXHelpers/ConvenienceSelfBundle.swift; sourceTree = "<group>"; };
 		3831968266E39290AB3313E6944401FF /* Pods-LXPhotosManagerModule-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LXPhotosManagerModule-frameworks.sh"; sourceTree = "<group>"; };
 		3888DD53BBE7B7DFC0D5D8540E57BE76 /* LXFitManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = LXFitManager.framework; path = LXFitManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		46093047C677B95D0C0DAC3DFB9FB7DB /* SaveAsset.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SaveAsset.swift; path = LXPhotosManager/LXHelpers/SaveAsset.swift; sourceTree = "<group>"; };
 		524BA453EEB75A2B24E458F3D8DECBD4 /* Pods-LXPhotosManagerModule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LXPhotosManagerModule.release.xcconfig"; sourceTree = "<group>"; };
 		554BD54E9D0D1EEB3B1D023FC8DD939D /* LXFitManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LXFitManager.release.xcconfig; sourceTree = "<group>"; };
-		56ACDE713BAA23921B64BE01F3A780DF /* FileInfoProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FileInfoProtocol.swift; path = LXPhotosManager/LXHelpers/FileInfoProtocol.swift; sourceTree = "<group>"; };
 		593C23C721470481CF502E2D768F67BF /* PhotosBrowserView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PhotosBrowserView.swift; path = LXPhotosManager/LXPhotosBrowser/PhotosBrowserView.swift; sourceTree = "<group>"; };
 		5ECEE44FD9EA480B4AEED328845582BA /* LXPhotosManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LXPhotosManager.debug.xcconfig; sourceTree = "<group>"; };
 		5FB11CE03E1527DEC137B94CB7385333 /* AddPhotosView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AddPhotosView.swift; path = LXPhotosManager/LXNinegridPhotos/AddPhotosView.swift; sourceTree = "<group>"; };
 		6F671E184688D1E3A365E952FABE34BF /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		744430E4DECE471F23CDAA2CED54FBF9 /* FileInfoProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FileInfoProtocol.swift; path = LXPhotosManager/LXHelpers/FileInfoProtocol.swift; sourceTree = "<group>"; };
 		76AFAE929FA9061D9073A07649D4EF4D /* Pods-LXPhotosManagerModule-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LXPhotosManagerModule-umbrella.h"; sourceTree = "<group>"; };
 		78D71F0A043311BA8E159F6CBD00F5FD /* LXFitManager-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LXFitManager-dummy.m"; sourceTree = "<group>"; };
 		7CDCCE6F7A0AFDAB86CB4795B21134BB /* SinglePhotoConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SinglePhotoConfig.swift; path = LXPhotosManager/LXNinegridPhotos/SinglePhotoConfig.swift; sourceTree = "<group>"; };
 		7FBAA2451F7F4308DFA322D2A63E0DB6 /* Pods-LXPhotosManagerModule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LXPhotosManagerModule.debug.xcconfig"; sourceTree = "<group>"; };
-		83E0F158253AB4B4C9C8DCE2A738E1DA /* UIImageExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIImageExtension.swift; path = LXPhotosManager/LXHelpers/UIImageExtension.swift; sourceTree = "<group>"; };
+		813629379EFC16BE4070C095150AC435 /* ImageExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageExtension.swift; path = LXPhotosManager/LXHelpers/ImageExtension.swift; sourceTree = "<group>"; };
 		96AD73D241DC1EDD92120CB70E351D52 /* LXPhotosManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = LXPhotosManager.framework; path = LXPhotosManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E39E8C9F3D01248693A339B7D3F06E7 /* NineGridPhotosView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NineGridPhotosView.swift; path = LXPhotosManager/LXNinegridPhotos/NineGridPhotosView.swift; sourceTree = "<group>"; };
@@ -92,6 +90,7 @@
 		A4D5A9C54148E7154E587B42BD9E4F04 /* LXFitManager-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "LXFitManager-Info.plist"; sourceTree = "<group>"; };
 		A64C08C4BA5EC19BAD61DCC7ECCBF345 /* LXFit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LXFit.swift; path = LXFitManager/LXFit.swift; sourceTree = "<group>"; };
 		A7B12DC4EACD2375BEDFE8F803891B0C /* PhotosScrollViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PhotosScrollViewCell.swift; path = LXPhotosManager/LXPhotosBrowser/PhotosScrollViewCell.swift; sourceTree = "<group>"; };
+		B0AF5D4E052C0D2AB52057B28202E2AA /* ConvenienceSelfBundle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConvenienceSelfBundle.swift; path = LXPhotosManager/LXHelpers/ConvenienceSelfBundle.swift; sourceTree = "<group>"; };
 		BACB06DEEB7530E0026A19AD017032E0 /* LXPhotosManager-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LXPhotosManager-dummy.m"; sourceTree = "<group>"; };
 		C3701F325F140A94653A88E8CC348D25 /* LXFitManager.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = LXFitManager.modulemap; sourceTree = "<group>"; };
 		CDCB65B3DDB68CB2801794AC6AD13094 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -100,6 +99,7 @@
 		DADFEDD293B10844245E97095CCE6AA3 /* PhotosScrollView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PhotosScrollView.swift; path = LXPhotosManager/LXPhotosBrowser/PhotosScrollView.swift; sourceTree = "<group>"; };
 		DB373D30AD25700D6932C81111A339CE /* LXPhotosManager-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LXPhotosManager-umbrella.h"; sourceTree = "<group>"; };
 		E29E56ADD777462EE4F28E7C42078CD0 /* LXPhotosManager-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LXPhotosManager-prefix.pch"; sourceTree = "<group>"; };
+		E6860AA8C67A7AB55ED171661EF72BE8 /* SaveAsset.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SaveAsset.swift; path = LXPhotosManager/LXHelpers/SaveAsset.swift; sourceTree = "<group>"; };
 		F4A987A6133CF8DC118F3F55754600A3 /* LXFitManager-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LXFitManager-prefix.pch"; sourceTree = "<group>"; };
 		F7919218235CA443109C9B72FC60A67C /* Pods_LXPhotosManagerModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_LXPhotosManagerModule.framework; path = "Pods-LXPhotosManagerModule.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE03711B786FE2DCF60FD9E5CAF2F991 /* NineGridPhotos.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = NineGridPhotos.bundle; path = LXPhotosManager/LXNinegridPhotos/NineGridPhotos.bundle; sourceTree = "<group>"; };
@@ -163,7 +163,7 @@
 		106772180B8F7FDE4E1F77EF7E8D526C /* LXPhotosManager */ = {
 			isa = PBXGroup;
 			children = (
-				796E14AAB895D5A2FA02474D7518ED6F /* LXHelpers */,
+				F9E553A8D8A19573EED6E6809FA0F2AE /* LXHelpers */,
 				2DF43FAD353E123A999C9ED460C0CEB8 /* LXNinegridPhotos */,
 				0FC787C20E6169484B5D709CBF7DBEBB /* LXPhotosBrowser */,
 				E532287767FD2A62195B3B7EAEB0AA99 /* Pod */,
@@ -244,17 +244,6 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		796E14AAB895D5A2FA02474D7518ED6F /* LXHelpers */ = {
-			isa = PBXGroup;
-			children = (
-				343D100D9DCA707747EB0E2B758C05DB /* ConvenienceSelfBundle.swift */,
-				56ACDE713BAA23921B64BE01F3A780DF /* FileInfoProtocol.swift */,
-				46093047C677B95D0C0DAC3DFB9FB7DB /* SaveAsset.swift */,
-				83E0F158253AB4B4C9C8DCE2A738E1DA /* UIImageExtension.swift */,
-			);
-			name = LXHelpers;
-			sourceTree = "<group>";
-		};
 		C59144716B29E60081B4E14F7C3F4FCB /* Pods-LXPhotosManagerModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -316,6 +305,17 @@
 			);
 			name = "Support Files";
 			path = "Pods/Target Support Files/LXPhotosManager";
+			sourceTree = "<group>";
+		};
+		F9E553A8D8A19573EED6E6809FA0F2AE /* LXHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				B0AF5D4E052C0D2AB52057B28202E2AA /* ConvenienceSelfBundle.swift */,
+				744430E4DECE471F23CDAA2CED54FBF9 /* FileInfoProtocol.swift */,
+				813629379EFC16BE4070C095150AC435 /* ImageExtension.swift */,
+				E6860AA8C67A7AB55ED171661EF72BE8 /* SaveAsset.swift */,
+			);
+			name = LXHelpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -391,7 +391,7 @@
 			buildConfigurationList = 234ED36694350AE24C943DBD94D6B894 /* Build configuration list for PBXNativeTarget "LXPhotosManager" */;
 			buildPhases = (
 				07E8446087931F78849704A5551FBD00 /* Headers */,
-				B4DDB51AD9DBEAF5D6AAF6D57774DEDE /* Sources */,
+				50853EF1E5D12DCE2CD96A83766AC48A /* Sources */,
 				449E8001E5F40BA8F87130B0AE444272 /* Frameworks */,
 				96FC1A345BF871142EFB05D32BFAA1CF /* Resources */,
 			);
@@ -460,31 +460,31 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		50853EF1E5D12DCE2CD96A83766AC48A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA6315632A1F140B94C3745C4B4979E8 /* AddPhotosView.swift in Sources */,
+				15A96119DCC59FE3508D75C9E9E9E67D /* ConvenienceSelfBundle.swift in Sources */,
+				3127C13A852B470A764E624F1F51743C /* FileInfoProtocol.swift in Sources */,
+				B2A58D9EBE72950997E7FD709F7B48A6 /* ImageBundle.swift in Sources */,
+				CB8A6BA3B6880EC0656B126352E8EACB /* ImageExtension.swift in Sources */,
+				C9F6280827B0C873A947CA520EE2CB9A /* LXPhotosManager-dummy.m in Sources */,
+				8B04A9CDCE4DDAA0BFD693A0BFBFBDAD /* NineGridPhotosView.swift in Sources */,
+				04D04C69B94512F9718048FC03069E62 /* PhotosBrowserView.swift in Sources */,
+				CC8BF3034080C1442ED96624562DBE45 /* PhotosScrollView.swift in Sources */,
+				A4FBF6C9F1D05D97BB07A008213C1B11 /* PhotosScrollViewCell.swift in Sources */,
+				108AED25F15C915AEBEA0C57B6C4EC8D /* SaveAsset.swift in Sources */,
+				2387359F21F6B011B51DFE0C1042C400 /* SinglePhotoConfig.swift in Sources */,
+				1E0BDBA00FFF121E0E9DE9E2F2E8197F /* SinglePhotoView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7C193428E507265449A31C31113FDD93 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				6789A82069F2B29516DA7E637FE17FBC /* Pods-LXPhotosManagerModule-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B4DDB51AD9DBEAF5D6AAF6D57774DEDE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				ABE8C30331AFD5516737A4B57C1FC4C3 /* AddPhotosView.swift in Sources */,
-				25B0368DE955A5F9FDA0CA088D5391D2 /* ConvenienceSelfBundle.swift in Sources */,
-				409028BA1D319BFB19AF657F7FBEE79A /* FileInfoProtocol.swift in Sources */,
-				187D5AD0D3DE9E10EF7A2BAF0DDCA2ED /* ImageBundle.swift in Sources */,
-				BA63D68E709E402AE452D4410EFB641D /* LXPhotosManager-dummy.m in Sources */,
-				F70D35D04281507BC0E0ADDE45350D05 /* NineGridPhotosView.swift in Sources */,
-				CEAAC2F02D6CA6FAE46D1842D165352C /* PhotosBrowserView.swift in Sources */,
-				6875A588C2A28D30EC9465F9C4216E73 /* PhotosScrollView.swift in Sources */,
-				6262C49038865F7BE75144CA14827912 /* PhotosScrollViewCell.swift in Sources */,
-				608610C918CB2E4F1940D3D42FA553CD /* SaveAsset.swift in Sources */,
-				FF96563F1E5AA183C9425516B8229842 /* SinglePhotoConfig.swift in Sources */,
-				ABA4E4FD3C1A710765817D03B04F77A9 /* SinglePhotoView.swift in Sources */,
-				B987DDDAAC2DCA900780FC1D4F67CBBE /* UIImageExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

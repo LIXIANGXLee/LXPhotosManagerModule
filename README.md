@@ -17,6 +17,14 @@
  **下载后压缩包 解压   请先 pod install  在运行项目** 
 
 ###  模型数据 必须遵守协议  FileInfoProtocol
+### 配置信息
+### 相册权限
+ ``` Privacy - Photo Library Usage Description ```
+ ### 相机权限
+  ``` Privacy - Camera Usage Description ```
+  ### 麦克风
+  ``` Privacy - Microphone Usage Description ```
+  
   
 ```
 class FileModel: FileInfoProtocol {
