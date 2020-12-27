@@ -70,7 +70,7 @@ public class PhotosBrowserView: UIView {
     fileprivate var zoomImgViewRect: CGRect {
         get {
             let indexpath = IndexPath(item: index, section: 0)
-            let scrollViewCell = scrollView.collectionView.cellForItem(at: indexpath) as! PhotosScrollViewCell
+            guard let scrollViewCell = scrollView.collectionView.cellForItem(at: indexpath) as? PhotosScrollViewCell else { return CGRect.zero}
             return scrollViewCell.imgViewZoomRect
         }
     }

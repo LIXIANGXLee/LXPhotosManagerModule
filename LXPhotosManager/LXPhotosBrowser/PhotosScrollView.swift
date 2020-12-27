@@ -81,10 +81,13 @@ class PhotosScrollView: UIView {
             if index >=  photos.count {return}
             //设置显示器的总个数
             pageControl.numberOfPages = photos.count > 9 ? 0 : photos.count
-            //滚动到当前索引位置
-            collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: UICollectionView.ScrollPosition.left, animated: false)
+            
             //刷新表格
             collectionView.reloadData()
+            
+            /// 移动偏移量
+            collectionView.setContentOffset(CGPoint(x: collectionView.frame.width * CGFloat(index), y: 0), animated: false)
+        
          }
      }
     
@@ -98,12 +101,14 @@ class PhotosScrollView: UIView {
         addSubview(collectionView)
         
         // pageControll
-         addSubview(pageControl)
+        addSubview(pageControl)
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
 }
 
 // MARK: - UICollectionViewDelegate
