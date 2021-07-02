@@ -1,16 +1,16 @@
 PODS:
-  - LXFitManager (1.1.0)
-  - LXPhotosManager (0.4.0):
+  - LXFitManager (6.1.0)
+  - LXPhotosManager (0.5.0):
     - LXFitManager
-    - LXPhotosManager/LXHelpers (= 0.4.0)
-    - LXPhotosManager/LXNinegridPhotos (= 0.4.0)
-    - LXPhotosManager/LXPhotosBrowser (= 0.4.0)
-  - LXPhotosManager/LXHelpers (0.4.0):
+    - LXPhotosManager/LXHelpers (= 0.5.0)
+    - LXPhotosManager/LXNinegridPhotos (= 0.5.0)
+    - LXPhotosManager/LXPhotosBrowser (= 0.5.0)
+  - LXPhotosManager/LXHelpers (0.5.0):
     - LXFitManager
-  - LXPhotosManager/LXNinegridPhotos (0.4.0):
+  - LXPhotosManager/LXNinegridPhotos (0.5.0):
     - LXFitManager
     - LXPhotosManager/LXPhotosBrowser
-  - LXPhotosManager/LXPhotosBrowser (0.4.0):
+  - LXPhotosManager/LXPhotosBrowser (0.5.0):
     - LXFitManager
     - LXPhotosManager/LXHelpers
 
@@ -26,9 +26,9 @@ EXTERNAL SOURCES:
     :path: "./"
 
 SPEC CHECKSUMS:
-  LXFitManager: d76fa8e60a899fccf87c66fe33e19479e1d64906
-  LXPhotosManager: 895027fe889712c42459a9a89196da16515f962d
+  LXFitManager: 3f36597e77165280ad9214e84cbeb39785528e70
+  LXPhotosManager: 3c97856744b4854d801b3cfe53bad6a13d6e32a5
 
 PODFILE CHECKSUM: f4fb62a0dc2293677d1dfcd8f9c9e4607a6e210f
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.10.1

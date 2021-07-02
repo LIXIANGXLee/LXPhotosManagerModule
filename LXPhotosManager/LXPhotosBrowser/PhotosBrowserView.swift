@@ -11,9 +11,33 @@ import UIKit
 import LXFitManager
 
 public struct PhotosBrowserConst {
+    /// 获取状态栏高度
+    private static var statusBarHeight: CGFloat {
+        var statusH: CGFloat = UIApplication.shared.statusBarFrame.height
+        if statusH == 0, #available(iOS 13.0, *) {
+            statusH = UIApplication.shared.windows.first?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+        }
+        if  statusH == 0, #available(iOS 11.0, *)  {
+            statusH = UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0
+        }
+        
+        return statusH
+    }
+    
+    private static var touchBarHeight: CGFloat {
+        var touchBarH: CGFloat = 0
+        if #available(iOS 11.0, *) {
+            touchBarH = UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0
+            if touchBarH == 0 && Int(statusBarHeight) >= 44 {
+                touchBarH = 34
+            }
+        }
+        return touchBarH
+    }
+    
     static let ScreenW : CGFloat = UIScreen.main.bounds.width
     static let ScreenH : CGFloat = UIScreen.main.bounds.height
-    static let TabBarH : CGFloat = (ScreenH == 812 || ScreenH == 896) ? 83 : 49
+    static let TabBarH : CGFloat = touchBarHeight + 49
 }
 
 @objc public protocol  PhotosBrowserViewDelagete: AnyObject {
