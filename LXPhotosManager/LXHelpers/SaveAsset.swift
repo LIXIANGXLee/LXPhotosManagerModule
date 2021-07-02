@@ -78,7 +78,7 @@ extension SaveAsset {
     fileprivate class func writeImageToAsset() {
          //1先保存图片到系统相册
          PHPhotoLibrary.shared().performChanges({
-            assetImageLocalIdentifier =  PHAssetChangeRequest.creationRequestForAsset(from: image).placeholderForCreatedAsset?.localIdentifier
+            assetImageLocalIdentifier = PHAssetChangeRequest.creationRequestForAsset(from: image).placeholderForCreatedAsset?.localIdentifier
          }) { (success, error) in
              if success == false { //创建相簿失败
                  DispatchQueue.main.async {
@@ -121,7 +121,9 @@ extension SaveAsset {
      ///获取相薄
     fileprivate class func getAssetCollection(with colloctionName: String) -> PHAssetCollection? {
          //获取系统相册薄 如果有当前相册薄直接返回当前的
-         let assetCollections = PHAssetCollection.fetchAssetCollections(with: PHAssetCollectionType.album, subtype: PHAssetCollectionSubtype.albumRegular, options: nil)
+         let assetCollections = PHAssetCollection.fetchAssetCollections(with: PHAssetCollectionType.album,
+                                                                        subtype: PHAssetCollectionSubtype.albumRegular,
+                                                                        options: nil)
           var assetCollection: PHAssetCollection?
           assetCollections.enumerateObjects { (collection, index, isStop) in
              if collection.localizedTitle == colloctionName {

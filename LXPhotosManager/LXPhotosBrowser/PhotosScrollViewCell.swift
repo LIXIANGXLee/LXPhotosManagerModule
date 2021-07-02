@@ -21,7 +21,8 @@ protocol PhotosScrollViewCellDelegate: AnyObject {
     func photosScrollViewCell(didSelect photosScrollViewCell: PhotosScrollViewCell)
     
     ///拖拽滚动时调用或者长按回调
-    func photosScrollViewCell(_ photosScrollViewCell: PhotosScrollViewCell,_ type: PhotosScrollViewType)
+    func photosScrollViewCell(_ photosScrollViewCell: PhotosScrollViewCell,
+                              _ type: PhotosScrollViewType)
 }
 
 class PhotosScrollViewCell: UICollectionViewCell {
@@ -31,14 +32,16 @@ class PhotosScrollViewCell: UICollectionViewCell {
     fileprivate var isBeganPoint: CGPoint = .zero
     
     fileprivate lazy var singleTag: UITapGestureRecognizer = {
-        let singleTag = UITapGestureRecognizer(target: self, action:#selector(imgView(withSingleTap:)))
+        let singleTag = UITapGestureRecognizer(target: self,
+                                               action:#selector(imgView(withSingleTap:)))
         singleTag.numberOfTapsRequired = 1
         singleTag.require(toFail: self.doubleTag)
         return singleTag
     }()
     
     fileprivate lazy var doubleTag: UITapGestureRecognizer = {
-        let doubleTag = UITapGestureRecognizer(target: self, action:#selector(imgView(withdoubleTap:)))
+        let doubleTag = UITapGestureRecognizer(target: self,
+                                               action:#selector(imgView(withdoubleTap:)))
         doubleTag.numberOfTapsRequired = 2
         return doubleTag
     }()
@@ -57,7 +60,10 @@ class PhotosScrollViewCell: UICollectionViewCell {
     }()
     
     fileprivate lazy var scrollView: UIScrollView = {
-        let scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: bounds.width - LXFit.fitFloat(20), height: bounds.height ))
+        let scrollView = UIScrollView(frame: CGRect(x: 0,
+                                                    y: 0,
+                                                    width: bounds.width - LXFit.fitFloat(20),
+                                                    height: bounds.height ))
         scrollView.contentSize = .zero
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
@@ -75,7 +81,10 @@ class PhotosScrollViewCell: UICollectionViewCell {
     
     //指示器
     fileprivate lazy var indicatorView: UIActivityIndicatorView = {
-        let iView = UIActivityIndicatorView(frame: CGRect(x: (self.scrollView.frame.width - LXFit.fitFloat(60)) * 0.5, y: (self.scrollView.frame.height - LXFit.fitFloat(60)) * 0.5, width: LXFit.fitFloat(60), height: LXFit.fitFloat(60)))
+        let iView = UIActivityIndicatorView(frame: CGRect(x: (self.scrollView.frame.width - LXFit.fitFloat(60)) * 0.5,
+                                                          y: (self.scrollView.frame.height - LXFit.fitFloat(60)) * 0.5,
+                                                          width: LXFit.fitFloat(60),
+                                                          height: LXFit.fitFloat(60)))
         iView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         iView.layer.cornerRadius = LXFit.fitFloat(6)
         iView.clipsToBounds = true
@@ -152,7 +161,10 @@ extension PhotosScrollViewCell {
             scrollView.contentSize = CGSize(width: 0, height: imgH)
             imgView.frame = CGRect(x: 0, y: 0, width:imgW, height: imgH)
         } else{//图片高度小于等于当前view高度
-            imgView.frame = CGRect(x: 0, y: (bounds.height - imgH) * 0.5, width: imgW, height: imgH)
+            imgView.frame = CGRect(x: 0,
+                                   y: (bounds.height - imgH) * 0.5,
+                                   width: imgW,
+                                   height: imgH)
         }
     }
     
@@ -165,8 +177,13 @@ extension PhotosScrollViewCell {
     @objc fileprivate func imgView(withdoubleTap gesture: UITapGestureRecognizer) {
         let scale: CGFloat = (scrollView.zoomScale == 1.0) ? 3.0 : 1.0
         let center = gesture.location(in: gesture.view)
-        let size = CGSize(width: scrollView.frame.width / scale, height: scrollView.frame.height / scale)
-        scrollView.zoom(to: CGRect(x: center.x - size.width * 0.5, y: center.y - size.height * 0.5, width: size.width, height: size.height), animated: true)
+        let size = CGSize(width: scrollView.frame.width / scale,
+                          height: scrollView.frame.height / scale)
+        scrollView.zoom(to: CGRect(x: center.x - size.width * 0.5,
+                                   y: center.y - size.height * 0.5,
+                                   width: size.width,
+                                   height: size.height),
+                        animated: true)
         
         //外部调用尺寸（相对父视图是屏幕宽度的view）
         setResetImgViewZoomRect()
@@ -192,9 +209,15 @@ extension PhotosScrollViewCell {
     fileprivate func setResetImgViewZoomRect() {
         
         if imgView.frame.height > scrollView.frame.height  {
-            imgViewZoomRect = CGRect(x: -scrollView.contentOffset.x, y: -scrollView.contentOffset.y, width: imgView.frame.width, height: imgView.frame.height)
+            imgViewZoomRect = CGRect(x: -scrollView.contentOffset.x,
+                                     y: -scrollView.contentOffset.y,
+                                     width: imgView.frame.width,
+                                     height: imgView.frame.height)
         }else {
-            imgViewZoomRect = CGRect(x: -scrollView.contentOffset.x, y: (scrollView.frame.height -  imgView.frame.height) * 0.5, width: imgView.frame.width, height: imgView.frame.height)
+            imgViewZoomRect = CGRect(x: -scrollView.contentOffset.x,
+                                     y: (scrollView.frame.height - imgView.frame.height) * 0.5,
+                                     width: imgView.frame.width,
+                                     height: imgView.frame.height)
         }
     }
 }
@@ -209,9 +232,12 @@ extension PhotosScrollViewCell: UIScrollViewDelegate {
     
     ///缩放后设置位置坐标
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
-        let offSetX = (scrollView.frame.width > scrollView.contentSize.width) ? (scrollView.frame.width - scrollView.contentSize.width) * 0.5 : 0
-        let offSetY = (scrollView.frame.height > scrollView.contentSize.height) ? (scrollView.frame.height - scrollView.contentSize.height) * 0.5 : 0
-        imgView.center = CGPoint(x: scrollView.contentSize.width * 0.5 + offSetX, y:  scrollView.contentSize.height * 0.5 + offSetY)
+        let offSetX = (scrollView.frame.width > scrollView.contentSize.width) ?
+            (scrollView.frame.width - scrollView.contentSize.width) * 0.5 : 0
+        let offSetY = (scrollView.frame.height > scrollView.contentSize.height) ?
+            (scrollView.frame.height - scrollView.contentSize.height) * 0.5 : 0
+        imgView.center = CGPoint(x: scrollView.contentSize.width * 0.5 + offSetX,
+                                 y:  scrollView.contentSize.height * 0.5 + offSetY)
         
         //外部调用尺寸（相对父视图是屏幕宽度的view）
          setResetImgViewZoomRect()
@@ -223,7 +249,9 @@ extension PhotosScrollViewCell: UIScrollViewDelegate {
         
         //滚动大图时 开始调用
         if isDrag {
-            delegate?.photosScrollViewCell(self, .began(CGPoint(x: -scrollView.contentOffset.x + isBeganPoint.x, y: -scrollView.contentOffset.y + isBeganPoint.y)))
+            delegate?.photosScrollViewCell(self,
+                                           .began(CGPoint(x: -scrollView.contentOffset.x + isBeganPoint.x,
+                                                          y: -scrollView.contentOffset.y + isBeganPoint.y)))
         }
     }
     
@@ -238,7 +266,9 @@ extension PhotosScrollViewCell: UIScrollViewDelegate {
          isDrag = false
         //滚动大图时 停止调用
       if  scrollView.contentOffset.y < LXFit.fitFloat(-100) && !scrollView.isZooming{
-            delegate?.photosScrollViewCell(self, .end(CGPoint(x: -scrollView.contentOffset.x + isBeganPoint.x, y: -scrollView.contentOffset.y + isBeganPoint.y)))
+            delegate?.photosScrollViewCell(self,
+                                           .end(CGPoint(x: -scrollView.contentOffset.x + isBeganPoint.x,
+                                                        y: -scrollView.contentOffset.y + isBeganPoint.y)))
         }else{
             delegate?.photosScrollViewCell(self, .resume)
         }

@@ -13,7 +13,9 @@ import LXFitManager
 public protocol NineGridPhotosViewDelegate: AnyObject {
     
     ///数据源回调
-    func nineGridPhotosView(with index: Int,photoViews: [SinglePhotoView],datasource: [FileInfoProtocol])
+    func nineGridPhotosView(with index: Int,
+                            photoViews: [SinglePhotoView],
+                            datasource: [FileInfoProtocol])
     
     ///点击视频播放
     func nineGridPhotosView(videoPlay model: FileInfoProtocol)

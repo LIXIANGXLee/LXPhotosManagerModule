@@ -14,7 +14,7 @@ public enum SinglePhotoViewTapType {
     ///点击图片或者点击播放视频
     ///SinglePhotoViewType 判断是加号添加 还是九宫格
     ///SinglePhotoView 当前view
-    case tapImgView(SinglePhotoViewType,SinglePhotoView)
+    case tapImgView(SinglePhotoViewType, SinglePhotoView)
     
     ///点击删除图片
     case deleteImgView(SinglePhotoView)
@@ -52,7 +52,8 @@ public class SinglePhotoView: UIView {
     public weak var delegate: SinglePhotoViewDelegate?
     
     /// 默认是九宫格布局
-    public var type: SinglePhotoViewType = .nineGrid(type: .photo) { didSet { setDefaultAddImage() } }
+    public var type: SinglePhotoViewType = .nineGrid(type: .photo)
+    { didSet { setDefaultAddImage() } }
    
     /// 展示的图片
     public var imgView: UIImageView!
@@ -95,16 +96,25 @@ extension SinglePhotoView {
        //设置closeButton尺寸
        if case let .add(isAdd: isAdd, config: config) = self.type  {
            if !isAdd {
-               deleteImgView.frame = CGRect(x: self.frame.width - config.deleteImageSize.width + config.deleteImagePointOffSet.x, y: config.deleteImagePointOffSet.y, width: config.deleteImageSize.width, height: config.deleteImageSize.width)
+               deleteImgView.frame = CGRect(x: self.frame.width - config.deleteImageSize.width + config.deleteImagePointOffSet.x,
+                                            y: config.deleteImagePointOffSet.y,
+                                            width: config.deleteImageSize.width,
+                                            height: config.deleteImageSize.width)
             
                 /// 视频时调用
                 if config.type == .video {
-                    videoImgView.frame = CGRect(x: 0, y: 0, width: config.videoPlayImageSize.width, height: config.videoPlayImageSize.height)
+                    videoImgView.frame = CGRect(x: 0,
+                                                y: 0,
+                                                width: config.videoPlayImageSize.width,
+                                                height: config.videoPlayImageSize.height)
                     videoImgView.center = imgView.center
                 }
            }
        }else if case let .nineGrid(type: type) = self.type, type == .video  {
-            videoImgView.frame = CGRect(x: 0, y: 0, width: LXFit.fitFloat(20) , height: LXFit.fitFloat(20))
+            videoImgView.frame = CGRect(x: 0,
+                                        y: 0,
+                                        width: LXFit.fitFloat(20),
+                                        height: LXFit.fitFloat(20))
             videoImgView.center = imgView.center
         }
    }
@@ -148,14 +158,16 @@ extension SinglePhotoView {
         imgView.isUserInteractionEnabled = true
         imgView.clipsToBounds = true
         addSubview(imgView)
-        imgView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapImgView(_:))))
+        imgView.addGestureRecognizer(UITapGestureRecognizer(target: self,
+                                                            action: #selector(tapImgView(_:))))
         
         deleteImgView = UIImageView()
         deleteImgView.contentMode = .scaleAspectFill
         deleteImgView.isUserInteractionEnabled = true
         deleteImgView.clipsToBounds = true
         addSubview(deleteImgView)
-        deleteImgView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapDeleteImgView(_:))))
+        deleteImgView.addGestureRecognizer(UITapGestureRecognizer(target: self,
+                                                                  action: #selector(tapDeleteImgView(_:))))
         
         videoImgView = UIImageView()
         videoImgView.contentMode = .scaleAspectFill

@@ -20,7 +20,6 @@ public struct PhotosBrowserConst {
         if  statusH == 0, #available(iOS 11.0, *)  {
             statusH = UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0
         }
-        
         return statusH
     }
     
@@ -35,18 +34,23 @@ public struct PhotosBrowserConst {
         return touchBarH
     }
     
-    static let ScreenW : CGFloat = UIScreen.main.bounds.width
-    static let ScreenH : CGFloat = UIScreen.main.bounds.height
-    static let TabBarH : CGFloat = touchBarHeight + 49
+    static let ScreenW: CGFloat = UIScreen.main.bounds.width
+    static let ScreenH: CGFloat = UIScreen.main.bounds.height
+    static let TabBarH: CGFloat = touchBarHeight + 49
 }
 
-@objc public protocol  PhotosBrowserViewDelagete: AnyObject {
+@objc public protocol PhotosBrowserViewDelagete: AnyObject {
     
-    //代理方法获取cell
-    @objc optional func photosBrowserView(cellIndex: Int,photos: [FileInfoProtocol]) -> UIView
+    // 代理方法获取cell
+    @objc optional func photosBrowserView(cellIndex: Int,
+                                          photos: [FileInfoProtocol]) -> UIView
     
-    //图片长按事件
-    @objc optional func photosBrowserView(longPress photosBrowserView: PhotosBrowserView,_ model: FileInfoProtocol)
+    // 滚动时的偏移量
+    @objc optional func photosBrowserView(contentOffSetAt index: Int)
+    
+    // 图片长按事件
+    @objc optional func photosBrowserView(longPress photosBrowserView: PhotosBrowserView,
+                                          _ model: FileInfoProtocol)
 }
 
 public class PhotosBrowserView: UIView {
@@ -57,7 +61,7 @@ public class PhotosBrowserView: UIView {
     public var loadBlock: ((FileInfoProtocol,UIImageView) -> ())?
     
     ///可选项 是否加载高清图
-    public var finishAnimation: ((FileInfoProtocol,UIImageView) -> ())?
+    public var finishAnimation: ((FileInfoProtocol, UIImageView) -> ())?
     ///是否显示指示器
     public var isFinishActivityAnimation: Bool = false {
         didSet {
@@ -85,7 +89,8 @@ public class PhotosBrowserView: UIView {
     ///图片原始尺寸
     fileprivate var imgOriginRect: CGRect {
         get {
-            guard let view  = cellType ? delegate?.photosBrowserView?(cellIndex: index, photos: photos) : imgViews[index] else {return .zero}
+            guard let view  = cellType ? delegate?.photosBrowserView?(cellIndex: index,
+                                                                      photos: photos) : imgViews[index] else {return .zero}
             return view.convert(view.bounds, to: self)
         }
     }
@@ -94,7 +99,8 @@ public class PhotosBrowserView: UIView {
     fileprivate var zoomImgViewRect: CGRect {
         get {
             let indexpath = IndexPath(item: index, section: 0)
-            guard let scrollViewCell = scrollView.collectionView.cellForItem(at: indexpath) as? PhotosScrollViewCell else { return CGRect.zero}
+            guard let scrollViewCell = scrollView.collectionView.cellForItem(at: indexpath) as?
+                    PhotosScrollViewCell else { return CGRect.zero }
             return scrollViewCell.imgViewZoomRect
         }
     }
@@ -113,7 +119,10 @@ public class PhotosBrowserView: UIView {
         super.init(frame: frame)
         self.backgroundColor = UIColor.black
         self.alpha = 0.0
-        self.frame = CGRect(x: 0, y: 0, width: PhotosBrowserConst.ScreenW, height: PhotosBrowserConst.ScreenH)
+        self.frame = CGRect(x: 0,
+                            y: 0,
+                            width: PhotosBrowserConst.ScreenW,
+                            height: PhotosBrowserConst.ScreenH)
         aboveViewController()?.view?.addSubview(self)
     }
     
@@ -129,7 +138,7 @@ extension PhotosBrowserView {
     /// - Parameters:
     ///   - index: 点击索引
     ///   - cellType:  类型 cellType是否为cell类型 True为cell类型 默认 false
-    public func startAnimation(with index: Int,cellType: Bool)  {
+    public func startAnimation(with index: Int, cellType: Bool)  {
         self.cellType = cellType
         self.index = index
        
@@ -169,7 +178,10 @@ extension PhotosBrowserView {
     fileprivate func addAnimation() {
         let imgH = bounds.width * fileModel.height / fileModel.width
         UIView.animate(withDuration: 0.25, animations: {
-            self.imgView.frame = CGRect(x: 0, y: (self.bounds.height - imgH) * 0.5, width: self.bounds.width, height: imgH)
+            self.imgView.frame = CGRect(x: 0,
+                                        y: (self.bounds.height - imgH) * 0.5,
+                                        width: self.bounds.width,
+                                        height: imgH)
             if imgH > self.bounds.height {
                 self.imgView.frame.origin.y = 0
             }
@@ -188,8 +200,11 @@ extension PhotosBrowserView {
     
      /// 添加图片浏览器
     fileprivate func addScrollView() {
-        let rect = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height)
-        scrollView = PhotosScrollView(frame: rect,index,self.cellType)
+        let rect = CGRect(x: 0,
+                          y: 0,
+                          width: bounds.width,
+                          height: bounds.height)
+        scrollView = PhotosScrollView(frame: rect, index,self.cellType)
         scrollView.loadBlock = loadBlock
         scrollView.finishAnimation = finishAnimation
         scrollView.photos = photos
@@ -199,7 +214,8 @@ extension PhotosBrowserView {
     
     /// 添加手势
     fileprivate func addGesture() {
-       panGesture = UIPanGestureRecognizer(target: self, action: #selector(pangesture(_:)))
+       panGesture = UIPanGestureRecognizer(target: self,
+                                           action: #selector(pangesture(_:)))
         aboveViewController()?.view?.addGestureRecognizer(panGesture)
     }
     
@@ -213,7 +229,9 @@ extension PhotosBrowserView {
         if gesture.state == .changed {
             //滑动改变处理
             beganScrollChange(point)
-        }else if gesture.state == .ended || gesture.state == .cancelled || gesture.state == .failed {
+        }else if gesture.state == .ended ||
+                    gesture.state == .cancelled ||
+                    gesture.state == .failed {
             // 滑动结束处理
             endScrollChange(point)
         }
@@ -224,7 +242,8 @@ extension PhotosBrowserView {
         
         //如果滑动y小于0 说明往上面滑 则只改变偏移量 不进行缩放
         if point.y <= 0 {
-            imgView.center = CGPoint(x: imgViewCenterPoint.x + point.x, y: imgViewCenterPoint.y + point.y)
+            imgView.center = CGPoint(x: imgViewCenterPoint.x + point.x,
+                                     y: imgViewCenterPoint.y + point.y)
             return
         }
         
@@ -237,8 +256,12 @@ extension PhotosBrowserView {
         }else { //开始缩放
             let scale = 1 - point.y / bounds.height
             self.alpha = scale           
-            imgView.transform = CGAffineTransform(scaleX: max(imgOriginRect.height / bounds.height, scale), y: max(imgOriginRect.height / bounds.height, scale))
-            imgView.center = CGPoint(x: imgViewCenterPoint.x + point.x , y: imgViewCenterPoint.y + point.y)
+            imgView.transform = CGAffineTransform(scaleX: max(imgOriginRect.height / bounds.height,
+                                                              scale),
+                                                  y: max(imgOriginRect.height / bounds.height,
+                                                         scale))
+            imgView.center = CGPoint(x: imgViewCenterPoint.x + point.x,
+                                     y: imgViewCenterPoint.y + point.y)
         }
     }
     
@@ -307,5 +330,7 @@ extension PhotosBrowserView: PhotosScrollViewDelegate {
     func photosScrollView(_ photosScrollView: PhotosScrollView, contentOffSetAt index: Int) {
         //记录索引
         self.index = index
+        
+        self.delegate?.photosBrowserView?(contentOffSetAt: index)
     }
 }

@@ -19,10 +19,10 @@ public protocol AddPhotosViewDelegate: AnyObject {
     func addPhotosView(with datasource: [FileInfoProtocol])
     
     ///长按回调
-    func addPhotosView(longPress addPhotosView : AddPhotosView, model: FileInfoProtocol)
+    func addPhotosView(longPress addPhotosView: AddPhotosView, model: FileInfoProtocol)
     
     ///点击视频播放
-    func addPhotosView(videoPlay addPhotosView : AddPhotosView, model: FileInfoProtocol)
+    func addPhotosView(videoPlay addPhotosView: AddPhotosView, model: FileInfoProtocol)
 
 }
 //MARK: -  添加图片的类
@@ -124,7 +124,10 @@ extension AddPhotosView {
             let col = i % config.colCount
             let row = i / config.colCount
             pictureView.tag = i
-            pictureView.frame = CGRect(x: config.marginLeft + (config.marginCol + w) * CGFloat(col), y:((config.deleteImagePointOffSet.y < 0) ? -config.deleteImagePointOffSet.y : 0) + (config.marginRol + h) * CGFloat(row), width: w, height: h)
+            pictureView.frame = CGRect(x: config.marginLeft + (config.marginCol + w) * CGFloat(col),
+                                       y:((config.deleteImagePointOffSet.y < 0) ? -config.deleteImagePointOffSet.y : 0) + (config.marginRol + h) * CGFloat(row),
+                                       width: w,
+                                       height: h)
             pictureView.isHidden = false
             if photoViews.count > config.photoMaxCount {
                pictureView.isHidden = i == config.photoMaxCount
@@ -157,14 +160,21 @@ extension AddPhotosView {
 
     /// 相册相机选择
     private func selectLicense(_ type: SinglePhotoType) {
-       let sheetController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        sheetController.addAction(UIAlertAction(title: (type == .photo) ?  "拍照": "拍摄" , style: .default, handler: {  [weak self] (alert) in
+       let sheetController = UIAlertController(title: nil,
+                                               message: nil,
+                                               preferredStyle: .actionSheet)
+        sheetController.addAction(UIAlertAction(title: (type == .photo) ?  "拍照": "拍摄" ,
+                                                style: .default,
+                                                handler: {  [weak self] (alert) in
              self?.openCamera(type)
         }))
-       sheetController.addAction(UIAlertAction(title: "相册", style: .default, handler: {  [weak self] (alert) in
+       sheetController.addAction(UIAlertAction(title: "相册",
+                                               style: .default,
+                                               handler: {  [weak self] (alert) in
                self?.openAlbum(type)
         }))
-       sheetController.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+       sheetController.addAction(UIAlertAction(title: "取消",
+                                               style: .cancel, handler: nil))
        aboveViewController()?.present(sheetController, animated: true, completion: nil)
     }
 
@@ -182,11 +192,17 @@ extension AddPhotosView {
                aboveViewController()?.present(picker, animated: true, completion: nil)
            }else{
                let msg = "启动相机失败,请在手机设置中打开相机权限"
-               let alertController = UIAlertController(title: nil, message: msg, preferredStyle: .alert)
-               alertController.addAction(UIAlertAction(title: "确定", style: .default, handler: nil))
+               let alertController = UIAlertController(title: nil,
+                                                       message: msg,
+                                                       preferredStyle: .alert)
+               alertController.addAction(UIAlertAction(title: "确定",
+                                                       style: .default,
+                                                       handler: nil))
                alertController.modalPresentationStyle = .fullScreen
 
-              aboveViewController()?.present(alertController, animated: true, completion: nil)
+              aboveViewController()?.present(alertController,
+                                             animated: true,
+                                             completion: nil)
            }
        }
      /// 选择相册
@@ -200,13 +216,20 @@ extension AddPhotosView {
                     picker.mediaTypes = [kUTTypeMovie as String]
                 }
                picker.modalPresentationStyle = .fullScreen
-               aboveViewController()?.present(picker, animated: true, completion: nil)
+               aboveViewController()?.present(picker,
+                                              animated: true, completion: nil)
            }else{
                let msg = "打开相册失败,请在手机设置中打开相册权限"
-               let alertController = UIAlertController(title: nil, message: msg, preferredStyle: .alert)
-               alertController.addAction(UIAlertAction(title: "确定", style: .default, handler: nil))
+               let alertController = UIAlertController(title: nil,
+                                                       message: msg,
+                                                       preferredStyle: .alert)
+               alertController.addAction(UIAlertAction(title: "确定",
+                                                       style: .default,
+                                                       handler: nil))
                alertController.modalPresentationStyle = .fullScreen
-               aboveViewController()?.present(alertController, animated: true, completion: nil)
+               aboveViewController()?.present(alertController,
+                                              animated: true,
+                                              completion: nil)
            }
        }
 
@@ -276,9 +299,11 @@ extension AddPhotosView: UIImagePickerControllerDelegate , UINavigationControlle
         var photo: PhotoModel
         if type == .photo {
             guard let image = info[.originalImage] as? UIImage else {  return  }
-            photo = PhotoModel(image: image.fixOrientation(),height: image.size.height, width: image.size.width)
+            photo = PhotoModel(image: image.fixOrientation(),height: image.size.height,
+                               width: image.size.width)
         }else {
-            guard let url = info[.mediaURL] as? URL, let image = UIImage.imageWithVideo(videoUrl:url) else {  return  }
+            guard let url = info[.mediaURL] as? URL,
+                  let image = UIImage.imageWithVideo(videoUrl:url) else {  return  }
             photo = PhotoModel(image: image, height: image.size.height, width: image.size.width,videoUrl:url.absoluteString)
         }
         

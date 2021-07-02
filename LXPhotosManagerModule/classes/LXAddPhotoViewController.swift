@@ -47,9 +47,12 @@ class LXAddPhotoViewController: UIViewController {
            models.append(model)
                         
         view.backgroundColor = UIColor.white
-        var config = SinglePhotoConfig()
+        let config = SinglePhotoConfig()
 //        config.type = SinglePhotoType.video
-        let addView = AddPhotosView(frame: CGRect(x: 0, y: 100, width: UIScreen.main.bounds.width, height: 600),config: config)
+        let addView = AddPhotosView(frame: CGRect(x: 0,
+                                                  y: 100,
+                                                  width: UIScreen.main.bounds.width,
+                                                  height: 600),config: config)
         view.addSubview(addView)
         addView.delegate = self
         
@@ -74,15 +77,18 @@ extension LXAddPhotoViewController: AddPhotosViewDelegate {
         print("--=-=-=-=",datasource)
     }
     
-    func addPhotosView(videoPlay addPhotosView : AddPhotosView, model: FileInfoProtocol){
+    func addPhotosView(videoPlay addPhotosView: AddPhotosView,
+                       model: FileInfoProtocol){
         print("--=-=-=-=视频播放")
 
     }
 
-    func addPhotosView(longPress addPhotosView: AddPhotosView, model: FileInfoProtocol) {
+    func addPhotosView(longPress addPhotosView: AddPhotosView,
+                       model: FileInfoProtocol) {
         
         if model.isNetWork {
-            UIImageView().kf.setImage(with: URL(string: model.imgUrl), placeholder: nil, options: nil, progressBlock: nil) { (image, error, cacge, url) in
+            UIImageView().kf.setImage(with: URL(string: model.imgUrl),
+                                      placeholder: nil, options: nil, progressBlock: nil) { (image, error, cacge, url) in
                SaveAsset.saveImageToAsset(with:  image ?? UIImage()) { (type) in
                    if case .success = type {
                         let msg = "保存图片成功"

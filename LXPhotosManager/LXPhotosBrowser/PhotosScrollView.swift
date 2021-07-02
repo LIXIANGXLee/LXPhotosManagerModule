@@ -12,11 +12,11 @@ import LXFitManager
 protocol PhotosScrollViewDelegate: AnyObject {
     
      // MARK: - 点击时调用
-    func photosScrollView(_ photosScrollView: PhotosScrollView,didSelectPhotoAt index: Int)
+    func photosScrollView(_ photosScrollView: PhotosScrollView, didSelectPhotoAt index: Int)
     // MARK: - cell滚动偏移量
-    func photosScrollView(_ photosScrollView: PhotosScrollView,contentOffSetAt index: Int)
+    func photosScrollView(_ photosScrollView: PhotosScrollView, contentOffSetAt index: Int)
      // MARK: -  拖拽滚动时调用或者长按回调
-    func photosScrollView(_ photosScrollView: PhotosScrollView,_ type: PhotosScrollViewType)
+    func photosScrollView(_ photosScrollView: PhotosScrollView, _ type: PhotosScrollViewType)
 
 }
 
@@ -28,20 +28,26 @@ class PhotosScrollView: UIView {
     fileprivate lazy var layOut: UICollectionViewFlowLayout = {
         let layOut = UICollectionViewFlowLayout()
         layOut.scrollDirection = UICollectionView.ScrollDirection.horizontal
-        layOut.itemSize = CGSize(width: self.bounds.width + LXFit.fitFloat(20), height: self.bounds.height)
+        layOut.itemSize = CGSize(width: self.bounds.width + LXFit.fitFloat(20),
+                                 height: self.bounds.height)
         layOut.minimumLineSpacing = .leastNormalMagnitude
         layOut.minimumInteritemSpacing = .leastNormalMagnitude
         return layOut
     }()
     
     fileprivate(set) lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: self.bounds.width + LXFit.fitFloat(20), height: self.bounds.height), collectionViewLayout: self.layOut)
+        let collectionView = UICollectionView(frame: CGRect(x: 0,
+                                                            y: 0,
+                                                            width: self.bounds.width + LXFit.fitFloat(20),
+                                                            height: self.bounds.height),
+                                              collectionViewLayout: self.layOut)
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.isPagingEnabled = true
-        collectionView.register(PhotosScrollViewCell.self, forCellWithReuseIdentifier: identified)
+        collectionView.register(PhotosScrollViewCell.self,
+                                forCellWithReuseIdentifier: identified)
         
         if #available(iOS 11.0, *) {
             collectionView.contentInsetAdjustmentBehavior = UIScrollView.ContentInsetAdjustmentBehavior.never
@@ -52,7 +58,10 @@ class PhotosScrollView: UIView {
     }()
     
     fileprivate lazy var pageControl: UIPageControl = {
-        let pageControl = UIPageControl(frame: CGRect(x: 0, y: self.bounds.height - PhotosBrowserConst.TabBarH - LXFit.fitFloat(20), width: self.bounds.width, height: LXFit.fitFloat(20)))
+        let pageControl = UIPageControl(frame: CGRect(x: 0,
+                                                      y: self.bounds.height - PhotosBrowserConst.TabBarH - LXFit.fitFloat(20),
+                                                      width: self.bounds.width,
+                                                      height: LXFit.fitFloat(20)))
         pageControl.pageIndicatorTintColor = UIColor.lightGray
         pageControl.currentPageIndicatorTintColor = UIColor.white
         pageControl.hidesForSinglePage = true
@@ -86,7 +95,8 @@ class PhotosScrollView: UIView {
             collectionView.reloadData()
             
             /// 移动偏移量
-            collectionView.setContentOffset(CGPoint(x: collectionView.frame.width * CGFloat(index), y: 0), animated: false)
+            collectionView.setContentOffset(CGPoint(x: collectionView.frame.width * CGFloat(index),
+                                                    y: 0), animated: false)
         
          }
      }
@@ -132,7 +142,8 @@ extension PhotosScrollView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        photosScrollCell = collectionView.dequeueReusableCell(withReuseIdentifier: identified, for: indexPath) as? PhotosScrollViewCell
+        photosScrollCell = collectionView.dequeueReusableCell(withReuseIdentifier: identified,
+                                                              for: indexPath) as? PhotosScrollViewCell
         photosScrollCell.loadBlock = loadBlock
         photosScrollCell.finishAnimation = finishAnimation
         photosScrollCell.model = photos[indexPath.item]

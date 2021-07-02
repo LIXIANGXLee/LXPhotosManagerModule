@@ -120,6 +120,9 @@ extension LXPhotosListViewController: PhotosBrowserViewDelagete {
         return collectionView.cellForItem(at: IndexPath(item: cellIndex, section: 0)) ?? UIView()
     }
     
+    func photosBrowserView(contentOffSetAt index: Int) {
+        collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .init(), animated: false)
+    }
     
     /// 长按保存图片
     func photosBrowserView(longPress photosBrowserView: PhotosBrowserView, _ model: FileInfoProtocol) {

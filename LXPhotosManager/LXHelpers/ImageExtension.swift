@@ -23,7 +23,8 @@ extension UIImage {
           let generator = AVAssetImageGenerator(asset: asset)
           generator.appliesPreferredTrackTransform = true
           let time = CMTimeMakeWithSeconds(seconds, preferredTimescale: 600)
-          guard let image = try? generator.copyCGImage(at: time, actualTime: nil) else { return nil }
+          guard let image = try? generator.copyCGImage(at: time,
+                                                       actualTime: nil) else { return nil }
           let shotImage = UIImage(cgImage: image)
           return shotImage;
       }
@@ -62,14 +63,28 @@ extension UIImage {
          default:
              break
          }
-         let ctx = CGContext(data: nil, width: Int(self.size.width), height: Int(self.size.height), bitsPerComponent: self.cgImage!.bitsPerComponent, bytesPerRow: 0, space: self.cgImage!.colorSpace!, bitmapInfo: self.cgImage!.bitmapInfo.rawValue)
+         let ctx = CGContext(data: nil,
+                             width: Int(self.size.width),
+                             height: Int(self.size.height),
+                             bitsPerComponent: self.cgImage!.bitsPerComponent,
+                             bytesPerRow: 0,
+                             space: self.cgImage!.colorSpace!,
+                             bitmapInfo: self.cgImage!.bitmapInfo.rawValue)
          ctx?.concatenate(transform)
          switch self.imageOrientation {
          case .left, .leftMirrored, .right, .rightMirrored:
-             ctx?.draw(self.cgImage!, in: CGRect(x: CGFloat(0), y: CGFloat(0), width: CGFloat(size.height), height: CGFloat(size.width)))
+             ctx?.draw(self.cgImage!,
+                       in: CGRect(x: CGFloat(0),
+                                  y: CGFloat(0),
+                                  width: CGFloat(size.height),
+                                  height: CGFloat(size.width)))
              break
          default:
-             ctx?.draw(self.cgImage!, in: CGRect(x: CGFloat(0), y: CGFloat(0), width: CGFloat(size.width), height: CGFloat(size.height)))
+             ctx?.draw(self.cgImage!,
+                       in: CGRect(x: CGFloat(0),
+                                  y: CGFloat(0),
+                                  width: CGFloat(size.width),
+                                  height: CGFloat(size.height)))
              break
          }
          let cgimg: CGImage = (ctx?.makeImage())!

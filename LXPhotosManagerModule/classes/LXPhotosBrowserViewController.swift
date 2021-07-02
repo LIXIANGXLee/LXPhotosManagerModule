@@ -41,18 +41,18 @@ class LXPhotosBrowserViewController: UIViewController {
         self.view.backgroundColor = UIColor.white
         
         let model = FileModel()
-        model.width = 250
-        model.height = 250
+//        model.width = 250
+//        model.height = 250
         model.imgUrl = datas[0]
 
         let model1 = FileModel()
-        model1.width = 500
-        model1.height = 375
+//        model1.width = 500
+//        model1.height = 375
         model1.imgUrl = datas[1]
 
         let model2 = FileModel()
-        model2.width = 500
-        model2.height = 313
+//        model2.width = 500
+//        model2.height = 313
         model2.imgUrl = datas[2]
         
         models.append(model1)
@@ -81,7 +81,12 @@ class LXPhotosBrowserViewController: UIViewController {
 
         photoVeiw.delegate = self
         photoVeiw.loadBlock = { model, imgView in
-            imgView.kf.setImage(with: URL(string: model.imgUrl)!)
+            
+            imgView.kf.setImage(with:  URL(string: model.imgUrl)!) { (img, _, _, _) in
+                model.height = img?.size.height ?? 1
+                model.width = img?.size.width ?? 1
+                print("-=-=-=-=-=-======\(img?.size)");
+            }
         }
         photoVeiw.datasource = models
         photoVeiw.photoMaxCount = 7
